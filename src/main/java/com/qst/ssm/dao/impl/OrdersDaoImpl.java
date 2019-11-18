@@ -28,7 +28,7 @@ public class OrdersDaoImpl implements IOrdersDao {
 
     @Override
     public int insertOrders(Orders orders) {
-        return ordersMapper.insertOrders(orders);
+        return insertOrders(orders);
     }
 
 

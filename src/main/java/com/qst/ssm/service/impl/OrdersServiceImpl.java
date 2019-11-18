@@ -22,12 +22,12 @@ public class OrdersServiceImpl implements IOrderService {
     public List<Orders> queryOrders() {
         return ordersDao.queryOrders();
     }
-
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = true)
     @Override
     public Orders getOrders(int Id) {
         return ordersDao.getOrders(Id);
     }
-
+    @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     @Override
     public int insertOrders(Orders orders) {
         return insertOrders(orders);
