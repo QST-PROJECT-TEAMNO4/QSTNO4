@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.ssm.mapper.OrdersMapper">
+    <select id="queryOrders" resultType="orders">
+         <![CDATA[
+        select
+	       id as id,
+	       orderNum as orderNum,
+	       orderTime as orderTime,
+	       peopleCount as peopleCount,
+	       orderDesc as orderDesc,
+	       payType as payType,
+	       orderStatus as orderStatus,
+	       productId as productId,
+	       memberId as memberId
+        from
+	      orders
+	]]>
+    </select>
+
+    <select id="getOrders" resultType="com.qst.ssm.entity.Orders" parameterType="int">
+         <![CDATA[
+        select
+	       id as id,
+	       orderNum as orderNum,
+	       orderTime as orderTime,
+	       peopleCount as peopleCount,
+	       orderDesc as orderDesc,
+	       payType as payType,
+	       orderStatus as orderStatus,
+	       productId as productId,
+	       memberId as memberId
+        from
+	      orders
+	    where id=#{value}
+	]]>
+    </select>
+    <!--<insert id="#" parameterType="2">
+        <![CDATA[
+        insert into orders (
+	          orderNum,
+	          peopleCount,
+	          orderDesc,
+	          payType,
+	          orderStatus
+              )
+        value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus},)
+        ]]>
+    </insert>-->
+
+</mapper>
