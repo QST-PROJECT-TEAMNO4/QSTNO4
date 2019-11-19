@@ -3,6 +3,7 @@ package com.qst.ssm.dao;
 import com.qst.ssm.entity.Orders;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IOrdersDao {
     /**
@@ -25,4 +26,29 @@ public interface IOrdersDao {
      */
     int insertOrders(Orders orders );
 
+    /**
+     * 根据ID删除订单信息
+     * @param Id
+     * @return
+     */
+    int deleteOrders(int Id);
+
+    /**
+     * 修改订单信息
+     * @param orders
+     * @return
+     */
+    int updateOrders(Orders orders);
+
+    /**
+     * 多表查询
+     * @return
+     */
+    List<Map<String,Object>> queryOrders1();
+
+    /**
+     * 订单详情
+     * @return
+     */
+    List<Map<String,Object>> particulars();
 }

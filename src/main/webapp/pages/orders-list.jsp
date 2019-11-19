@@ -17,18 +17,12 @@
 <meta name="keywords" content="AdminLTE2定制版">
 
 
-
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
 
-<!--<link rel="stylesheet" href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.css">-->
-
-
-<!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -80,16 +74,10 @@
 
 	<div class="wrapper">
 
-		<!-- 页面头部 -->
 		<jsp:include page="header.jsp"></jsp:include>
-		<!-- 页面头部 /-->
-		<!-- 导航侧栏 -->
-		<jsp:include page="aside.jsp"></jsp:include>
-		<!-- 导航侧栏 /-->
 
-		<!-- 内容区域 -->
-		<!-- @@master = admin-layout.html-->
-		<!-- @@block = content -->
+		<jsp:include page="aside.jsp"></jsp:include>
+
 
 		<div class="content-wrapper">
 
@@ -161,120 +149,78 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
 										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">编号</th>
+										<th class="sorting_desc">订单编号</th>
 										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
-										<th class="sorting_desc sorting_desc_disabled">出发城市</th>
-										<th class="sorting">出发时间</th>
-										<th class="text-center sorting">产品价格</th>
-										<th class="sorting">产品描述</th>
-										<th class="text-center sorting">状态</th>
+										<th class="sorting_desc sorting_desc_disabled">金额</th>
+										<th class="sorting">下单时间</th>
+										<th class="text-center sorting">订单状态</th>
 										<th class="text-center">操作</th>
 									</tr>
 								</thead>
 								<tbody>
 
 
-									<c:forEach items="${productList}" var="product">
+									<c:forEach items="${ordersList}" var="orders">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
-											<td>${product.id }</td>
-											<td>${product.productNum }</td>
-											<td>${product.productName }</td>
-											<td>${product.cityName }</td>
-											<td>${product.departureTimeStr }</td>
-											<td class="text-center">${product.productPrice }</td>
-											<td>${product.productDesc }</td>
-											<td class="text-center">${product.productStatusStr }</td>
+											<td>${orders.id }</td>
+											<td>${orders.orderNum }</td>
+											<td>${orders.productName }</td>
+											<td>${orders.productPrice }</td>
+											<td>${orders.orderTime }</td>
+											<td class="text-center">${orders.orderStatus }</td>
 											<td class="text-center">
 												<button type="button" class="btn bg-olive btn-xs">订单</button>
-												<button type="button" class="btn bg-olive btn-xs">详情</button>
+												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/findById?id=${orders.id}'">详情</button>
 												<button type="button" class="btn bg-olive btn-xs">编辑</button>
 											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
-								<!--
-                            <tfoot>
-                            <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                            </tr>
-                            </tfoot>-->
-							</table>
-							<!--数据列表/-->
 
-							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建">
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
-							<!--工具栏/-->
+							</table>
+
 
 						</div>
 						<!-- 数据表格 /-->
 
 
 					</div>
-					<!-- /.box-body -->
 
-					<!-- .box-footer-->
-					<div class="box-footer">
-						<div class="pull-left">
-							<div class="form-group form-inline">
-								总共2 页，共14 条数据。 每页 <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select> 条
-							</div>
-						</div>
+                <div class="box-footer">
+                    <div class="pull-left">
+                        <div class="form-group form-inline">
+                            总共2 页，共14 条数据。 每页
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select> 条
+                        </div>
+                    </div>
 
-						<div class="box-tools pull-right">
-							<ul class="pagination">
-								<li><a href="#" aria-label="Previous">首页</a></li>
-								<li><a href="#">上一页</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">下一页</a></li>
-								<li><a href="#" aria-label="Next">尾页</a></li>
-							</ul>
-						</div>
+                    <div class="box-tools pull-right">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">首页</a>
+                            </li>
+                            <li><a href="#">上一页</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">下一页</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">尾页</a>
+                            </li>
+                        </ul>
+                    </div>
 
-					</div>
-					<!-- /.box-footer-->
+                </div>
 
 
 
@@ -389,6 +335,14 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+		function changePageSize() {
+			//获取下拉框的值
+			var pageSize = $("#changePageSize").val();
+
+			//向服务器发送请求，改变没页显示条数
+			location.href = "${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize="
+					+ pageSize;
+		}
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

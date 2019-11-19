@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("ordersDao")
 public class OrdersDaoImpl implements IOrdersDao {
     @Autowired
     @Qualifier("ordersMapper")
     private OrdersMapper ordersMapper;
-
 
     @Override
     public List<Orders> queryOrders() {
@@ -28,7 +28,27 @@ public class OrdersDaoImpl implements IOrdersDao {
 
     @Override
     public int insertOrders(Orders orders) {
-        return insertOrders(orders);
+        return ordersMapper.insertOrders(orders);
+    }
+
+    @Override
+    public int deleteOrders(int Id) {
+        return ordersMapper.deleteOrders(Id);
+    }
+
+    @Override
+    public int updateOrders(Orders orders) {
+        return ordersMapper.updateOrders(orders);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryOrders1() {
+        return ordersMapper.queryOrders1();
+    }
+
+    @Override
+    public List<Map<String,Object>> particulars() {
+        return ordersMapper.particulars();
     }
 
 

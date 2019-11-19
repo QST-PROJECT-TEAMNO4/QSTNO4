@@ -8,13 +8,13 @@ public class Member {
     private Integer id;//主键
     private String hyname;  //姓名
     private String nickname;//昵称
-    private Integer phoneNum;   //电话号码
+    private String phoneNum;   //电话号码
     private String email;   //邮箱
 
     public Member() {
     }
 
-    public Member(Integer id, String hyname, String nickname, Integer phoneNum, String email) {
+    public Member(Integer id, String hyname, String nickname, String phoneNum, String email) {
         this.id = id;
         this.hyname = hyname;
         this.nickname = nickname;
@@ -46,11 +46,11 @@ public class Member {
         this.nickname = nickname;
     }
 
-    public Integer getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(Integer phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -68,7 +68,7 @@ public class Member {
                 "id=" + id +
                 ", hyname='" + hyname + '\'' +
                 ", nickname='" + nickname + '\'' +
-                ", phoneNum=" + phoneNum +
+                ", phoneNum='" + phoneNum + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

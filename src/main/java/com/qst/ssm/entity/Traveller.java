@@ -8,7 +8,7 @@ public class Traveller {
     private Integer id; //主键
     private String lkname; //旅客姓名
     private Integer sex;       //性别（默认1）
-    private Integer phoneNum;  //电话号码
+    private String phoneNum;  //电话号码
     private Integer credentialsType;//证件类型（默认0,0身份证，1护照，2军官证）
     private String credentialsNum; //证件号码
     private Integer travellerType; //旅客类型（默认0,0成人，1儿童）
@@ -16,7 +16,7 @@ public class Traveller {
     public Traveller() {
     }
 
-    public Traveller(Integer id, String lkname, Integer sex, Integer phoneNum, Integer credentialsType, String credentialsNum, Integer travellerType) {
+    public Traveller(Integer id, String lkname, Integer sex, String phoneNum, Integer credentialsType, String credentialsNum, Integer travellerType) {
         this.id = id;
         this.lkname = lkname;
         this.sex = sex;
@@ -50,11 +50,11 @@ public class Traveller {
         this.sex = sex;
     }
 
-    public Integer getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(Integer phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -88,7 +88,7 @@ public class Traveller {
                 "id=" + id +
                 ", lkname='" + lkname + '\'' +
                 ", sex=" + sex +
-                ", phoneNum=" + phoneNum +
+                ", phoneNum='" + phoneNum + '\'' +
                 ", credentialsType=" + credentialsType +
                 ", credentialsNum='" + credentialsNum + '\'' +
                 ", travellerType=" + travellerType +

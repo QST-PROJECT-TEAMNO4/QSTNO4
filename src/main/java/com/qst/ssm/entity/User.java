@@ -7,14 +7,14 @@ public class User {
     private Integer id; //主键
     private String email; //邮箱
     private String username; //用户名
-    private Integer password;//密码
+    private String password;//密码
     private Integer phoneNum;//电话号码
     private Integer status;  //状态（默认0,0未开启，1开启）
 
     public User() {
     }
 
-    public User(Integer id, String email, String username, Integer password, Integer phoneNum, Integer status) {
+    public User(Integer id, String email, String username, String password, Integer phoneNum, Integer status) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -47,11 +47,11 @@ public class User {
         this.username = username;
     }
 
-    public Integer getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Integer password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -77,7 +77,7 @@ public class User {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
-                ", password=" + password +
+                ", password='" + password + '\'' +
                 ", phoneNum=" + phoneNum +
                 ", status=" + status +
                 '}';

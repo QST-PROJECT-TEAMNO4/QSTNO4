@@ -37,7 +37,7 @@
 	    where id=#{value}
 	]]>
     </select>
-    <!--<insert id="#" parameterType="2">
+    <insert id="insertOrders" parameterType="Orders">
         <![CDATA[
         insert into orders (
 	          orderNum,
@@ -46,8 +46,34 @@
 	          payType,
 	          orderStatus
               )
-        value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus},)
+        value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus});
         ]]>
-    </insert>-->
+    </insert>
+
+    <update id="updateOrders" parameterType="Orders">
+    update orders set orderNum=#{orderNum}, peopleCount=#{peopleCount},orderDesc=#{orderDesc} where id=#{id}
+    </update>
+
+    <delete id="deleteOrders" parameterType="Orders">
+    delete from orders where id=#{id}
+    </delete>
+
+    <select id="queryOrders1" resultType="map" parameterType="map">
+        select
+            o.id,
+	        o.orderNum,
+	        p.productName,
+	        p.productPrice,
+	        o.orderTime,
+	        o.orderStatus
+        from
+	        orders as o
+        INNER JOIN
+            product as p ON o.productId = p.id
+    </select>
+
+    <select id="particulars" resultType="map" parameterType="map">
+
+    </select>
 
 </mapper>

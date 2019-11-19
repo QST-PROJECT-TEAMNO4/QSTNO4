@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("ordersService")
 public class OrdersServiceImpl implements IOrderService {
@@ -30,7 +31,27 @@ public class OrdersServiceImpl implements IOrderService {
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     @Override
     public int insertOrders(Orders orders) {
-        return insertOrders(orders);
+        return ordersDao.insertOrders(orders);
+    }
+
+    @Override
+    public int deleteOrders(int Id) {
+        return ordersDao.deleteOrders(Id);
+    }
+
+    @Override
+    public int updateOrders(Orders orders) {
+        return ordersDao.updateOrders(orders);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryOrders1() {
+        return ordersDao.queryOrders1();
+    }
+
+    @Override
+    public List<Map<String, Object>> particulars() {
+        return ordersDao.particulars();
     }
 
 
