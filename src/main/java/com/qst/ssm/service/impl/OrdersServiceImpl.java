@@ -50,8 +50,8 @@ public class OrdersServiceImpl implements IOrderService {
     }
 
     @Override
-    public List<Map<String, Object>> particulars() {
-        return ordersDao.particulars();
+    public List<Map<String, Object>> particulars(int Id) {
+        return ordersDao.particulars(Id);
     }
 
 

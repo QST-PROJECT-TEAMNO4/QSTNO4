@@ -1,28 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-
-
 <title>数据 - AdminLTE2定制版</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
-
+<!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
 
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -74,186 +66,111 @@
 
 	<div class="wrapper">
 
+		<!-- 页面头部 -->
 		<jsp:include page="header.jsp"></jsp:include>
-
+		<!-- 页面头部 /-->
+		<!-- 导航侧栏 -->
 		<jsp:include page="aside.jsp"></jsp:include>
+		<!-- 导航侧栏 /-->
 
-
+		<!-- 内容区域 -->
 		<div class="content-wrapper">
 
 			<!-- 内容头部 -->
 			<section class="content-header">
-				<h1>
-					数据管理 <small>数据列表</small>
-				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
+			<h1>
+				订单管理 <small>订单表单</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
+						class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/product/findAll.do">产品管理</a></li>
+				<li class="active">产品表单</li>
+			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<!-- 正文区域 -->
-			<section class="content">
+			<form action="${pageContext.request.contextPath}/orders/updateOrders?Id=${orders.id}"
+				method="post">
+				<!-- 正文区域 -->
+				<section class="content"> <!--产品信息-->
 
-				<!-- .box-body -->
-				<div class="box box-primary">
-					<div class="box-header with-border">
-						<h3 class="box-title">列表</h3>
-					</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">订单信息</div>
+					<div class="row data-type">
 
-					<div class="box-body">
-
-						<!-- 数据表格 -->
-						<div class="table-box">
-
-							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='${pageContext.request.contextPath}/pages/orders-addOrders.jsp'">
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除"
-											onclick="location.href='${pageContext.request.contextPath}/orders/deleteOrders?Id=${orders.id}'">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
+						<div class="col-md-2 title">订单编号</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="orderNum"
+								placeholder="订单编号" value="${orders.orderNum}">
+						</div>
+						<div class="col-md-2 title">出行人数</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="peopleCount"
+								placeholder="出行人数" value="${orders.peopleCount}">
+						</div>
+						<div class="col-md-2 title">下单时间</div>
+						<div class="col-md-4 data">
+							<div class="input-group date">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
 								</div>
+								<input type="text" class="form-control pull-right"
+									id="datepicker-a3" name="orderTime" value="${orders.orderTime}" >
 							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
-							<!--工具栏/-->
+						</div>
 
-							<!--数据列表-->
-							<table id="dataList"
-								class="table table-bordered table-striped table-hover dataTable">
-								<thead>
-									<tr>
-										<th class="" style="padding-right: 0px;"><input
-											id="selall" type="checkbox" class="icheckbox_square-blue">
-										</th>
-										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">订单编号</th>
-										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
-										<th class="sorting_desc sorting_desc_disabled">金额</th>
-										<th class="sorting">下单时间</th>
-										<th class="text-center sorting">订单状态</th>
-										<th class="text-center">操作</th>
-									</tr>
-								</thead>
-								<tbody>
-
-
-									<c:forEach items="${ordersList}" var="orders">
-
-										<tr>
-											<td><input name="ids" type="checkbox"></td>
-											<td>${orders.id }</td>
-											<td>${orders.orderNum }</td>
-											<td>${orders.productName }</td>
-											<td>${orders.productPrice }</td>
-											<td>${orders.orderTime }</td>
-											<td class="text-center">${orders.orderStatus }</td>
-											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/findById?Id=${orders.id}'">详情</button>
-												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/getOrders?Id=${orders.id}'">编辑</button>
-												<button type="button" class="btn bg-olive btn-xs" href="#" onclick="deleteBank(${orders.id},'${orders.orderNum}')">删除</button>
-
-											</td>
-										</tr>
-
-									<script>
-										function deleteBank(id,orderNum) {
-											if (window.confirm("确认要删除该订单吗？【订单编号："+orderNum+"】")) {
-												window.location.href="/orders/deleteOrders?Id=${orders.id}";
-											}
-										}
-									</script>
-									</c:forEach>
-								</tbody>
-
-							</table>
-
+						<div class="col-md-2 title">支付方式</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="payType"
+								placeholder="支付方式" value="${orders.payType}">
 
 						</div>
-						<!-- 数据表格 /-->
 
+
+						<div class="col-md-2 title">订单状态</div>
+						<div class="col-md-4 data">
+							<select class="form-control select2" style="width: 100%"
+									name="productStatus">
+								<option value="0" selected="selected">未支付</option>
+								<option value="1">已支付</option>
+							</select>
+						</div>
+
+						<div class="col-md-2 title">产品名称</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="productId "
+								   placeholder="产品名称" value="${orders.productId }">
+						</div>
+
+						<div class="col-md-2 title">会员名称</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" placeholder="会员名称"
+								   name="memberId" value="${orders.memberId}">
+						</div>
+
+						<div class="col-md-2 title">订单描述</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" placeholder="订单描述"
+								   name="orderDesc" value="${orders.orderDesc}">
+						</div>
 
 					</div>
-
-                <div class="box-footer">
-                    <div class="pull-left">
-                        <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select> 条
-                        </div>
-                    </div>
-
-                    <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">首页</a>
-                            </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">尾页</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-
-
 				</div>
-
-			</section>
-
-			<!-- 正文区域 /-->
-
+				<!--订单信息/--> <!--工具栏-->
+				<div class="box-tools text-center">
+					<button type="submit" class="btn bg-maroon">保存</button>
+					<button type="button" class="btn bg-default"
+						onclick="history.back(-1);">返回</button>
+				</div>
+				<!--工具栏/--> </section>
+				<!-- 正文区域 /-->
+			</form>
 		</div>
-		<!-- @@close -->
 		<!-- 内容区域 /-->
 
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
-			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved.
-		</footer>
-		<!-- 底部导航 /-->
+
 
 	</div>
 
@@ -342,18 +259,9 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-	<script>
-		function changePageSize() {
-			//获取下拉框的值
-			var pageSize = $("#changePageSize").val();
+		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
-			//向服务器发送请求，改变没页显示条数
-			location.href = "${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize="
-					+ pageSize;
-		}
+	<script>
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();
@@ -374,27 +282,26 @@
 		}
 
 		$(document).ready(function() {
-
-			// 激活导航位置
-			setSidebarActive("admin-datalist");
-
-			// 列表按钮 
-			$("#dataList td input[type='checkbox']").iCheck({
-				checkboxClass : 'icheckbox_square-blue',
-				increaseArea : '20%'
-			});
-			// 全选操作 
-			$("#selall").click(function() {
-				var clicks = $(this).is(':checked');
-				if (!clicks) {
-					$("#dataList td input[type='checkbox']").iCheck("uncheck");
-				} else {
-					$("#dataList td input[type='checkbox']").iCheck("check");
-				}
-				$(this).data("clicks", !clicks);
+			$('#datepicker-a3').datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+				autoclose : true,
+				todayBtn : true,
+				language : "zh-CN"
 			});
 		});
+
+		$(document).ready(function() {
+			// 激活导航位置
+			setSidebarActive("order-manage");
+			$("#datepicker-a3").datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+
+			});
+
+		});
 	</script>
+
+
 </body>
 
 </html>

@@ -47,8 +47,8 @@ public class OrdersDaoImpl implements IOrdersDao {
     }
 
     @Override
-    public List<Map<String,Object>> particulars() {
-        return ordersMapper.particulars();
+    public List<Map<String, Object>> particulars(int Id) {
+        return ordersMapper.particulars(Id);
     }
 
 

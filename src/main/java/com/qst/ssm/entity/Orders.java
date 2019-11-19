@@ -1,6 +1,7 @@
 package com.qst.ssm.entity;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -8,6 +9,7 @@ import java.util.Date;
 public class Orders {
     private Integer id; //主键，无意义
     private String orderNum;//订单编号
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date orderTime; //下单时间
     private Integer peopleCount;//出行人数
     private String orderDesc;//订单描述
