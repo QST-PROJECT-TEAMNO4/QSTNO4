@@ -488,7 +488,7 @@
                         </li>
 
                         <li id="admin-profile">
-                            <a href="all-admin-profile.html">
+                            <a href="${pageContext.request.contextPath}/index.jsp">
                                 <i class="fa fa-circle-o"></i> 个人中心
                             </a>
                         </li>
