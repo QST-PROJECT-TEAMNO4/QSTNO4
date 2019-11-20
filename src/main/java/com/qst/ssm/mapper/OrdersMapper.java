@@ -23,7 +23,7 @@ public interface OrdersMapper {
      * @param orders
      * @return
      */
-    int insertOrders(Orders orders );
+    int insertOrders(Orders orders);
 
     /**
      * 根据ID删除订单信息

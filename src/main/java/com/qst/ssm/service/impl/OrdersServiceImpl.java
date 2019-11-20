@@ -18,17 +18,19 @@ public class OrdersServiceImpl implements IOrderService {
     @Qualifier("ordersDao")
     private IOrdersDao ordersDao;
 
-    @Transactional(propagation = Propagation.REQUIRED,readOnly = true)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     @Override
     public List<Orders> queryOrders() {
         return ordersDao.queryOrders();
     }
-    @Transactional(propagation = Propagation.REQUIRED,readOnly = true)
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     @Override
     public Orders getOrders(int Id) {
         return ordersDao.getOrders(Id);
     }
-    @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public int insertOrders(Orders orders) {
         return ordersDao.insertOrders(orders);

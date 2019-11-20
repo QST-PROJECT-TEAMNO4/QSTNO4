@@ -55,10 +55,10 @@
             <value>root</value>
         </property>
         <property name="password">
-            <value>yang6537</value>
+            <value>123456</value>
         </property>
         <property name="url">
-            <value>jdbc:mysql://localhost:3306/QST_NO4?useUnicode=true&amp;characterEncoding=utf8</value>
+            <value>jdbc:mysql://localhost:3306/qst_no4?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8</value>
         </property>
         <!-- 初始化连接数量-->
         <property name="initialSize">

@@ -24,7 +24,6 @@ public class OrdersController {
         mv.addObject("ordersList",or);
         mv.setViewName("orders-list");
         return mv;
-
     }
 
     @RequestMapping("/findById")
