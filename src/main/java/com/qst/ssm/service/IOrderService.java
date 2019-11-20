@@ -50,8 +50,11 @@ public interface IOrderService {
     List<Map<String,Object>> queryOrders1();
 
     /**
-     * 订单详情
+     * 根据Id查询订单-产品信息
+     * @param Id
      * @return
      */
-    List<Map<String,Object>> particulars(int Id);
+    Map<String,Object> getOrdersProduct(int Id);
+
+
 }

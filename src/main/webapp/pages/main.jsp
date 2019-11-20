@@ -552,24 +552,21 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-cube"></i> <span>样例-订单管理</span>
+                        <i class="fa fa-cube"></i> <span>订单管理</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                     </a>
                     <ul class="treeview-menu">
 
-                        <li id="order-manage">
-                            <a href="all-order-manage-list.html">
-                                <i class="fa fa-circle-o"></i> 全部订单
-                            </a>
-                        </li>
-
-                        <li id="order-cancel">
-                            <a href="all-order-cancel-list.html">
-                                <i class="fa fa-circle-o"></i> 退款
-                            </a>
-                        </li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/product/findAll">
+                            <i class="fa fa-circle-o"></i> 产品管理
+                        </a></li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/orders/queryOrders">
+                            <i class="fa fa-circle-o"></i> 订单管理
+                        </a></li>
 
                     </ul>
                 </li>

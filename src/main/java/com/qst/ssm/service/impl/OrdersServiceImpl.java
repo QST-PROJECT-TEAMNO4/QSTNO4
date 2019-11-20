@@ -52,9 +52,10 @@ public class OrdersServiceImpl implements IOrderService {
     }
 
     @Override
-    public List<Map<String, Object>> particulars(int Id) {
-        return ordersDao.particulars(Id);
+    public Map<String, Object> getOrdersProduct(int Id) {
+        return ordersDao.getOrdersProduct(Id);
     }
+
 
 
 }
