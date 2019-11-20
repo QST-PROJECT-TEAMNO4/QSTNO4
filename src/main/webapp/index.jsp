@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <html>
 <body>
-<a href="pages/login.jsp">登录</a>
+<a href=${pageContext.request.contextPath}/login.action>登录</a>
 <a href="pages/login2.jsp">登录</a>
 </body>
 </html>
