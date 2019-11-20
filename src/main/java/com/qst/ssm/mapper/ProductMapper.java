@@ -1,16 +1,21 @@
-package com.qst.ssm.service;
+package com.qst.ssm.mapper;
 
 import com.qst.ssm.entity.Product;
 
 import java.util.List;
 
-public interface IProductService {
-    //查询所有产品
-    public List<Product> findall(int page,int size);
+public interface ProductMapper {
+    /**
+     * 查询所有产品
+     * @return
+     */
+
+    public List<Product> findall();
 
 
     //添加产品
     void add(Product product);
+
 
     /**
      * 根据ID查询产品信息
