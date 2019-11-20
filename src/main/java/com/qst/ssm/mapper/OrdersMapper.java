@@ -49,5 +49,5 @@ public interface OrdersMapper {
      * 订单详情
      * @return
      */
-    List<Map<String,Object>> particulars();
+    List<Map<String,Object>> particulars(int Id);
 }

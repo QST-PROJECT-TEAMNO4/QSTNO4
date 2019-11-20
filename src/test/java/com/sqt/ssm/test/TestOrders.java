@@ -27,11 +27,19 @@ public class TestOrders {
         }
         context.close();
     }
+
+    /**
+     * 测试根据ID查询订单信息
+     */
     @Test
     public void testGetOrders(){
-        Orders orders=orderService.getOrders(1);
+        Orders orders=orderService.getOrders(3);
         System.out.println(orders);
     }
+
+    /**
+     * 测试添加订单信息
+     */
     @Test
     public void testInsertOrders(){
         orders.setOrderNum("111111");
@@ -43,6 +51,10 @@ public class TestOrders {
         System.out.println("影响行数"+rows);
 
     }
+
+    /**
+     * 测试修改订单信息
+     */
     @Test
     public void testUpdateOrders(){
         orders.setOrderNum("333333");
@@ -52,14 +64,21 @@ public class TestOrders {
         int rows=orderService.updateOrders(orders);
         System.out.println("影响行数"+rows);
     }
+
+    /**
+     * 测试删除订单信息
+     */
     @Test
     public void testDeleteOrders(){
         int rows=orderService.deleteOrders(3);
         System.out.println("影响行数"+rows);
     }
+
+    /**
+     * 测试查询订单、产品信息
+     */
     @Test
     public void testOrdersQuery1(){
-
         List<Map<String,Object>> mapList=orderService.queryOrders1();
         if (!mapList.isEmpty()){
             for (Map<String,Object> orders:mapList ){
@@ -69,4 +88,15 @@ public class TestOrders {
         }
         context.close();
     }
+    @Test
+    public void testParticulars(){
+        List<Map<String,Object>> mapList=orderService.particulars(2);
+        if (!mapList.isEmpty()){
+            for (Map<String,Object> orders:mapList ){
+                System.out.println(orders);
+            }
+        }
+        context.close();
+    }
+
 }

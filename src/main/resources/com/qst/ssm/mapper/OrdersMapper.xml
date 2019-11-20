@@ -72,8 +72,11 @@
             product as p ON o.productId = p.id
     </select>
 
-    <select id="particulars" resultType="map" parameterType="map">
+    <select id="particulars" resultType="map" parameterType="int">
+         <![CDATA[
+        select * from orders AS a,product AS b where a.productId=b.id AND a.id=#{value};
 
+	]]>
     </select>
 
 </mapper>
