@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.ssm.mapper.OrdersMapper">
+    <!--查询所有订单信息-->
     <select id="queryOrders" resultType="orders">
          <![CDATA[
         select
@@ -19,7 +20,7 @@
 	      orders
 	]]>
     </select>
-
+    <!--根据Id查询订单信息-->
     <select id="getOrders" resultType="com.qst.ssm.entity.Orders" parameterType="int">
          <![CDATA[
         select
@@ -37,6 +38,7 @@
 	    where id=#{value}
 	]]>
     </select>
+    <!--添加订单信息-->
     <insert id="insertOrders" parameterType="Orders">
         <![CDATA[
         insert into orders (
@@ -49,15 +51,15 @@
         value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus});
         ]]>
     </insert>
-
+    <!--修改订单信息-->
     <update id="updateOrders" parameterType="Orders">
     update orders set orderNum=#{orderNum}, peopleCount=#{peopleCount},orderDesc=#{orderDesc} where id=#{id}
     </update>
-
+    <!--根据Id删除订单信息-->
     <delete id="deleteOrders" parameterType="Orders">
     delete from orders where id=#{id}
     </delete>
-
+    <!--查询订单-产品信息-->
     <select id="queryOrders1" resultType="map" parameterType="map">
         select
             o.id,
@@ -72,11 +74,18 @@
             product as p ON o.productId = p.id
     </select>
 
-    <select id="particulars" resultType="map" parameterType="int">
+    <select id="getOrdersProduct" resultType="map" parameterType="int">
          <![CDATA[
-        select * from orders AS a,product AS b where a.productId=b.id AND a.id=#{value};
-
+       SELECT
+	o.*, p.*
+FROM
+	orders AS o
+INNER JOIN product AS p ON o.productId = p.id
+WHERE
+	o.id =#{id}
 	]]>
     </select>
+
+
 
 </mapper>

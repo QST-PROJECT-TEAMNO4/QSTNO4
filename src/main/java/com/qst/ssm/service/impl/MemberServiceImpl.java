@@ -1,6 +1,9 @@
 package com.qst.ssm.service.impl;
 
+<<<<<<< HEAD
 import com.github.pagehelper.PageHelper;
+=======
+>>>>>>> origin/master
 import com.qst.ssm.dao.IMemberDao;
 import com.qst.ssm.entity.Member;
 import com.qst.ssm.service.IMemberService;
@@ -8,16 +11,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import java.util.List;
 
 @Service("memberService")
 public class MemberServiceImpl implements IMemberService {
 
+=======
+@Service("memberService")
+public class MemberServiceImpl implements IMemberService {
+>>>>>>> origin/master
     @Autowired
     @Qualifier("memberDao")
     private IMemberDao memberDao;
 
     @Override
+<<<<<<< HEAD
     public List<Member> findAll(int page,int size) {
         //pageNum是页码，pageSize是每页显示数据的条数
         PageHelper.startPage(page,size);
@@ -47,5 +56,9 @@ public class MemberServiceImpl implements IMemberService {
     @Override
     public int update(Member member) {
         return memberDao.update(member);
+=======
+    public Member getOrdersMember(int Id) {
+        return memberDao.getOrdersMember(Id);
+>>>>>>> origin/master
     }
 }

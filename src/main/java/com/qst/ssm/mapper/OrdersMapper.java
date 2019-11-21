@@ -50,4 +50,18 @@ public interface OrdersMapper {
      * @return
      */
     List<Map<String,Object>> particulars(int Id);
+
+    /**
+     * 根据Id查询订单-产品信息
+     * @param Id
+     * @return
+     */
+    Map<String,Object> getOrdersProduct(int Id);
+
+    /**
+     * 根据订单Id查询会员信息
+     * @param Id
+     * @return
+     */
+    Orders getOrdersMember(int Id);
 }

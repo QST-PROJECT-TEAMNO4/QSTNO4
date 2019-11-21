@@ -1,14 +1,17 @@
 package com.qst.ssm.controller;
 
+import com.qst.ssm.entity.Member;
 import com.qst.ssm.entity.Orders;
+import com.qst.ssm.entity.Traveller;
+import com.qst.ssm.service.IMemberService;
 import com.qst.ssm.service.IOrderService;
+import com.qst.ssm.service.ITravellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +20,12 @@ import java.util.Map;
 public class OrdersController {
     @Autowired
     private IOrderService orderService;
+
+    @Autowired
+    private IMemberService memberService;
+
+    @Autowired
+    private ITravellerService travellerService;
 
     /**
      * 订单管理信息
@@ -50,11 +59,19 @@ public class OrdersController {
      * @return
      */
     @RequestMapping("/findById")
-    public ModelAndView particulars(){
+    public ModelAndView particulars(int Id){
         ModelAndView mv=new ModelAndView();
-        List<Map<String,Object>> pa=orderService.queryOrders1();
-        mv.addObject("",pa);
+        Map<String,Object> op=orderService.getOrdersProduct(Id);
+        System.out.println(op);
+        Member member=memberService.getOrdersMember(Id);
+        System.out.println(member);
+        Traveller traveller=travellerService.getOrdersTraveller(Id);
+        System.out.println(traveller);
+        mv.addObject("ordersProduct",op);
+        mv.addObject("member",member);
+        mv.addObject("traveller",traveller);
         mv.setViewName("orders-show");
+        System.out.println(mv);
         return mv;
     }
 

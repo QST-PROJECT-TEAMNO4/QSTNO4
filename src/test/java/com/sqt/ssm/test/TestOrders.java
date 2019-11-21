@@ -90,11 +90,9 @@ public class TestOrders {
     }
     @Test
     public void testParticulars(){
-        List<Map<String,Object>> mapList=orderService.particulars(2);
-        if (!mapList.isEmpty()){
-            for (Map<String,Object> orders:mapList ){
+        Map<String,Object> map=orderService.getOrdersProduct(2);
+        if (!map.isEmpty()){
                 System.out.println(orders);
-            }
         }
         context.close();
     }

@@ -2,6 +2,7 @@ package com.qst.ssm.mapper;
 
 import com.qst.ssm.entity.Member;
 
+<<<<<<< HEAD
 import java.util.List;
 
 public interface MemberMapper {
@@ -48,4 +49,13 @@ public interface MemberMapper {
     int update(Member member);
 
 
+=======
+public interface MemberMapper {
+    /**
+     * 根据订单Id查询会员信息
+     * @param Id
+     * @return
+     */
+    Member getOrdersMember(int Id);
+>>>>>>> origin/master
 }
