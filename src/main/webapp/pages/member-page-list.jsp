@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -194,7 +195,7 @@
 								<div class="form-group form-inline">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
+											onclick="location.href='${pageContext.request.contextPath}/pages/member-add.jsp'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
 <%--										<button type="button" class="btn btn-default" title="删除">--%>
@@ -206,21 +207,22 @@
 <%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
 <%--											<i class="fa fa-ban"></i> 屏蔽--%>
 <%--										</button>--%>
-										<a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/product/findAll?page=1&size=5">
+										<a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/member/findAll?page=1&size=5 ">
 											<i class="fa fa-refresh"></i> 刷新
 										</a>
 									</div>
 								</div>
 							</div>
 							<div class="box-tools pull-right">
-								<form action="/product/findProductByKeyword">
-									<%--									<button type="submit" class="btn bg-maroon">搜索</button>--%>
-									<div class="has-feedback">
+								<form action="/member/findByKeyWord">
+<%--									<button type="submit" class="btn bg-maroon">搜索</button>--%>
+								<div class="has-feedback">
 										<input type="text" class="form-control input-sm"
 											   placeholder="按下回车搜索" name="Keyword" >
-										<span class="glyphicon glyphicon-search form-control-feedback" ></span>
-									</div>
+									<span class="glyphicon glyphicon-search form-control-feedback" ></span>
+								</div>
 								</form>
+
 							</div>
 							<!--工具栏/-->
 
@@ -233,39 +235,30 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
 <%--										<th class="sorting_asc">ID</th>--%>
-										<th class="sorting_desc">编号</th>
-										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
-										<th class="sorting_desc sorting_desc_disabled">出发城市</th>
-										<th class="sorting">出发时间</th>
-										<th class="text-center sorting">产品价格</th>
-										<th class="sorting">产品描述</th>
-										<th class="text-center sorting">状态</th>
+										<th class="sorting_desc">姓名</th>
+										<th class="sorting_asc sorting_asc_disabled">昵称</th>
+										<th class="sorting_desc sorting_desc_disabled">电话号码</th>
+										<th class="sorting">电子邮箱</th>
 										<th class="text-center">操作</th>
 									</tr>
 								</thead>
 								<tbody>
 
 
-									<c:forEach items="${productList}" var="product">
+									<c:forEach items="${pageInfo.list}" var="member">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
-											<td>${product.id }</td>
-											<td>${product.productNum }</td>
-											<td>${product.productName }</td>
-											<td>${product.cityName }</td>
-											<td><fmt:formatDate value="${product.departureTime }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-											<td class="text-center">${product.productPrice }</td>
-											<td>${product.productDesc }</td>
-											<td class="text-center" data-product-status="${product.productStatus}">
-
-
+											<td>${member.hyname}</td>
+											<td>${member.nickname}</td>
+											<td>${member.phoneNum}</td>
+											<td>${member.email}</td>
 											</td>
 											<td class="text-center">
 <%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
 <%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/deleteById?Id=${product.id}'>删除</a>
+												<a type="button" class="btn bg-olive btn-xs"  href='/member/findById?Id=${member.id}'>编辑</a>
+												<a type="button" class="btn bg-olive btn-xs"  href='/member/delete?Id=${member.id}'>删除</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -345,48 +338,45 @@
 						<!-- 数据表格 /-->
 
 
-<%--					</div>--%>
-<%--					<!-- /.box-body -->--%>
+					</div>
+					<!-- /.box-body -->
 
-<%--					<!-- .box-footer-->--%>
-<%--					<div class="box-footer">--%>
-<%--						<div class="pull-left">--%>
-<%--							<div class="form-group form-inline">--%>
-<%--								总共2 页，共14 条数据。 每页 <select class="form-control">--%>
-<%--									<option>1</option>--%>
-<%--									<option>2</option>--%>
-<%--									<option>3</option>--%>
-<%--									<option>4</option>--%>
-<%--									<option>5</option>--%>
-<%--								</select> 条--%>
-<%--							</div>--%>
-<%--						</div>--%>
-
-<%--						<div class="box-tools pull-right">--%>
-<%--							<ul class="pagination">--%>
-<%--								<li><a href="#" aria-label="Previous">首页</a></li>--%>
-<%--								<li><a href="#">上一页</a></li>--%>
-<%--								<li><a href="#">1</a></li>--%>
-<%--								<li><a href="#">2</a></li>--%>
-<%--								<li><a href="#">3</a></li>--%>
-<%--								<li><a href="#">4</a></li>--%>
-<%--								<li><a href="#">5</a></li>--%>
-<%--								<li><a href="#">下一页</a></li>--%>
-<%--								<li><a href="#" aria-label="Next">尾页</a></li>--%>
-<%--							</ul>--%>
-<%--						</div>--%>
-
-<%--					</div>--%>
-					<!-- /.box-footer-->
-						<div class="box-tools text-center">
-<%--							<button type="submit" class="btn bg-maroon">保存</button>--%>
-							<button type="button" class="btn bg-default"
-									onclick="history.back(-1);">返回</button>
+					<!-- .box-footer-->
+					<div class="box-footer">
+						<div class="pull-left">
+							<div class="form-group form-inline">
+								总共${pageInfo.pages}页，共${pageInfo.total}条数据。 每页
+								<select class="form-control" id="pagesizeOp" onchange="changePageSize()">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select> 条
+							</div>
 						</div>
-						<!--工具栏/-->
 
+						<div class="box-tools pull-right">
+							<ul class="pagination">
+								<li><a href="${pageContext.request.contextPath}/member/findAll?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/findAll?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
+
+								<c:forEach begin="1" end="${pageInfo.pages}" var="pageNum">
+									<li><a href="${pageContext.request.contextPath}/member/findAll?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a></li>
+								</c:forEach>
+
+
+								<li><a href="${pageContext.request.contextPath}/member/findAll?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/findAll?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
+							</ul>
+						</div>
 
 					</div>
+					<!-- /.box-footer-->
+
+
+
+				</div>
 
 			</section>
 			<!-- 正文区域 /-->
@@ -497,6 +487,16 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+
+		function changePageSize(){
+			//获取下拉框的值
+			var pageSize = document.getElementById("pagesizeOp").value;
+
+			//向服务器发送请求，改变每页显示的行数
+			location.href = "${pageContext.request.contextPath}/member/findAll?page=1&size="+pageSize;
+
+		}
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

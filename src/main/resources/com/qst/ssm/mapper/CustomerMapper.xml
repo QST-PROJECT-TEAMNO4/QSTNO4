@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.ssm.mapper.CustomerMapper">
+    <select id="findAll" resultType="com.qst.ssm.entity.Customer">
+         <![CDATA[
+        SELECT
+            id as id,
+            email as email,
+            username as username,
+            PASSWORD as PASSWORD,
+            phoneNum as phoneNum
+        FROM
+            customer
+	]]>
+    </select>
+
+    <select id="findById" resultType="com.qst.ssm.entity.Customer">
+         <![CDATA[
+        SELECT
+            id as id,
+            email as email,
+            username as username,
+            PASSWORD as PASSWORD,
+            phoneNum as phoneNum
+        FROM
+            customer
+        where id=#{id}
+	]]>
+    </select>
+
+    <select id="findByKeyWord" resultType="com.qst.ssm.entity.Customer" parameterType="string">
+         <![CDATA[
+          SELECT
+            id as id,
+            email as email,
+            username as username,
+            PASSWORD as PASSWORD,
+            phoneNum as phoneNum
+        FROM
+            customer
+        where   email like concat(concat('%',#{email},'%')) or
+                username like concat(concat('%',#{username},'%')) or
+                phoneNum like concat(concat('%',#{phoneNum},'%'))
+	]]>
+    </select>
+
+<!--    <insert id="add"  parameterType="customer">-->
+<!--         <![CDATA[-->
+<!--            INSERT INTO member-->
+<!--            ( hyname, nickname, phoneNum, email )-->
+<!--            VALUES-->
+<!--                ( #{hyname},#{nickname},#{phoneNum},#{email} )-->
+<!--	]]>-->
+<!--    </insert>-->
+
+    <update id="update"  parameterType="com.qst.ssm.entity.Customer" >
+        <![CDATA[
+            update customer
+            set     email = #{email},
+                    username = #{username},
+                    PASSWORD = #{password},
+                    phoneNum = #{phoneNum}
+            WHERE id= #{id}
+        ]]>
+    </update>
+
+    <delete id="delete" parameterType="int">
+        <![CDATA[
+               delete from customer
+               where id=#{id}
+        ]]>
+
+    </delete>
+
+
+
+    <!--<insert id="#" parameterType="2">
+        <![CDATA[
+        insert into orders (
+	          orderNum,
+	          peopleCount,
+	          orderDesc,
+	          payType,
+	          orderStatus
+              )
+        value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus},)
+        ]]>
+    </insert>-->
+
+</mapper>

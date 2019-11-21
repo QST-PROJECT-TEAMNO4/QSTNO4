@@ -41,8 +41,8 @@
 							class="fa fa-circle-o"></i> 角色管理
 					</a></li>
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/permission/findAll.do">
-							<i class="fa fa-circle-o"></i> 资源权限管理
+						href="${pageContext.request.contextPath}/member/findAll">
+							<i class="fa fa-circle-o"></i> 导游信息管理
 					</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i

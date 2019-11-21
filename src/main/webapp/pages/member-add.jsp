@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -85,84 +86,60 @@
 				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/product/findAll">产品管理</a></li>
+					href="${pageContext.request.contextPath}/member/findAll">产品管理</a></li>
 				<li class="active">产品表单</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/product/add"
+			<form action="${pageContext.request.contextPath}/member/add"
 				method="post">
 				<!-- 正文区域 -->
-				<section class="content"> <!--产品信息-->
+				<section class="content"> <!--导游信息-->
 
 				<div class="panel panel-default">
-					<div class="panel-heading">产品信息</div>
+					<div class="panel-heading">导游信息</div>
 					<div class="row data-type">
 
-						<div class="col-md-2 title">产品编号</div>
+						<div class="col-md-2 title">导游姓名</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="productNum"
-								placeholder="产品编号" value="">
+							<input type="text" class="form-control" name="hyname"
+								placeholder="导游姓名" value="">
 						</div>
-						<div class="col-md-2 title">产品名称</div>
+						<div class="col-md-2 title">昵称</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="productName"
-								placeholder="产品名称" value="">
+							<input type="text" class="form-control" name="nickname"
+								placeholder="昵称" value="">
 						</div>
-						<div class="col-md-2 title">出发时间</div>
+
+						<div class="col-md-2 title">电话号码</div>
 						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="departureTime">
-							</div>
+							<input type="text" class="form-control" name="phoneNum"
+								placeholder="电话号码" value="">
+						</div>
+
+						<div class="col-md-2 title">电子邮箱</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" placeholder="电子邮箱"
+								name="email" value="">
 						</div>
 
 
-						<div class="col-md-2 title">出发城市</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="cityName"
-								placeholder="出发城市" value="">
-						</div>
-
-						<div class="col-md-2 title">产品价格</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" placeholder="产品价格"
-								name="productPrice" value="">
-						</div>
-
-						<div class="col-md-2 title">产品状态</div>
-						<div class="col-md-4 data">
-							<select class="form-control select2" style="width: 100%"
-								name="productStatus">
-								<option value="0" selected="selected">关闭</option>
-								<option value="1">开启</option>
-							</select>
-						</div>
-
-						<div class="col-md-2 title rowHeight2x">其他信息</div>
-						<div class="col-md-10 data rowHeight2x">
-							<textarea class="form-control" rows="3" placeholder="其他信息"
-								name="productDesc"></textarea>
-						</div>
 
 					</div>
 				</div>
-				<!--订单信息/-->
-					<!--工具栏-->
+				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
 					<button type="submit" class="btn bg-maroon">保存</button>
 					<button type="button" class="btn bg-default"
 						onclick="history.back(-1);">返回</button>
 				</div>
 				<!--工具栏/--> </section>
-				<!-- 正文区域 /-->`
+				<!-- 正文区域 /-->
 			</form>
 		</div>
 		<!-- 内容区域 /-->
+
 
 		<!-- 底部导航 -->
 		<footer class="main-footer">

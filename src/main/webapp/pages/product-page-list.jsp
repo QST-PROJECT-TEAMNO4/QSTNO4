@@ -198,18 +198,18 @@
 											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
+<%--										<button type="button" class="btn btn-default" title="删除">--%>
+<%--											<i class="fa fa-trash-o"></i> 删除--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="开启">--%>
+<%--											<i class="fa fa-check"></i> 开启--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
+<%--											<i class="fa fa-ban"></i> 屏蔽--%>
+<%--										</button>--%>
+										<a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/product/findAll?page=1&size=5 ">
 											<i class="fa fa-refresh"></i> 刷新
-										</button>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -234,7 +234,7 @@
 										<th class="" style="padding-right: 0px;"><input
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
-										<th class="sorting_asc">ID</th>
+<%--										<th class="sorting_asc">ID</th>--%>
 										<th class="sorting_desc">编号</th>
 										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
 										<th class="sorting_desc sorting_desc_disabled">出发城市</th>
@@ -264,8 +264,8 @@
 
 											</td>
 											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">订单</button>
-												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>
+<%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
+<%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
 												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>
 												<a type="button" class="btn bg-olive btn-xs"  href='/product/deleteById?Id=${product.id}'>删除</a>
 											</td>
@@ -313,34 +313,34 @@
 							<!--数据列表/-->
 
 							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建">
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
+<%--							<div class="pull-left">--%>
+<%--								<div class="form-group form-inline">--%>
+<%--									<div class="btn-group">--%>
+<%--										<button type="button" class="btn btn-default" title="新建">--%>
+<%--											<i class="fa fa-file-o"></i> 新建--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="删除">--%>
+<%--											<i class="fa fa-trash-o"></i> 删除--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="开启">--%>
+<%--											<i class="fa fa-check"></i> 开启--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
+<%--											<i class="fa fa-ban"></i> 屏蔽--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="刷新">--%>
+<%--											<i class="fa fa-refresh"></i> 刷新--%>
+<%--										</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--							<div class="box-tools pull-right">--%>
+<%--								<div class="has-feedback">--%>
+<%--									<input type="text" class="form-control input-sm"--%>
+<%--										placeholder="搜索"> <span--%>
+<%--										class="glyphicon glyphicon-search form-control-feedback"></span>--%>
+<%--								</div>--%>
+<%--							</div>--%>
 							<!--工具栏/-->
 
 						</div>

@@ -194,7 +194,7 @@
 								<div class="form-group form-inline">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
+											onclick="location.href='${pageContext.request.contextPath}/pages/member-add.jsp'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
 <%--										<button type="button" class="btn btn-default" title="删除">--%>
@@ -206,14 +206,14 @@
 <%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
 <%--											<i class="fa fa-ban"></i> 屏蔽--%>
 <%--										</button>--%>
-										<a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/product/findAll?page=1&size=5">
+										<a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/member/findAll?page=1&size=5">
 											<i class="fa fa-refresh"></i> 刷新
 										</a>
 									</div>
 								</div>
 							</div>
 							<div class="box-tools pull-right">
-								<form action="/product/findProductByKeyword">
+								<form action="/member/findByKeyWord">
 									<%--									<button type="submit" class="btn bg-maroon">搜索</button>--%>
 									<div class="has-feedback">
 										<input type="text" class="form-control input-sm"
@@ -233,39 +233,29 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
 <%--										<th class="sorting_asc">ID</th>--%>
-										<th class="sorting_desc">编号</th>
-										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
-										<th class="sorting_desc sorting_desc_disabled">出发城市</th>
-										<th class="sorting">出发时间</th>
-										<th class="text-center sorting">产品价格</th>
-										<th class="sorting">产品描述</th>
-										<th class="text-center sorting">状态</th>
+										<th class="sorting_desc">姓名</th>
+										<th class="sorting_asc sorting_asc_disabled">昵称</th>
+										<th class="sorting_desc sorting_desc_disabled">电话号码</th>
+										<th class="sorting">电子邮箱</th>
 										<th class="text-center">操作</th>
 									</tr>
 								</thead>
 								<tbody>
 
 
-									<c:forEach items="${productList}" var="product">
+									<c:forEach items="${memberList}" var="member">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
-											<td>${product.id }</td>
-											<td>${product.productNum }</td>
-											<td>${product.productName }</td>
-											<td>${product.cityName }</td>
-											<td><fmt:formatDate value="${product.departureTime }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-											<td class="text-center">${product.productPrice }</td>
-											<td>${product.productDesc }</td>
-											<td class="text-center" data-product-status="${product.productStatus}">
-
-
-											</td>
+											<td>${member.hyname}</td>
+											<td>${member.nickname}</td>
+											<td>${member.phoneNum}</td>
+											<td>${member.email}</td>
 											<td class="text-center">
 <%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
 <%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/deleteById?Id=${product.id}'>删除</a>
+													<a type="button" class="btn bg-olive btn-xs"  href='/member/findById?Id=${member.id}'>编辑</a>
+													<a type="button" class="btn bg-olive btn-xs"  href='/member/delete?Id=${member.id}'>删除</a>
 											</td>
 										</tr>
 									</c:forEach>
