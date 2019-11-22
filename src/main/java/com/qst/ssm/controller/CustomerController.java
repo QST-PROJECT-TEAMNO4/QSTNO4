@@ -1,15 +1,18 @@
 package com.qst.ssm.controller;
 
+
 import com.qst.ssm.entity.Customer;
-import com.qst.ssm.entity.Orders;
-import com.qst.ssm.service.CustomerService;
+import com.qst.ssm.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import com.github.pagehelper.PageInfo;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  *用户控制器类
@@ -18,7 +21,45 @@ import javax.servlet.http.HttpSession;
 public class CustomerController {
     //依赖注入
     @Autowired
-    private CustomerService customerService;
+    private ICustomerService customerService;
+
+    @RequestMapping("/findAll")
+    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page,
+                                @RequestParam(name = "size",required = true,defaultValue = "5") int size) {
+        ModelAndView mv = new ModelAndView();
+        List<Customer> customerList =customerService.findAll(page,size);
+        PageInfo pageInfo = new PageInfo(customerList);
+        mv.addObject("pageInfo",pageInfo);
+        mv.setViewName("customer-page-list");
+        return mv;
+    }
+
+    @RequestMapping("/findByKeyWord")
+    public ModelAndView findByKeyWord(String Keyword) {
+        ModelAndView mv = new ModelAndView();
+        List<Customer> customerList =customerService.findByKeyWord(Keyword);
+        mv.addObject("customerList",customerList);
+        mv.setViewName("customer-list");
+        return mv;
+    }
+
+    @RequestMapping("/update")
+    public String update(Customer customer){
+        int rows = customerService.update(customer);
+        if (rows==1){
+            System.out.println("更新成功");
+            return "redirect:findAll";
+        }
+        else  if (0== rows){
+            System.out.println("更新失败");
+        }
+        else{
+            System.out.println("服务器异常");
+        }
+        return "redirect:findAll";
+    }
+
+
     /**
      * 用户登录
      */
@@ -95,3 +136,4 @@ public class CustomerController {
 
 
 }
+

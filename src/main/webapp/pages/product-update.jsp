@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -119,7 +120,7 @@
 								</div>
 <%--								<fmt:formatDate value="${product.departureTime }" pattern="yyyy-MM-dd HH:mm:ss"/>--%>
 								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="departureTime"  value="${productOne.departureTime}">
+									id="datepicker-a3" name="departureTime"  value='<fmt:formatDate value="${productOne.departureTime }" pattern="yyyy-MM-dd HH:mm:ss"/>'>
 							</div>
 						</div>
 

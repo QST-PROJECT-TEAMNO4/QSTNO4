@@ -4,12 +4,44 @@ import com.qst.ssm.dao.ICustomerDao;
 import com.qst.ssm.entity.Customer;
 import com.qst.ssm.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+
+
+import java.util.List;
 
 @Repository("customerDao")
 public class CustomerDaoImpl implements ICustomerDao {
+
     @Autowired
+    @Qualifier("customerMapper")
     private CustomerMapper customerMapper;
+
+    @Override
+    public List<Customer> findAll() {
+        return customerMapper.findAll();
+    }
+
+    @Override
+    public List<Customer> findByKeyWord(String Keyword) {
+        return customerMapper.findByKeyWord(Keyword);
+    }
+
+    @Override
+    public Customer findById(int Id) {
+        return customerMapper.findById(Id);
+    }
+
+    @Override
+    public int delete(int Id) {
+        return customerMapper.delete(Id);
+    }
+
+    @Override
+    public int update(Customer customer) {
+        return customerMapper.update(customer);
+    }
+
     @Override
     public Customer findCustomer(String username, String password) {
         return customerMapper.findCustomer(username,password);
@@ -24,5 +56,7 @@ public class CustomerDaoImpl implements ICustomerDao {
     public int addCustomer(Customer customer) {
         return customerMapper.addCustomer(customer);
     }
+
+
 
 }

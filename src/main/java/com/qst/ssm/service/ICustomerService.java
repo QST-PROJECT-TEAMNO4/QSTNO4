@@ -1,27 +1,18 @@
-package com.qst.ssm.dao;
-
+package com.qst.ssm.service;
 
 import com.qst.ssm.entity.Customer;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * 客户Dao层接口
- */
-
-public interface ICustomerDao {
-
+public interface ICustomerService {
     /**
      * 查询所有导游信息
-     *
      * @return
      */
-    List<Customer> findAll();
+    List<Customer> findAll(int page,int size);
 
     /**
      * 根据关键字进行模糊查询
-     *
      * @param Keyword
      * @return
      */
@@ -29,7 +20,6 @@ public interface ICustomerDao {
 
     /**
      * 根据Id查询导游
-     *
      * @param Id
      * @return
      */
@@ -44,7 +34,6 @@ public interface ICustomerDao {
 
     /**
      * 根据Id删除导游信息
-     *
      * @param Id
      * @return
      */
@@ -52,7 +41,6 @@ public interface ICustomerDao {
 
     /**
      * 根据Id修改导游信息
-     *
      * @param customer
      * @return
      */
@@ -60,28 +48,24 @@ public interface ICustomerDao {
 
     /**
      * 登录验证
-     *
-     * @param username 账号
-     * @param password 密码
+     * @param username
+     * @param password
      * @return
      */
-    public Customer findCustomer(@Param("username") String username, @Param("password") String password);
+    public Customer findCustomer( String username,String password);
 
     /**
      * 修改密码
-     *
-     * @param oldPassword 原密码
-     * @param newPassword 新密码
+     * @param oldPassword
+     * @param newPassword
      * @return
      */
-    public int changePW(@Param("oldPassword") String oldPassword, @Param("newPassword") String newPassword);
+    public int changePW(String oldPassword, String newPassword);
 
     /**
      * 注册
-     *
      * @param customer
      * @return
      */
     public int addCustomer(Customer customer);
-
 }

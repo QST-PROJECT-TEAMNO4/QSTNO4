@@ -197,18 +197,18 @@
 											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
+<%--										<button type="button" class="btn btn-default" title="删除">--%>
+<%--											<i class="fa fa-trash-o"></i> 删除--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="开启">--%>
+<%--											<i class="fa fa-check"></i> 开启--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
+<%--											<i class="fa fa-ban"></i> 屏蔽--%>
+<%--										</button>--%>
+										<a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/product/findAll?page=1&size=5">
 											<i class="fa fa-refresh"></i> 刷新
-										</button>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -232,7 +232,7 @@
 										<th class="" style="padding-right: 0px;"><input
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
-										<th class="sorting_asc">ID</th>
+<%--										<th class="sorting_asc">ID</th>--%>
 										<th class="sorting_desc">编号</th>
 										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
 										<th class="sorting_desc sorting_desc_disabled">出发城市</th>
@@ -262,14 +262,24 @@
 
 											</td>
 											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">订单</button>
-												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>
+<%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
+<%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
 												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/deleteById?Id=${product.id}'>删除</a>
+												<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="deleteById('${product.productName }',${product.id})">删除</a>
 											</td>
 										</tr>
 									</c:forEach>
 								<script>
+
+									/**
+									 * 删除产品
+									 * @param productId  商品ID
+									 */
+									function deleteById(productName,productId) {
+										if(window.confirm('确定要删除该商品吗【名称为："'+productName+'"】?')){
+											window.location.href='/product/deleteById?Id='+productId;
+										}
+									}
 									/**
 									 *
 									 * 获取商品状态文本
@@ -311,77 +321,82 @@
 							<!--数据列表/-->
 
 							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建">
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
+<%--							<div class="pull-left">--%>
+<%--								<div class="form-group form-inline">--%>
+<%--									<div class="btn-group">--%>
+<%--										<button type="button" class="btn btn-default" title="新建">--%>
+<%--											<i class="fa fa-file-o"></i> 新建--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="删除">--%>
+<%--											<i class="fa fa-trash-o"></i> 删除--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="开启">--%>
+<%--											<i class="fa fa-check"></i> 开启--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
+<%--											<i class="fa fa-ban"></i> 屏蔽--%>
+<%--										</button>--%>
+<%--										<button type="button" class="btn btn-default" title="刷新">--%>
+<%--											<i class="fa fa-refresh"></i> 刷新--%>
+<%--										</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--							<div class="box-tools pull-right">--%>
+<%--								<div class="has-feedback">--%>
+<%--									<input type="text" class="form-control input-sm"--%>
+<%--										placeholder="搜索"> <span--%>
+<%--										class="glyphicon glyphicon-search form-control-feedback"></span>--%>
+<%--								</div>--%>
+<%--							</div>--%>
 							<!--工具栏/-->
 
 						</div>
 						<!-- 数据表格 /-->
 
 
-					</div>
-					<!-- /.box-body -->
+<%--					</div>--%>
+<%--					<!-- /.box-body -->--%>
 
-					<!-- .box-footer-->
-					<div class="box-footer">
-						<div class="pull-left">
-							<div class="form-group form-inline">
-								总共2 页，共14 条数据。 每页 <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select> 条
-							</div>
-						</div>
+<%--					<!-- .box-footer-->--%>
+<%--					<div class="box-footer">--%>
+<%--						<div class="pull-left">--%>
+<%--							<div class="form-group form-inline">--%>
+<%--								总共2 页，共14 条数据。 每页 <select class="form-control">--%>
+<%--									<option>1</option>--%>
+<%--									<option>2</option>--%>
+<%--									<option>3</option>--%>
+<%--									<option>4</option>--%>
+<%--									<option>5</option>--%>
+<%--								</select> 条--%>
+<%--							</div>--%>
+<%--						</div>--%>
 
-						<div class="box-tools pull-right">
-							<ul class="pagination">
-								<li><a href="#" aria-label="Previous">首页</a></li>
-								<li><a href="#">上一页</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">下一页</a></li>
-								<li><a href="#" aria-label="Next">尾页</a></li>
-							</ul>
-						</div>
+<%--						<div class="box-tools pull-right">--%>
+<%--							<ul class="pagination">--%>
+<%--								<li><a href="#" aria-label="Previous">首页</a></li>--%>
+<%--								<li><a href="#">上一页</a></li>--%>
+<%--								<li><a href="#">1</a></li>--%>
+<%--								<li><a href="#">2</a></li>--%>
+<%--								<li><a href="#">3</a></li>--%>
+<%--								<li><a href="#">4</a></li>--%>
+<%--								<li><a href="#">5</a></li>--%>
+<%--								<li><a href="#">下一页</a></li>--%>
+<%--								<li><a href="#" aria-label="Next">尾页</a></li>--%>
+<%--							</ul>--%>
+<%--						</div>--%>
 
-					</div>
+<%--					</div>--%>
 					<!-- /.box-footer-->
+						<div class="box-tools text-center">
+<%--							<button type="submit" class="btn bg-maroon">保存</button>--%>
+							<button type="button" class="btn bg-default"
+									onclick="history.back(-1);">返回</button>
+						</div>
+						<!--工具栏/-->
 
 
-
-				</div>
+					</div>
 
 			</section>
 			<!-- 正文区域 /-->
