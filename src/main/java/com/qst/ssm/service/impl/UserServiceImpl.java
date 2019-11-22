@@ -23,4 +23,8 @@ public class UserServiceImpl implements UserService {
         User user = userDao.findUser(username, password);
         return user;
     }
+    @Override
+    public int changePW(String oldPassword,String newPassword){
+        return userDao.changePW(oldPassword, newPassword);
+    }
 }

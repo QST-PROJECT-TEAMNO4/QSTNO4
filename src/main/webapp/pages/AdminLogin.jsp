@@ -51,12 +51,12 @@
 </head>
 
 <body class="hold-transition login-page" >
-<div><h1 align="center">欢迎进入旅游订票系统</h1></div>
+<div><h1 align="center">欢迎进入数据后台管理系统</h1></div>
 <div class="login-box">
     <div class="login-logo">
 
 
-        <a href="AdminMain.jsp"><b>旅游</b>订票系统</a>
+        <a href="AdminMain.jsp"><b>数据</b>后台管理系统</a>
 
 
     </div>
@@ -64,7 +64,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">登录系统</p>
 
-        <form action="${pageContext.request.contextPath}/CustomerLogin.action" method="post" onsubmit="return check()">
+        <form action="${pageContext.request.contextPath}/AdminLogin.action" method="post" onsubmit="return check()">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="账号" name="username">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -120,3 +120,4 @@
 </body>
 
 </html>
+
