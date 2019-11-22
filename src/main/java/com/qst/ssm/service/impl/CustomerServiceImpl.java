@@ -27,4 +27,9 @@ public class CustomerServiceImpl implements CustomerService {
     public int changePW(String oldPassword,String newPassword){
         return customerDao.changePW(oldPassword, newPassword);
     }
+
+    @Override
+    public int addCustomer(Customer customer) {
+        return customerDao.addCustomer(customer);
+    }
 }

@@ -19,4 +19,10 @@ public class CustomerDaoImpl implements ICustomerDao {
     public int changePW(String oldPassword, String newPassword) {
         return customerMapper.changePW(oldPassword,newPassword);
     }
+
+    @Override
+    public int addCustomer(Customer customer) {
+        return customerMapper.addCustomer(customer);
+    }
+
 }

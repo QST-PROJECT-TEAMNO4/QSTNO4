@@ -1,6 +1,7 @@
 package com.qst.ssm.controller;
 
 import com.qst.ssm.entity.Customer;
+import com.qst.ssm.entity.Orders;
 import com.qst.ssm.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -78,4 +79,19 @@ public class CustomerController {
     public String errorChange(){
         return "CPWError";
     }
+
+
+    @RequestMapping(value = "/register.action",method = RequestMethod.POST)
+    public String insertOrders(Customer customer){
+        int rows=customerService.addCustomer(customer);
+        if (rows==1){
+            return "redirect:CustomerLogin.action";
+        }else {
+            return "redirect:/register.action";
+        }
+    }
+
+
+
+
 }
