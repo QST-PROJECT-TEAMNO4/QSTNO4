@@ -255,11 +255,21 @@
 <%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
 <%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
 													<a type="button" class="btn bg-olive btn-xs"  href='/member/findById?Id=${member.id}'>编辑</a>
-													<a type="button" class="btn bg-olive btn-xs"  href='/member/delete?Id=${member.id}'>删除</a>
+													<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="deleteById('${member.hyname }',${member.id})">删除</a>
 											</td>
 										</tr>
 									</c:forEach>
 								<script>
+
+									/**
+									 * 删除导游
+									 * @param productId  导游ID
+									 */
+									function deleteById(memberName,memberId) {
+										if(window.confirm('确定要删除该导游的信息吗【名为："'+memberName+'"】?')){
+											window.location.href='/member/delete?Id='+memberId;
+										}
+									}
 									/**
 									 *
 									 * 获取商品状态文本

@@ -441,65 +441,31 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li id="admin-login">
-                            <a href="all-admin-login.html">
-                                <i class="fa fa-circle-o"></i> 登录
-                            </a>
-                        </li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/customer/findAll?page=1&size=5"> <i
+                                class="fa fa-circle-o"></i> 用户管理
+                        </a></li>
 
-                        <li id="admin-register">
-                            <a href="all-admin-register.html">
-                                <i class="fa fa-circle-o"></i> 注册
-                            </a>
-                        </li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/member/findAll?page=1&size=5">
+                            <i class="fa fa-circle-o"></i> 导游信息管理
+                        </a></li>
 
-                        <li id="admin-404">
-                            <a href="all-admin-404.html">
-                                <i class="fa fa-circle-o"></i> 404页
-                            </a>
-                        </li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/product/findAll?page=1&size=5">
+                            <i class="fa fa-circle-o"></i> 产品管理
+                        </a></li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/orders/queryOrders">
+                            <i class="fa fa-circle-o"></i> 订单管理
+                        </a></li>
 
-                        <li id="admin-500">
-                            <a href="all-admin-500.html">
-                                <i class="fa fa-circle-o"></i> 500页
-                            </a>
-                        </li>
+                        <li id="system-setting"><a
+                                href=" ${pageContext.request.contextPath}/index2.jsp">
+                            <i class="fa fa-circle-o"></i> 111
+                        </a></li>
 
-                        <li id="admin-blank">
-                            <a href="all-admin-blank.html">
-                                <i class="fa fa-circle-o"></i> 空白页
-                            </a>
-                        </li>
 
-                        <li id="admin-datalist">
-                            <a href="all-admin-datalist.html">
-                                <i class="fa fa-circle-o"></i> 数据列表页
-                            </a>
-                        </li>
-
-                        <li id="admin-dataform">
-                            <a href="all-admin-dataform.html">
-                                <i class="fa fa-circle-o"></i> 表单页
-                            </a>
-                        </li>
-
-                        <li id="admin-profile">
-                            <a href="${pageContext.request.contextPath}/index.jsp">
-                                <i class="fa fa-circle-o"></i> 个人中心
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice">
-                            <a href="all-admin-invoice.html">
-                                <i class="fa fa-circle-o"></i> 发票
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice-print">
-                            <a href="all-admin-invoice-print.html">
-                                <i class="fa fa-circle-o"></i> 发票打印
-                            </a>
-                        </li>
 
                     </ul>
                 </li>

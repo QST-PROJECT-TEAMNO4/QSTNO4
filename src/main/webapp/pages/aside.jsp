@@ -33,7 +33,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/user/findAll.do"> <i
+						href="${pageContext.request.contextPath}/customer/findAll?page=1&size=5"> <i
 							class="fa fa-circle-o"></i> 用户管理
 					</a></li>
 					<li id="system-setting"><a
@@ -41,7 +41,7 @@
 							class="fa fa-circle-o"></i> 角色管理
 					</a></li>
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/member/findAll">
+						href="${pageContext.request.contextPath}/member/findAll?page=1&size=5">
 							<i class="fa fa-circle-o"></i> 导游信息管理
 					</a></li>
 					<li id="system-setting"><a

@@ -1,18 +1,18 @@
 package com.sqt.ssm.test;
 
 import com.qst.ssm.entity.Member;
-<<<<<<< HEAD
+
 import com.qst.ssm.entity.Product;
 import com.qst.ssm.service.IMemberService;
 import com.qst.ssm.service.IProductService;
-=======
+
 import com.qst.ssm.service.IMemberService;
->>>>>>> origin/master
+
 import org.junit.Test;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-<<<<<<< HEAD
+
 import java.util.List;
 
 public class TestMember {
@@ -126,16 +126,6 @@ public class TestMember {
 //        }
 //        context.close();
 //    }
-=======
-public class TestMember {
-    AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-    IMemberService memberService=(IMemberService) context.getBean("memberService");
 
-    @Test
-    public void testGetOrdersMember(){
-        Member member=memberService.getOrdersMember(2);
-        System.out.println(member);
-        context.close();
-    }
->>>>>>> origin/master
+
 }

@@ -9,7 +9,7 @@ public interface ICustomerService {
      * 查询所有导游信息
      * @return
      */
-    List<Customer> findAll();
+    List<Customer> findAll(int page,int size);
 
     /**
      * 根据关键字进行模糊查询
@@ -45,4 +45,27 @@ public interface ICustomerService {
      * @return
      */
     int update(Customer customer);
+
+    /**
+     * 登录验证
+     * @param username
+     * @param password
+     * @return
+     */
+    public Customer findCustomer( String username,String password);
+
+    /**
+     * 修改密码
+     * @param oldPassword
+     * @param newPassword
+     * @return
+     */
+    public int changePW(String oldPassword, String newPassword);
+
+    /**
+     * 注册
+     * @param customer
+     * @return
+     */
+    public int addCustomer(Customer customer);
 }

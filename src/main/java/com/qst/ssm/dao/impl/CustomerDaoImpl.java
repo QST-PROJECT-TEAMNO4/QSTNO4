@@ -4,9 +4,9 @@ import com.qst.ssm.dao.ICustomerDao;
 import com.qst.ssm.entity.Customer;
 import com.qst.ssm.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 
@@ -41,13 +41,7 @@ public class CustomerDaoImpl implements ICustomerDao {
     public int update(Customer customer) {
         return customerMapper.update(customer);
     }
-=======
-import org.springframework.stereotype.Repository;
 
-@Repository("customerDao")
-public class CustomerDaoImpl implements ICustomerDao {
-    @Autowired
-    private CustomerMapper customerMapper;
     @Override
     public Customer findCustomer(String username, String password) {
         return customerMapper.findCustomer(username,password);
@@ -63,5 +57,6 @@ public class CustomerDaoImpl implements ICustomerDao {
         return customerMapper.addCustomer(customer);
     }
 
->>>>>>> origin/master
+
+
 }

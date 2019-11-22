@@ -1,20 +1,27 @@
 package com.qst.ssm.dao;
 
-<<<<<<< HEAD
+
 import com.qst.ssm.entity.Customer;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+
+/**
+ * 客户Dao层接口
+ */
 
 public interface ICustomerDao {
 
     /**
      * 查询所有导游信息
+     *
      * @return
      */
     List<Customer> findAll();
 
     /**
      * 根据关键字进行模糊查询
+     *
      * @param Keyword
      * @return
      */
@@ -22,6 +29,7 @@ public interface ICustomerDao {
 
     /**
      * 根据Id查询导游
+     *
      * @param Id
      * @return
      */
@@ -36,6 +44,7 @@ public interface ICustomerDao {
 
     /**
      * 根据Id删除导游信息
+     *
      * @param Id
      * @return
      */
@@ -43,21 +52,15 @@ public interface ICustomerDao {
 
     /**
      * 根据Id修改导游信息
+     *
      * @param customer
      * @return
      */
     int update(Customer customer);
-=======
-/**
- * 客户Dao层接口
- */
 
-import com.qst.ssm.entity.Customer;
-import org.apache.ibatis.annotations.Param;
-
-public interface ICustomerDao {
     /**
-     *  登录验证
+     * 登录验证
+     *
      * @param username 账号
      * @param password 密码
      * @return
@@ -65,7 +68,8 @@ public interface ICustomerDao {
     public Customer findCustomer(@Param("username") String username, @Param("password") String password);
 
     /**
-     *  修改密码
+     * 修改密码
+     *
      * @param oldPassword 原密码
      * @param newPassword 新密码
      * @return
@@ -74,9 +78,10 @@ public interface ICustomerDao {
 
     /**
      * 注册
+     *
      * @param customer
      * @return
      */
     public int addCustomer(Customer customer);
->>>>>>> origin/master
+
 }

@@ -45,7 +45,8 @@ public class MemberController {
     public ModelAndView findByKeyWord(String Keyword) {
         ModelAndView mv = new ModelAndView();
         List<Member> memberList =memberService.findByKeyWord(Keyword);
-        mv.addObject("memberList",memberList);
+        mv.addObject("" +
+                "",memberList);
         mv.setViewName("member-list");
         return mv;
     }

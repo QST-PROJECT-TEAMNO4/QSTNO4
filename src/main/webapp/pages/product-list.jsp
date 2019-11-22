@@ -265,11 +265,21 @@
 <%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
 <%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
 												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/deleteById?Id=${product.id}'>删除</a>
+												<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="deleteById('${product.productName }',${product.id})">删除</a>
 											</td>
 										</tr>
 									</c:forEach>
 								<script>
+
+									/**
+									 * 删除产品
+									 * @param productId  商品ID
+									 */
+									function deleteById(productName,productId) {
+										if(window.confirm('确定要删除该商品吗【名称为："'+productName+'"】?')){
+											window.location.href='/product/deleteById?Id='+productId;
+										}
+									}
 									/**
 									 *
 									 * 获取商品状态文本

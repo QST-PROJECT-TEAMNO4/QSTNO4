@@ -1,20 +1,16 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8" ?>
-=======
 <?xml version="1.0" encoding="UTF-8"?>
->>>>>>> origin/master
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.ssm.mapper.CustomerMapper">
-<<<<<<< HEAD
+
     <select id="findAll" resultType="com.qst.ssm.entity.Customer">
          <![CDATA[
         SELECT
             id as id,
             email as email,
             username as username,
-            PASSWORD as PASSWORD,
+            PASSWORD as password,
             phoneNum as phoneNum
         FROM
             customer
@@ -27,7 +23,7 @@
             id as id,
             email as email,
             username as username,
-            PASSWORD as PASSWORD,
+            PASSWORD as password,
             phoneNum as phoneNum
         FROM
             customer
@@ -41,7 +37,7 @@
             id as id,
             email as email,
             username as username,
-            PASSWORD as PASSWORD,
+            PASSWORD as password,
             phoneNum as phoneNum
         FROM
             customer
@@ -51,22 +47,13 @@
 	]]>
     </select>
 
-<!--    <insert id="add"  parameterType="customer">-->
-<!--         <![CDATA[-->
-<!--            INSERT INTO member-->
-<!--            ( hyname, nickname, phoneNum, email )-->
-<!--            VALUES-->
-<!--                ( #{hyname},#{nickname},#{phoneNum},#{email} )-->
-<!--	]]>-->
-<!--    </insert>-->
 
     <update id="update"  parameterType="com.qst.ssm.entity.Customer" >
         <![CDATA[
             update customer
-            set     email = #{email},
-                    username = #{username},
-                    PASSWORD = #{password},
-                    phoneNum = #{phoneNum}
+            set
+                    PASSWORD = 123456
+
             WHERE id= #{id}
         ]]>
     </update>
@@ -81,20 +68,6 @@
 
 
 
-    <!--<insert id="#" parameterType="2">
-        <![CDATA[
-        insert into orders (
-	          orderNum,
-	          peopleCount,
-	          orderDesc,
-	          payType,
-	          orderStatus
-              )
-        value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus},)
-        ]]>
-    </insert>-->
-
-=======
     <!--查询密码进行登录验证-->
     <select id="findCustomer" parameterType="String" resultType="customer">
         select id,email,username,password,phoneNum
@@ -112,5 +85,5 @@
 VALUES
 	(#{email},#{username},md5(#{password}),#{phoneNum})
     </insert>
->>>>>>> origin/master
+
 </mapper>

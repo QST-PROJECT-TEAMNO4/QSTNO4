@@ -1,9 +1,6 @@
 package com.qst.ssm.entity;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 import org.apache.ibatis.type.Alias;
 
 @Alias("customer")
@@ -14,13 +11,12 @@ public class Customer {
     private String password;//密码
     private String phoneNum;//电话号码
 
-<<<<<<< HEAD
-=======
+
    public Customer(){
 
     }
 
->>>>>>> origin/master
+
     public Customer(Integer id, String email, String username, String password, String phoneNum) {
         this.id = id;
         this.email = email;
@@ -29,13 +25,10 @@ public class Customer {
         this.phoneNum = phoneNum;
     }
 
-<<<<<<< HEAD
-    public Customer() {
 
-    }
 
-=======
->>>>>>> origin/master
+
+
     public Integer getId() {
         return id;
     }
@@ -83,11 +76,7 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-<<<<<<< HEAD
-                ", phoneNum=" + phoneNum +
-=======
                 ", phoneNum='" + phoneNum + '\'' +
->>>>>>> origin/master
                 '}';
     }
 }

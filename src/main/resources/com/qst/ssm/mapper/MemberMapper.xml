@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.ssm.mapper.MemberMapper">
-<<<<<<< HEAD
+
     <select id="findAll" resultType="com.qst.ssm.entity.Member">
          <![CDATA[
         SELECT
@@ -91,7 +91,6 @@
         ]]>
     </insert>-->
 
-=======
     <select id="getOrdersMember" resultType="member" parameterType="int">
         <![CDATA[
         select
@@ -112,5 +111,5 @@
 	               );
         ]]>
     </select>
->>>>>>> origin/master
+
 </mapper>

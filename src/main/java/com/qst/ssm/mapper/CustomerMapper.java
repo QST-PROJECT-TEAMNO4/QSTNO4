@@ -1,9 +1,9 @@
 package com.qst.ssm.mapper;
 
 import com.qst.ssm.entity.Customer;
-<<<<<<< HEAD
 
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface CustomerMapper {
 
@@ -48,11 +48,6 @@ public interface CustomerMapper {
      */
     int update(Customer customer);
 
-
-=======
-import org.apache.ibatis.annotations.Param;
-
-public interface CustomerMapper {
     /**
      *  登录验证
      * @param username 账号
@@ -75,5 +70,9 @@ public interface CustomerMapper {
      * @return
      */
     public int addCustomer(Customer customer);
->>>>>>> origin/master
+
+
+
+
+
 }

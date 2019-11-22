@@ -19,32 +19,7 @@
     <context:component-scan base-package="com.qst.ssm.dao"/>
     <context:component-scan base-package="com.qst.ssm.service"/>
 
-<!--    &lt;!&ndash; 加载db.properties数据库连接配置文件&ndash;&gt;-->
-<!--    <context:property-placeholder location="classpath:db.properties"/>-->
-<!--    &lt;!&ndash; 配置数据库连接池&ndash;&gt;-->
-<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
-<!--        <property name="driverClass" value="${jdbc.driver}" />-->
-<!--        <property name="jdbcUrl" value="${jdbc.url}" />-->
-<!--        <property name="user" value="${jdbc.username}" />-->
-<!--        <property name="password" value="${jdbc.password}" />-->
-<!--    </bean>-->
-<!--    &lt;!&ndash; 把交给IOC管理 SqlSessionFactory &ndash;&gt;-->
-<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-<!--        <property name="dataSource" ref="dataSource" />-->
-<!--    </bean>-->
 
-<!--    &lt;!&ndash; 扫描dao接口 &ndash;&gt;-->
-<!--    <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-<!--        <property name="basePackage" value="com.qst.ssm.dao"/>-->
-<!--    </bean>-->
-
-<!--    &lt;!&ndash; 配置Spring的声明式事务管理 &ndash;&gt;-->
-<!--    &lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
-<!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
-
-<!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
     <!-- 配置阿里Druid数据源-->
     <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
@@ -55,7 +30,7 @@
             <value>root</value>
         </property>
         <property name="password">
-            <value>123456</value>
+            <value></value>
         </property>
         <property name="url">
             <value>jdbc:mysql://localhost:3306/qst_no4?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8</value>
@@ -117,6 +92,22 @@
         <property name="typeAliasesPackage">
             <value>com.qst.ssm.entity</value>
         </property>
+
+        <!-- 配置pageHelper，注意其他配置 -->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <props>
+                            <!-- 使用的数据库-->
+                            <prop key="helperDialect">mysql</prop>
+                            <!-- 分页合理化参数，pageNum<=0时会查询第一页，pageNum>pages时查询最后一页-->
+                            <prop key="reasonable">true</prop>
+                        </props>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- 注册Mapper接口SQL映射器-->
@@ -128,6 +119,8 @@
         <property name="sqlSessionFactoryBeanName">
             <value>sqlSessionFactory</value>
         </property>
+
+
     </bean>
     <!-- 配置sqlSession-->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">

@@ -1,18 +1,22 @@
 package com.qst.ssm.service.impl;
 
-<<<<<<< HEAD
-import com.alibaba.druid.sql.visitor.functions.If;
+
+
+import com.github.pagehelper.PageHelper;
 import com.qst.ssm.dao.ICustomerDao;
 import com.qst.ssm.entity.Customer;
 import com.qst.ssm.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+/**
+ * 用户Service接口实现类
+ */
 @Service("customerService")
+@Transactional
 public class CustomerServiceImpl implements ICustomerService {
 
     @Autowired
@@ -20,7 +24,9 @@ public class CustomerServiceImpl implements ICustomerService {
     private ICustomerDao customerDao;
 
     @Override
-    public List<Customer> findAll() {
+    public List<Customer> findAll(int page,int size) {
+        //pageNum是页码，pageSize是每页显示数据的条数
+        PageHelper.startPage(page,size);
         return customerDao.findAll();
     }
 
@@ -39,27 +45,6 @@ public class CustomerServiceImpl implements ICustomerService {
         return customerDao.delete(Id);
     }
 
-    @Override
-    public int update(Customer customer) {
-        return customerDao.update(customer);
-=======
-import com.qst.ssm.dao.ICustomerDao;
-import com.qst.ssm.entity.Customer;
-import com.qst.ssm.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-/**
- * 用户Service接口实现类
- */
-@Service("customerService")
-@Transactional
-public class CustomerServiceImpl implements CustomerService {
-    //注入CustomerDao
-    @Autowired
-    private ICustomerDao customerDao;
-
     //通过账号和密码查询客户
     @Override
     public Customer findCustomer(String username, String password) {
@@ -74,6 +59,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public int addCustomer(Customer customer) {
         return customerDao.addCustomer(customer);
->>>>>>> origin/master
+    }
+
+    @Override
+    public int update(Customer customer) {
+        return customerDao.update(customer);
+
+
     }
 }

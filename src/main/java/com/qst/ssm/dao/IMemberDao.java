@@ -47,4 +47,6 @@ public interface IMemberDao {
      */
     int update(Member member);
 
+    Member getOrdersMember(int Id);
+
 }

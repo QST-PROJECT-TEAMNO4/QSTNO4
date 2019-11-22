@@ -15,17 +15,17 @@ public class TestCustomer {
     ICustomerService customerService =  (ICustomerService) context.getBean("customerService");
     Customer customer = new Customer();
 
-    @Test
-    public void testfindAll(){
-        List<Customer> customerList = customerService.findAll();
-        System.out.println(customerList);
-        if (!customerList.isEmpty()){
-            for (Customer customer:customerList){
-                System.out.println(customer);
-            }
-        }
-        context.close();
-    }
+//    @Test
+//    public void testfindAll(){
+//        List<Customer> customerList = customerService.findAll();
+//        System.out.println(customerList);
+//        if (!customerList.isEmpty()){
+//            for (Customer customer:customerList){
+//                System.out.println(customer);
+//            }
+//        }
+//        context.close();
+//    }
 
     @Test
     public void testfindByKeyword(){
