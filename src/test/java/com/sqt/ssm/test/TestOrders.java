@@ -88,6 +88,19 @@ public class TestOrders {
         }
         context.close();
     }
+
+    @Test
+    public void testOPFallAllLike(){
+        List<Map<String,Object>> mapList=orderService.OPFallAllLike(1,2,"杭州");
+        if (!mapList.isEmpty()){
+            for (Map<String,Object> orders:mapList ){
+                System.out.println(orders);
+            }
+
+        }
+        context.close();
+    }
+
     @Test
     public void testParticulars(){
         Map<String,Object> map=orderService.getOrdersProduct(2);

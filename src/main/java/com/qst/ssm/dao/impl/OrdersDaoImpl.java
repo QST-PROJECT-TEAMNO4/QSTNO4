@@ -16,41 +16,76 @@ public class OrdersDaoImpl implements IOrdersDao {
     @Qualifier("ordersMapper")
     private OrdersMapper ordersMapper;
 
+    /**
+     * 查询所有订单
+     * @return
+     */
     @Override
     public List<Orders> queryOrders() {
         return ordersMapper.queryOrders();
     }
-
+    /**
+     * 根据Id查询订单信息
+     * @param Id
+     * @return
+     */
     @Override
     public Orders getOrders(int Id) {
         return ordersMapper.getOrders(Id);
     }
-
+    /**
+     * 添加订单信息
+     * @param orders
+     * @return
+     */
     @Override
     public int insertOrders(Orders orders) {
         return ordersMapper.insertOrders(orders);
     }
-
+    /**
+     * 根据ID删除订单信息
+     * @param Id
+     * @return
+     */
     @Override
     public int deleteOrders(int Id) {
         return ordersMapper.deleteOrders(Id);
     }
-
+    /**
+     * 修改订单信息
+     * @param orders
+     * @return
+     */
     @Override
     public int updateOrders(Orders orders) {
         return ordersMapper.updateOrders(orders);
     }
-
+    /**
+     * 多表查询
+     * @return
+     */
     @Override
-    public List<Map<String, Object>> queryOrders1() {
-        return ordersMapper.queryOrders1();
+    public List<Map<String, Object>> queryOrdersProduct() {
+        return ordersMapper.queryOrdersProduct();
     }
-
+    /**
+     * 根据Id查询订单-产品信息
+     * @param Id
+     * @return
+     */
     @Override
     public Map<String, Object> getOrdersProduct(int Id) {
         return ordersMapper.getOrdersProduct(Id);
     }
 
+    /**
+     * 对订单-产品信息进行模糊查询
+     * @return
+     */
+    @Override
+    public List<Map<String, Object>> OPFallAllLike(String Keyword) {
+        return ordersMapper.OPFallAllLike(Keyword);
+    }
 
 
 }

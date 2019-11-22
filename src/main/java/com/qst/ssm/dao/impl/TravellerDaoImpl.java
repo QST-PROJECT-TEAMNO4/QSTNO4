@@ -12,8 +12,23 @@ public class TravellerDaoImpl implements ITravellerDao {
     @Autowired
     @Qualifier("travellerMapper")
     private TravellerMapper travellerMapper;
+    /**
+     * 根据订单Id查询旅客信息
+     * @param Id
+     * @return
+     */
     @Override
     public Traveller getOrdersTraveller(int Id) {
         return travellerMapper.getOrdersTraveller(Id);
     }
+    /**
+     * 修改旅客信息
+     * @param traveller
+     * @return
+     */
+    @Override
+    public int updateTraveller(Traveller traveller) {
+        return travellerMapper.updateTraveller(traveller);
+    }
+
 }

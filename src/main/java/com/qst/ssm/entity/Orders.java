@@ -17,11 +17,12 @@ public class Orders {
     private Integer orderStatus; //订单状态（默认0,0未支付，1已支付）
     private Integer productId;   // 产品ID，外键
     private Integer memberId;    //会员ID，外键
+    private Integer travellerId; //旅客ID, 外键
 
     public Orders() {
     }
 
-    public Orders(Integer id, String orderNum, Date orderTime, Integer peopleCount, String orderDesc, Integer payType, Integer orderStatus, Integer productId, Integer memberId) {
+    public Orders(Integer id, String orderNum, Date orderTime, Integer peopleCount, String orderDesc, Integer payType, Integer orderStatus, Integer productId, Integer memberId, Integer travellerId) {
         this.id = id;
         this.orderNum = orderNum;
         this.orderTime = orderTime;
@@ -31,6 +32,7 @@ public class Orders {
         this.orderStatus = orderStatus;
         this.productId = productId;
         this.memberId = memberId;
+        this.travellerId = travellerId;
     }
 
     public Integer getId() {
@@ -82,7 +84,6 @@ public class Orders {
     }
 
     public Integer getOrderStatus() {
-
         return orderStatus;
     }
 
@@ -106,6 +107,14 @@ public class Orders {
         this.memberId = memberId;
     }
 
+    public Integer getTravellerId() {
+        return travellerId;
+    }
+
+    public void setTravellerId(Integer travellerId) {
+        this.travellerId = travellerId;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -118,6 +127,7 @@ public class Orders {
                 ", orderStatus=" + orderStatus +
                 ", productId=" + productId +
                 ", memberId=" + memberId +
+                ", travellerId=" + travellerId +
                 '}';
     }
 }

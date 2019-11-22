@@ -15,6 +15,7 @@ public interface IOrderService {
      */
     List<Orders> queryOrders();
 
+
     /**
      * 根据Id查询订单信息
      * @param Id
@@ -50,11 +51,28 @@ public interface IOrderService {
     List<Map<String,Object>> queryOrders1();
 
     /**
+     * 查询所有订单并进行分页管理
+     * @param page
+     * @param size
+     * @return
+     */
+    List<Map<String,Object>> queryOrdersProduct(int page,int size);
+
+
+    /**
      * 根据Id查询订单-产品信息
      * @param Id
      * @return
      */
     Map<String,Object> getOrdersProduct(int Id);
 
+    /**
+     * 对订单-产品信息进行模糊查询
+     * @param page
+     * @param size
+     * @param Keyword 关键字
+     * @return
+     */
+    List<Map<String,Object>> OPFallAllLike(int page,int size, String Keyword);
 
 }

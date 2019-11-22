@@ -12,4 +12,11 @@ public interface ITravellerService  {
      * @return
      */
     Traveller getOrdersTraveller(int Id);
+
+    /**
+     * 修改旅客信息
+     * @param traveller
+     * @return
+     */
+    int updateTraveller(Traveller traveller);
 }

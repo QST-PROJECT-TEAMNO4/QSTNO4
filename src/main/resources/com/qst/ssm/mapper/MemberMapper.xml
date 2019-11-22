@@ -3,9 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.ssm.mapper.MemberMapper">
+    <!--根据订单Id查询导游信息-->
     <select id="getOrdersMember" resultType="member" parameterType="int">
         <![CDATA[
         select
+           id,
 	       hyname,
 	       nickname,
 	       phoneNum,
@@ -23,4 +25,5 @@
 	               );
         ]]>
     </select>
+
 </mapper>

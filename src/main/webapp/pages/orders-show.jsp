@@ -164,7 +164,6 @@
 						   class="table table-bordered table-striped table-hover dataTable">
 						<thead>
 						<tr>
-							<th class="">人群</th>
 							<th class="">姓名</th>
 							<th class="">性别</th>
 							<th class="">手机号码</th>
@@ -177,17 +176,16 @@
 						<%--<c:forEach ite.ms="${ordersList}" var="orders">--%>
 
 						<tr>
-							<td>${ordersProduct.peopleCount}</td>
-							<td><input type="text" size="10" value="${traveller.lkname }"
+							<td><input type="text" size="10" name="lkname" value="${traveller.lkname }"
 									   readonly="readonly"></td>
-							<td><input type="text" size="10" value="${traveller.sex }"
+							<td><input type="text" size="10" name="sex" value="${1==traveller.sex?'男':'女' }"
 									   readonly="readonly"></td>
-							<td><input type="text" size="20"
+							<td><input type="text" size="20" name="phoneNum"
 									   value="${traveller.phoneNum }" readonly="readonly"></td>
-							<td><input type="text" size="15"
-									   value="${traveller.credentialsType}" readonly="readonly"></td>
-							<td><input type="text" size="28"
-									   value="${traveller.credentialsNum }" readonly="readonly"></td>
+							<td><input type="text" size="15" name="credentialsType"
+									   value="${0==traveller.credentialsType?'身份证':1==traveller.credentialsType?'护照':'军官证'}" readonly="readonly"></td>
+							<td><input type="text" size="28" name="credentialsNum"
+									   value="${traveller.credentialsNum }" readonly="readonly" ></td>
 						</tr>
 						<%--</c:forEach>--%>
 
@@ -200,7 +198,7 @@
 
 			<!--游客信息/--> <!--联系人信息-->
 			<div class="panel panel-default">
-				<div class="panel-heading">联系人信息</div>
+				<div class="panel-heading">导游信息</div>
 				<div class="row data-type">
 
 					<div class="col-md-2 title">会员</div>
@@ -235,27 +233,28 @@
 				</div>
 			</c:if> <!--费用信息/--> <!--工具栏-->
 			<div class="box-tools text-center">
-
 				<button type="button" class="btn bg-default"
 					onclick="history.back(-1);">返回</button>
 			</div>
+
 			<!--工具栏/--> </section>
 			<!-- 正文区域 /-->
 
 
 		</div>
+
 		<!-- 内容区域 /-->
 
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
-		<!-- 底部导航 /-->
-
+        <!-- 底部导航 -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.8
+            </div>
+            <strong>报名电话：13618881999 <a
+                    href="https://www.tuniu.com">大表哥旅游团</a>.
+            </strong> 带你去看不一样的风景
+        </footer>
+        <!-- 底部导航 /-->
 	</div>
 
 	<script

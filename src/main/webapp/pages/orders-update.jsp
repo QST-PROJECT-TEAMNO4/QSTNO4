@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -90,9 +91,6 @@
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
-
-			<form action="${pageContext.request.contextPath}/orders/updateOrders?Id=${orders.id}"
-				method="post">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
 
@@ -117,26 +115,24 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="orderTime" value="${orders.orderTime}" >
+									 id="datepicker-a3" name="orderTime" value='<fmt:formatDate value="${orders.orderTime }" pattern="yyyy-MM-dd HH:mm:ss"/>' >
 							</div>
 						</div>
 
 						<div class="col-md-2 title">支付方式</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="payType"
-								placeholder="支付方式" value="${orders.payType}">
+							<input type="text" class="form-control"  name="payType"
+								placeholder="支付方式" value="${0==orders.payType?'支付宝':1==orders.payType?'微信':'其他'}">
 
 						</div>
 
+                        <div class="col-md-2 title">订单状态</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control"  name="orderStatus"
+                                   placeholder="支付方式" value="${0==orders.orderStatus?'未支付':'已支付'}">
 
-						<div class="col-md-2 title">订单状态</div>
-						<div class="col-md-4 data">
-							<select class="form-control select2" style="width: 100%"
-									name="productStatus">
-								<option value="0" selected="selected">未支付</option>
-								<option value="1">已支付</option>
-							</select>
-						</div>
+                        </div>
+
 
 						<div class="col-md-2 title">产品名称</div>
 						<div class="col-md-4 data">
@@ -160,17 +156,24 @@
 				</div>
 				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
-					<button type="submit" class="btn bg-maroon">保存</button>
 					<button type="button" class="btn bg-default"
 						onclick="history.back(-1);">返回</button>
 				</div>
 				<!--工具栏/--> </section>
 				<!-- 正文区域 /-->
-			</form>
 		</div>
 		<!-- 内容区域 /-->
 
-
+        <!-- 底部导航 -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.8
+            </div>
+            <strong>报名电话：13618881999 <a
+                    href="https://www.tuniu.com">大表哥旅游团</a>.
+            </strong> 带你去看不一样的风景
+        </footer>
+        <!-- 底部导航 /-->
 
 	</div>
 
@@ -289,6 +292,7 @@
 				language : "zh-CN"
 			});
 		});
+
 
 		$(document).ready(function() {
 			// 激活导航位置

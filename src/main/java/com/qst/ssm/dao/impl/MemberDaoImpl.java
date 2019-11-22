@@ -22,4 +22,6 @@ public class MemberDaoImpl implements IMemberDao {
     public Member getOrdersMember(int Id) {
         return memberMapper.getOrdersMember(Id);
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.qst.ssm.dao;
 
 import com.qst.ssm.entity.Orders;
+import com.sun.prism.impl.Disposer;
 
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,7 @@ public interface IOrdersDao {
      * 多表查询
      * @return
      */
-    List<Map<String,Object>> queryOrders1();
+    List<Map<String,Object>> queryOrdersProduct();
 
     /**
      * 根据Id查询订单-产品信息
@@ -53,5 +54,11 @@ public interface IOrdersDao {
      */
     Map<String,Object> getOrdersProduct(int Id);
 
+    /**
+     * 对订单-产品信息进行模糊查询
+     * @param Keyword 关键字
+     * @return
+     */
+    List<Map<String,Object>> OPFallAllLike(String Keyword);
 
 }

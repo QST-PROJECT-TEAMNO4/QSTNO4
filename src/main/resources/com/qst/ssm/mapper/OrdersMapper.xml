@@ -60,7 +60,7 @@
     delete from orders where id=#{id}
     </delete>
     <!--查询订单-产品信息-->
-    <select id="queryOrders1" resultType="map" parameterType="map">
+    <select id="queryOrdersProduct" resultType="map" parameterType="map">
         select
             o.id,
 	        o.orderNum,
@@ -72,17 +72,53 @@
 	        orders as o
         INNER JOIN
             product as p ON o.productId = p.id
+
     </select>
 
+    <!--查询订单-产品信息模糊查询-->
+    <select id="OPFallAllLike" resultType="map" parameterType="map">
+    <![CDATA[
+        select
+            o.id,
+	        orderNum,
+	        productName,
+	        productPrice,
+	        orderTime,
+	        orderStatus
+        from
+	        orders as o
+        INNER JOIN
+            product as p ON o.productId = p.id
+        where
+        productName like concat(concat('%',#{value},'%'))
+]]>
+
+    </select>
+    <!--查询订单-产品信息-->
     <select id="getOrdersProduct" resultType="map" parameterType="int">
          <![CDATA[
-       SELECT
-	o.*, p.*
-FROM
-	orders AS o
-INNER JOIN product AS p ON o.productId = p.id
-WHERE
-	o.id =#{id}
+       select
+	       o.id,
+	       orderNum,
+	       orderTime,
+	       peopleCount,
+	       orderDesc,
+	       payType,
+	       orderStatus,
+	       productId,
+	       memberId,
+	       p.id,
+	       productNum,
+	       productName,
+	       cityName,
+	       DepartureTime,
+         productPrice,
+         productDesc,
+         productStatus
+       from
+	       orders as  o
+       inner join  product as  p on o.productId = p.id
+       and o.id =#{id}
 	]]>
     </select>
 

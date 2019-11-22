@@ -8,13 +8,13 @@ public class User {
     private String email; //邮箱
     private String username; //用户名
     private String password;//密码
-    private String phoneNum;//电话号码
+    private Integer phoneNum;//电话号码
     private Integer status;  //状态（默认0,0未开启，1开启）
 
     public User() {
     }
 
-    public User(Integer id, String email, String username, String password, String phoneNum, Integer status) {
+    public User(Integer id, String email, String username, String password, Integer phoneNum, Integer status) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -55,11 +55,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPhoneNum() {
+    public Integer getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(String phoneNum) {
+    public void setPhoneNum(Integer phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -78,7 +78,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
+                ", phoneNum=" + phoneNum +
                 ", status=" + status +
                 '}';
     }

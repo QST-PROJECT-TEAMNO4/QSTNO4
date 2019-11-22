@@ -1,6 +1,7 @@
 package com.qst.ssm.service;
 
 import com.qst.ssm.entity.Member;
+import com.qst.ssm.entity.Traveller;
 
 /**
  * 会员业务接口
@@ -12,4 +13,6 @@ public interface IMemberService {
      * @return
      */
     Member getOrdersMember(int Id);
+
+
 }

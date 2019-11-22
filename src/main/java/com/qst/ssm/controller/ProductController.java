@@ -39,6 +39,7 @@ public class ProductController {
         PageInfo pageInfo = new PageInfo(ps);
         mv.addObject("pageInfo",pageInfo);
         mv.setViewName("product-page-list");
+        System.out.println("******************"+mv);
         return mv;
     }
 

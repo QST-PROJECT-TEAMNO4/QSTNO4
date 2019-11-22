@@ -43,13 +43,8 @@ public interface OrdersMapper {
      * 多表查询
      * @return
      */
-    List<Map<String,Object>> queryOrders1();
+    List<Map<String,Object>> queryOrdersProduct();
 
-    /**
-     * 订单详情
-     * @return
-     */
-    List<Map<String,Object>> particulars(int Id);
 
     /**
      * 根据Id查询订单-产品信息
@@ -59,9 +54,9 @@ public interface OrdersMapper {
     Map<String,Object> getOrdersProduct(int Id);
 
     /**
-     * 根据订单Id查询会员信息
-     * @param Id
+     * 对订单-产品信息进行模糊查询
+     * @param Keyword
      * @return
      */
-    Orders getOrdersMember(int Id);
+    List<Map<String,Object>> OPFallAllLike(String Keyword);
 }
