@@ -9,4 +9,5 @@ import org.apache.ibatis.annotations.Param;
 public interface IUserDao {
 
     public User findUser( @Param("username") String username, @Param("password") String password);
+    public int changePW(@Param("oldPassword")String oldPassword,@Param("newPassword") String newPassword);
 }

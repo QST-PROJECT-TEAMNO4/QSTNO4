@@ -7,5 +7,6 @@ import com.qst.ssm.entity.User;
  */
 public interface UserService {
     public User findUser(String username, String password);
+    public int changePW(String oldPassword,String newPassword);
 
 }

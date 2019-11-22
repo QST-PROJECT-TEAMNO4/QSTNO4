@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 12845
-  Date: 2019/11/16
-  Time: 21:32
+  Date: 2019/11/22
+  Time: 16:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-    <title>登录</title>
+    <title>注册</title>
 
 
     <!-- Tell the browser to be responsive to screen width -->
@@ -35,53 +35,53 @@
     <link rel="stylesheet" href="../plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
-
-    <script>
-        //判断是登录账号和密码是否为空
-        function check() {
-            var username=$("#username").val();
-            var password=$("#password").val();
-            if (username==''||password==''){
-                $("message").text("账号或密码不能为空");
-                return false;
-            }
-            return true;
-        }
-    </script>
 </head>
 
-<body class="hold-transition login-page" >
-<div><h1 align="center">欢迎进入旅游订票系统</h1></div>
-<div class="login-box">
-    <div class="login-logo">
+<body class="hold-transition register-page">
+<div class="register-box">
+    <div class="register-logo">
 
 
-        <a href="AdminMain.jsp"><b>旅游</b>订票系统</a>
+        <a href="all-admin-index.html"><b>数据</b>后台管理系统</a>
 
 
     </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">登录系统</p>
 
-        <form action="${pageContext.request.contextPath}/CustomerLogin.action" method="post" onsubmit="return check()">
+    <div class="register-box-body">
+        <p class="login-box-msg">新用户注册</p>
+
+        <form action="${pageContext.request.contextPath}/register.action" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="账号" name="username">
+                <input type="text" class="form-control" placeholder="全名" name="username">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="email" class="form-control" placeholder="Email" name="email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="phone" name="phoneNum">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="密码" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="确认密码" name="password1">
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
-                        <label><input type="checkbox"> 记住 下次自动登录</label>
+                        <label>
+                            <input type="checkbox"> 我同意 <a href="#">协议</a>
+                        </label>
                     </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -92,15 +92,12 @@
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-qq"></i> 腾讯QQ用户登录</a>
             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-weixin"></i> 微信用户登录</a>
         </div>
-        <!-- /.social-auth-links -->
 
-        <a href="#">忘记密码</a><br>
-        <a href="${pageContext.request.contextPath}/pages/register.jsp" class="text-center">新用户注册</a>
-
+        <a href="login.jsp" class="text-center">我有账号，现在就去登录</a>
     </div>
-    <!-- /.login-box-body -->
+    <!-- /.form-box -->
 </div>
-<!-- /.login-box -->
+<!-- /.register-box -->
 
 <!-- jQuery 2.2.3 -->
 <!-- Bootstrap 3.3.6 -->

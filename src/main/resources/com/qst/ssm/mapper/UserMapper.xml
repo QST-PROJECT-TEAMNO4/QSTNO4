@@ -9,4 +9,9 @@
         where username=#{username}
         and password=#{password}
     </select>
+
+    <update id="changePW" parameterType="String" >
+        update user set password=#{newPassword}
+        where password=#{oldPassword}
+    </update>
 </mapper>

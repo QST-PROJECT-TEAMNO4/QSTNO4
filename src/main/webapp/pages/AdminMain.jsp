@@ -111,7 +111,7 @@
                 <h4 class="modal-title" id="exampleModalLabel">密码修改</h4>
             </div>
             <div class="modal-body">
-                <form name="editForm" method="post" action="${pageContext.request.contextPath}/CPassword.action">
+                <form name="editForm" method="post" action="${pageContext.request.contextPath}/ChangePassword.action">
                     <div class="form-group">
                         <label>原密码：</label>
                         <input type='password' id="oldPassword" class="form-control" name="oldPassword" required
@@ -131,11 +131,11 @@
                         <div style="display: inline" id="tip3"></div>
                     </div>
 
-                    <div class="modal-footer">
-                        <button onclick="submitPassword()" class="btn btn-primary" ng-disabled="editForm.$invalid">确定</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    </div>
-                </form>
+            <div class="modal-footer">
+                <button onclick="submitPassword()" class="btn btn-primary" ng-disabled="editForm.$invalid">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+            </form>
             </div>
         </div>
     </div>
@@ -376,7 +376,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../img/user1-128x128.jpg" class="user-image" alt="User Image">
-                            用户:${CUSTOMER_SESSION.username}
+                            用户:${USER_SESSION.username}
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -384,7 +384,7 @@
                                 <img src="../img/user1-128x128.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    用户:${CUSTOMER_SESSION.username}
+                                    用户:${USER_SESSION.username}
                                     <small>最后登录 11:20AM</small>
                                 </p>
 
@@ -396,7 +396,7 @@
                                     <button onclick="editPassword()" class="btn btn-default btn-flat">修改密码</button>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="${pageContext.request.contextPath}/CustomerLogout.action"
+                                    <a href="${pageContext.request.contextPath}/AdminLogout.action"
                                        class="btn btn-default btn-flat">注销</a>
                                 </div>
                             </li>
@@ -419,7 +419,7 @@
                     <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>用户:${CUSTOMER_SESSION.username}</p>
+                    <p>用户:${USER_SESSION.username}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>
             </div>
@@ -505,6 +505,41 @@
                 </li>
 
 
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i> <span>图表Charts</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="charts-chartjs">
+                            <a href="all-charts-chartjs.html">
+                                <i class="fa fa-circle-o"></i> ChartJS
+                            </a>
+                        </li>
+
+                        <li id="charts-morris">
+                            <a href="all-charts-morris.html">
+                                <i class="fa fa-circle-o"></i> Morris Charts
+                            </a>
+                        </li>
+
+                        <li id="charts-flot">
+                            <a href="all-charts-flot.html">
+                                <i class="fa fa-circle-o"></i> Flot Charts
+                            </a>
+                        </li>
+
+                        <li id="charts-inline">
+                            <a href="all-charts-inline.html">
+                                <i class="fa fa-circle-o"></i> Inline Charts
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
 
 
                 <!-- 菜单 /-->

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+>>>>>>> origin/master
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.ssm.mapper.CustomerMapper">
+<<<<<<< HEAD
     <select id="findAll" resultType="com.qst.ssm.entity.Customer">
          <![CDATA[
         SELECT
@@ -89,4 +94,23 @@
         ]]>
     </insert>-->
 
+=======
+    <!--查询密码进行登录验证-->
+    <select id="findCustomer" parameterType="String" resultType="customer">
+        select id,email,username,password,phoneNum
+        from customer
+        where username=#{username}
+        and password=md5(#{password})
+    </select>
+<!--修改密码-->
+    <update id="changePW" parameterType="String" >
+        update customer set password=md5(#{newPassword})
+        where password=md5(#{oldPassword})
+    </update>
+    <insert id="addCustomer" parameterType="String">
+        INSERT INTO customer ( email, username, password, phoneNum )
+VALUES
+	(#{email},#{username},md5(#{password}),#{phoneNum})
+    </insert>
+>>>>>>> origin/master
 </mapper>
