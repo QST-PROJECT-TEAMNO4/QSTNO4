@@ -274,7 +274,7 @@
                                 用户名: ${CUSTOMER_SESSION.username}
                             </li>
 
-                            <li>
+                            <%--<li>
                                 性别:  <input id="sexRequire" type="hidden" value="${CUSTOMER_SESSION.sex}" readonly />
                                 <div class="col-m col-m-select">
                                     <div class="job-c-l">
@@ -287,6 +287,13 @@
                                         <p idattr="sexRequire" idValue="1">女</p>
                                     </div>
                                 </div>
+
+
+                            </li>--%>
+
+                            <li>性别： ${1==CUSTOMER_SESSION.sex?'女':'男'}
+                                <label><input type="radio" name="sex" value="1">女</label>
+                                <label><input type="radio" name="sex" value="0">男</label>
                             </li>
 
                             <li>

@@ -28,9 +28,11 @@ public class MemberController {
         List<Member> memberList =memberService.findAll(page,size);
         PageInfo pageInfo = new PageInfo(memberList);
         mv.addObject("pageInfo",pageInfo);
-        mv.setViewName("member-page-list");
+        mv.setViewName("buy-show");
+        System.out.println("********************"+mv);
         return mv;
     }
+
 
     @RequestMapping("/findById" )
     public ModelAndView findById(int Id){

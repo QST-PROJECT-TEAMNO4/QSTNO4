@@ -15,6 +15,12 @@ public interface IMemberService {
     List<Member> findAll(int page,int size);
 
     /**
+     * 查询所有导游信息
+     * @return
+     */
+    List<Member> findAll();
+
+    /**
      * 根据关键字进行模糊查询
      * @param Keyword
      * @return

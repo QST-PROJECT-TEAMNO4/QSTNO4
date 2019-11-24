@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 <!-- 页面meta -->
 <meta charset="utf-8">
@@ -15,90 +12,13 @@
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
-
-
-
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
-<!-- Bootstrap 3.3.6 -->
-<!-- Font Awesome -->
-<!-- Ionicons -->
-<!-- iCheck -->
-<!-- Morris chart -->
-<!-- jvectormap -->
-<!-- Date Picker -->
-<!-- Daterange picker -->
-<!-- Bootstrap time Picker -->
-<!--<link rel="stylesheet" href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.css">-->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--数据表格-->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- Bootstrap Color Picker -->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--bootstrap-markdown-->
-<!-- Theme style -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<!-- Ion Slider -->
-<!-- ion slider Nice -->
-<!-- bootstrap slider -->
-<!-- bootstrap-datetimepicker -->
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-
-
-
-
-
-
-
-<!-- jQuery 2.2.3 -->
-<!-- jQuery UI 1.11.4 -->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.6 -->
-<!-- Morris.js charts -->
-<!-- Sparkline -->
-<!-- jvectormap -->
-<!-- jQuery Knob Chart -->
-<!-- daterangepicker -->
-<!-- datepicker -->
-<!-- Bootstrap WYSIHTML5 -->
-<!-- Slimscroll -->
-<!-- FastClick -->
-<!-- iCheck -->
-<!-- AdminLTE App -->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- bootstrap color picker -->
-<!-- bootstrap time picker -->
-<!--<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
-<!-- Bootstrap WYSIHTML5 -->
-<!--bootstrap-markdown-->
-<!-- CK Editor -->
-<!-- InputMask -->
-<!-- DataTables -->
-<!-- ChartJS 1.0.1 -->
-<!-- FLOT CHARTS -->
-<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<!-- jQuery Knob -->
-<!-- Sparkline -->
-<!-- Morris.js charts -->
-<!-- Ion Slider -->
-<!-- Bootstrap slider -->
-<!-- bootstrap-datetimepicker -->
-<!-- 页面meta /-->
-
+<link rel=“stylesheet”
+	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -143,64 +63,244 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-<script src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
 </head>
 
-<body class="hold-transition skin-purple sidebar-mini">
+<script type="text/javascript">
+
+	/*window.onload = function () {
+
+		if(location.href.indexOf("#reloaded")==-1){
+			location.href=location.href+"#reloaded";
+			window.location.href="${pageContext.request.contextPath}/member/findByIdInit";
+			location.reload();
+
+
+		}
+	}*/
+
+		function aa(){
+			window.open("${pageContext.request.contextPath}/member/findAll");
+		}
+
+
+			<!-- 执行的方法 -->
+			<%--function myfun(){--%>
+			<%--	if(${pageInfo.list==null}){--%>
+			<%--		window.location.href="${pageContext.request.contextPath}/member/findAll";--%>
+			<%--	}--%>
+
+			<%--}--%>
+
+
+
+	<%--function load111() {--%>
+	<%--	window.location.href="${pageContext.request.contextPath}/member/findAllInit";--%>
+	<%--}--%>
+	<%--window.onload = function () {--%>
+	<%--	//方法内容--%>
+	<%--		window.location.href="${pageContext.request.contextPath}/member/findAllInit";--%>
+	<%--}--%>
+
+</script>
+
+<body class="hold-transition skin-blue sidebar-mini" onload="aa()">
 
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
 		<jsp:include page="header.jsp"></jsp:include>
 		<!-- 页面头部 /-->
+
 		<!-- 导航侧栏 -->
-		<jsp:include page="main.jsp"></jsp:include>
+		<jsp:include page="aside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
-		<!-- @@master = admin-layout.html-->
-		<!-- @@block = content -->
-
 		<div class="content-wrapper">
 
 			<!-- 内容头部 -->
 			<section class="content-header">
-				<h1>
-					数据管理 <small>数据列表</small>
-				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
+			<h1>
+				购买信息 <small>购买信息</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="all-admin-index.html"><i
+						class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="all-order-manage-list.html">购买详情</a></li>
+				<li class="active">购买详情</li>
+			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
 			<!-- 正文区域 -->
-			<section class="content">
+			<section class="content"> <!--订单信息-->
 
-				1111111
+			<div class="panel panel-default">
+				<div class="panel-heading">购买详情</div>
+				<div class="row data-type">
 
-			</section>
+					<div class="col-md-2 title">商品名称</div>
+					<div class="col-md-4 data">
+						<input type="text" class="form-control" name="orderNum" placeholder="商品名称"
+							value="${productOne.productName}">
+					</div>
+
+
+
+					<div class="col-md-2 title">出发城市</div>
+					<div class="col-md-4 data">
+						<input type="text" class="form-control" placeholder="出发城市"
+							value="${productOne.cityName}" readonly="readonly">
+					</div>
+
+					<div class="col-md-2 title">出发时间</div>
+					<div class="col-md-4 data">
+						<div class="input-group date">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="text" class="form-control pull-right"
+								id="datepicker-a6" value="${productOne.departureTime}"
+								readonly="readonly">
+						</div>
+					</div>
+					<div class="col-md-2 title">价格</div>
+					<div class="col-md-4 data">
+						<input type="text" class="form-control" placeholder="出游人数"
+							value="${productOne.productPrice}" readonly="readonly">
+					</div>
+
+					<div class="col-md-2 title rowHeight2x">其他信息</div>
+					<div class="col-md-10 data rowHeight2x">
+						<textarea class="form-control" rows="3" placeholder="其他信息">
+							${productOne.productDesc }
+						</textarea>
+					</div>
+
+				</div>
+			</div>
+
+				<!--订单信息/--> <!--游客信息-->
+				<div class="panel panel-default">
+					<div class="panel-heading">游客信息</div>
+					<!--数据列表-->
+					<table id="dataList"
+						   class="table table-bordered table-striped table-hover dataTable">
+						<thead>
+						<tr>
+							<th class="">姓名</th>
+							<th class="">性别</th>
+							<th class="">手机号码</th>
+							<th class="">证件类型</th>
+							<th class="">证件号码</th>
+						</tr>
+						</thead>
+						<tbody>
+						<%--<c:forEach items="${travellers}" var="traveller">--%>
+						<%--<c:forEach ite.ms="${ordersList}" var="orders">--%>
+
+						<tr>
+							<td><input type="text" size="10" name="lkname" value="${traveller.lkname }"
+									   readonly="readonly"></td>
+							<td><input type="text" size="10" name="sex" value="${1==traveller.sex?'男':'女' }"
+									   readonly="readonly"></td>
+							<td><input type="text" size="20" name="phoneNum"
+									   value="${traveller.phoneNum }" readonly="readonly"></td>
+							<td><input type="text" size="15" name="credentialsType"
+									   value="${0==traveller.credentialsType?'身份证':1==traveller.credentialsType?'护照':'军官证'}" readonly="readonly"></td>
+							<td><input type="text" size="28" name="credentialsNum"
+									   value="${traveller.credentialsNum }" readonly="readonly" ></td>
+						</tr>
+						<%--</c:forEach>--%>
+
+
+						</tbody>
+					</table>
+					<!--数据列表/-->
+				</div>
+
+
+			<!--游客信息/--> <!--联系人信息-->
+			<div class="panel panel-default">
+				<ul>
+					<li>选择导游:
+						<c:choose>
+						<c:when test="${pageInfo.list==null}">
+						<span style="color:#FF0000">加载导游数据失败</span>
+						</c:when>
+						<c:when test="${empty pageInfo.list}">
+						<span style="color:#FF0000">未加载到导游数据</span>
+						</c:when>
+						<c:otherwise>
+						<select name="member.id">
+							<c:forEach items="${pageInfo.list}" var="member">
+							<option value="${member.id}">${member.hyname}</option>
+							</c:forEach>
+							<select>
+
+								</c:otherwise>
+								</c:choose>
+					<li>
+				</ul>
+				<div class="panel-heading">导游信息</div>
+				<div class="row data-type">
+
+					<div class="col-md-2 title">昵称</div>
+					<div class="col-md-4 data text">${member.nickname }</div>
+
+					<div class="col-md-2 title">联系人</div>
+					<div class="col-md-4 data text">${member.hyname}</div>
+
+					<div class="col-md-2 title">手机号</div>
+					<div class="col-md-4 data text">${member.phoneNum}</div>
+
+					<div class="col-md-2 title">邮箱</div>
+					<div class="col-md-4 data text">${member.email}</div>
+
+				</div>
+			</div>
+
+
+
+			<!--联系人信息/--> <!--费用信息--> <c:if test="${orders.orderStatus==1}">
+				<div class="panel panel-default">
+					<div class="panel-heading">费用信息</div>
+					<div class="row data-type">
+
+						<div class="col-md-2 title">支付方式</div>
+						<div class="col-md-4 data text">在线支付-${orders.payTypeStr}</div>
+
+						<div class="col-md-2 title">金额</div>
+						<div class="col-md-4 data text">￥${orders.product.productPrice}</div>
+
+					</div>
+				</div>
+			</c:if> <!--费用信息/--> <!--工具栏-->
+			<div class="box-tools text-center">
+				<button type="button" class="btn bg-default"
+					onclick="history.back(-1);">返回</button>
+			</div>
+
+			<!--工具栏/--> </section>
 			<!-- 正文区域 /-->
 
+
 		</div>
-		<!-- @@close -->
+
 		<!-- 内容区域 /-->
 
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
-			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved.
-		</footer>
-		<!-- 底部导航 /-->
-
+        <!-- 底部导航 -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.8
+            </div>
+            <strong>报名电话：13618881999 <a
+                    href="https://www.tuniu.com">大表哥旅游团</a>.
+            </strong> 带你去看不一样的风景
+        </footer>
+        <!-- 底部导航 /-->
 	</div>
-
 
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -286,20 +386,9 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
 	<script>
-
-		function changePageSize(){
-			//获取下拉框的值
-			var pageSize = document.getElementById("pagesizeOp").value;
-
-			//向服务器发送请求，改变每页显示的行数
-			location.href = "${pageContext.request.contextPath}/product/findAllCus?page=1&size="+pageSize;
-
-		}
-
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();
@@ -322,7 +411,7 @@
 		$(document).ready(function() {
 
 			// 激活导航位置
-			setSidebarActive("admin-datalist");
+			setSidebarActive("order-manage");
 
 			// 列表按钮 
 			$("#dataList td input[type='checkbox']").iCheck({
@@ -342,5 +431,6 @@
 		});
 	</script>
 </body>
+
 
 </html>

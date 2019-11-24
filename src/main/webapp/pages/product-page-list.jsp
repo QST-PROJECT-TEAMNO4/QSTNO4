@@ -368,11 +368,11 @@
 							<div class="form-group form-inline">
 								总共${pageInfo.pages}页，共${pageInfo.total}条数据。 每页
 								<select class="form-control" id="pagesizeOp" onchange="changePageSize()">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option>${pageInfo.size}</option>
 									<option>5</option>
+									<option>10</option>
+									<option>15</option>
+									<option>20</option>
 								</select> 条
 							</div>
 						</div>

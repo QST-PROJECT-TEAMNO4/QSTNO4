@@ -32,6 +32,12 @@ public class MemberServiceImpl implements IMemberService {
     }
 
     @Override
+    public List<Member> findAll() {
+        return memberDao.findAll();
+    }
+
+
+    @Override
     public List<Member> findByKeyWord(String Keyword) {
         return memberDao.findByKeyWord(Keyword);
     }

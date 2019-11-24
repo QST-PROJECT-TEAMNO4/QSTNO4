@@ -53,7 +53,7 @@ public class ProductController {
         ModelAndView mv = new ModelAndView();
         Product product = productService.findProductById(Id);
         mv.addObject("productOne",product);
-        mv.setViewName("product-update");
+        mv.setViewName("buy-show");
         return mv;
     }
 
