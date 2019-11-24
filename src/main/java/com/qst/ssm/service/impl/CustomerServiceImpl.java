@@ -61,10 +61,21 @@ public class CustomerServiceImpl implements ICustomerService {
         return customerDao.addCustomer(customer);
     }
 
+    /**
+     * 完善信息的Service实现方法
+     * @param customer
+     * @return
+     */
+    @Override
+    public int updateCustomer(Customer customer) {
+        return customerDao.updateCustomer(customer);
+    }
+
     @Override
     public int update(Customer customer) {
         return customerDao.update(customer);
 
 
     }
+
 }

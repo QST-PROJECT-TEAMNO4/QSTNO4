@@ -17,13 +17,10 @@
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../plugins/ionicons/css/ionicons.min.css">
@@ -47,6 +44,16 @@
     <link rel="stylesheet" href="../plugins/bootstrap-slider/slider.css">
     <link rel="stylesheet" href="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 
+<%--    <script>--%>
+<%--        function ngh() {--%>
+<%--            let val=${user.id};--%>
+<%--            if(val==null){--%>
+
+<%--                window.alert("登录失败");--%>
+<%--                return  "/AdminLogin.action"--%>
+<%--            }--%>
+<%--        }--%>
+<%--    </script>--%>
     <%--点击修改密码触发事件--%>
     <script>
         var editPassword = function () {
@@ -100,7 +107,7 @@
     </script>
 </head>
 
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini" >
 
 <div class="modal fade" id="updatePassword" tabindex="-1">
     <div class="modal-dialog" role="document">
@@ -145,8 +152,6 @@
 
     <!-- 页面头部 -->
     <header class="main-header">
-
-
         <!-- Logo -->
         <a href="all-admin-index.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -171,212 +176,16 @@
                             <i class="fa fa-envelope-o"></i>
                             <span class="label label-success">4</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有4个邮件</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                系统消息
-                                                <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
-                                            </h4>
-                                            <p>欢迎登录系统?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                团队消息
-                                                <small><i class="fa fa-clock-o"></i> 2 小时前</small>
-                                            </h4>
-                                            <p>你有新的任务了</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
+
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有10个新消息</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
-                                            may not
-                                            fit into the page and may cause design problems
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-red"></i> 5 new members joined
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user text-red"></i> You changed your username
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
+
                     <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有9个新任务</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Create a nice theme
-                                                <small class="pull-right">40%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">40% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Some task I need to do
-                                                <small class="pull-right">60%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">60% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Make beautiful transitions
-                                                <small class="pull-right">80%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">80% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../img/user1-128x128.jpg" class="user-image" alt="User Image">
-                            用户:${USER_SESSION.username}
+                            管理员:${USER_SESSION.username}
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -384,7 +193,7 @@
                                 <img src="../img/user1-128x128.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    用户:${USER_SESSION.username}
+                                    管理员:${USER_SESSION.username}
                                     <small>最后登录 11:20AM</small>
                                 </p>
 
@@ -419,7 +228,7 @@
                     <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>用户:${USER_SESSION.username}</p>
+                    <p>管理员:${USER_SESSION.username}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>
             </div>
@@ -450,63 +259,28 @@
                                 href="${pageContext.request.contextPath}/member/findAll?page=1&size=5">
                             <i class="fa fa-circle-o"></i> 导游信息管理
                         </a></li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
+                    <span>基础数据</span> <span class="pull-right-container"> <i
+                            class="fa fa-angle-left pull-right"></i>
+				</span>
+                </a>
+                    <ul class="treeview-menu">
 
                         <li id="system-setting"><a
                                 href="${pageContext.request.contextPath}/product/findAll?page=1&size=5">
                             <i class="fa fa-circle-o"></i> 产品管理
                         </a></li>
                         <li id="system-setting"><a
-                                href="${pageContext.request.contextPath}/orders/queryOrders">
+                                href="${pageContext.request.contextPath}/orders/queryOrders?page=1&size=4">
                             <i class="fa fa-circle-o"></i> 订单管理
                         </a></li>
 
-                        <li id="system-setting"><a
-                                href=" ${pageContext.request.contextPath}/index2.jsp">
-                            <i class="fa fa-circle-o"></i> 111
-                        </a></li>
-
-
-
                     </ul>
                 </li>
-
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-pie-chart"></i> <span>图表Charts</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="charts-chartjs">
-                            <a href="all-charts-chartjs.html">
-                                <i class="fa fa-circle-o"></i> ChartJS
-                            </a>
-                        </li>
-
-                        <li id="charts-morris">
-                            <a href="all-charts-morris.html">
-                                <i class="fa fa-circle-o"></i> Morris Charts
-                            </a>
-                        </li>
-
-                        <li id="charts-flot">
-                            <a href="all-charts-flot.html">
-                                <i class="fa fa-circle-o"></i> Flot Charts
-                            </a>
-                        </li>
-
-                        <li id="charts-inline">
-                            <a href="all-charts-inline.html">
-                                <i class="fa fa-circle-o"></i> Inline Charts
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
 
                 <!-- 菜单 /-->
 

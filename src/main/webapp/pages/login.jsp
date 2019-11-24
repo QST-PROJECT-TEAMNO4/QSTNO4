@@ -64,7 +64,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">登录系统</p>
 
-        <form action="${pageContext.request.contextPath}/CustomerLogin.action" method="post" onsubmit="return check()">
+        <form action="${pageContext.request.contextPath}/customer/CustomerLogin.action" method="post" onsubmit="return check()">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="账号" name="username">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

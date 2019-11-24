@@ -84,4 +84,11 @@ public interface ICustomerDao {
      */
     public int addCustomer(Customer customer);
 
+    /**
+     * 完善用户信息
+     * @param customer
+     * @return
+     */
+    public int updateCustomer(Customer customer);
+
 }

@@ -108,7 +108,7 @@ public class OrdersController {
         if (rows==1){
             return "redirect:queryOrders";
         }else {
-            return "redirect:queryOrders";
+            return "redirect:queryOrders"+rows;
         }
 
     }

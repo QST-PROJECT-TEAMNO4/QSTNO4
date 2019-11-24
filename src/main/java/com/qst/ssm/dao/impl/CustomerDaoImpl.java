@@ -57,6 +57,10 @@ public class CustomerDaoImpl implements ICustomerDao {
         return customerMapper.addCustomer(customer);
     }
 
+    @Override
+    public int updateCustomer(Customer customer) {
+        return customerMapper.updateCustomer(customer);
+    }
 
 
 }

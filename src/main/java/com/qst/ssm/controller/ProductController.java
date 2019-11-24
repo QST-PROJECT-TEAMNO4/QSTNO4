@@ -67,8 +67,23 @@ public class ProductController {
         List<Product> ps =productService.findProductByKeyword(Keyword);
         mv.addObject("productList",ps);
         mv.setViewName("product-list");
+        mv.setViewName("cus-product-list");
+
         return mv;
     }
+
+//    /**
+//     * 模糊查询
+//     * @return
+//     */
+//    @RequestMapping("/findProductByKeywordCus")
+//    public ModelAndView findProductByKeywordCus(String Keyword) {
+//        ModelAndView mv = new ModelAndView();
+//        List<Product> ps =productService.findProductByKeyword(Keyword);
+//        mv.addObject("productList",ps);
+//        mv.setViewName("cus-product-list");
+//        return mv;
+//    }
 
     /**
      * 添加产品
@@ -107,6 +122,16 @@ public class ProductController {
         int rows = productService.deleteById(Id);
         return "redirect:findAll";
     }
-
+    @RequestMapping("/findAllCus")
+    public ModelAndView findAllCus(@RequestParam(name = "page",required = true,defaultValue = "1")int page,
+                                   @RequestParam(name = "size",required = true,defaultValue = "5") int size) {
+        ModelAndView mv = new ModelAndView();
+        List<Product> ps =productService.findall(page,size);
+        PageInfo pageInfo = new PageInfo(ps);
+        mv.addObject("pageInfo",pageInfo);
+        mv.setViewName("customer-product-page-list");
+        System.out.println("******************"+mv);
+        return mv;
+    }
 
 }

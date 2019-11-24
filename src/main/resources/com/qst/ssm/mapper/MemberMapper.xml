@@ -3,6 +3,96 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.ssm.mapper.MemberMapper">
+
+    <select id="findAll" resultType="com.qst.ssm.entity.Member">
+         <![CDATA[
+        SELECT
+            id as id,
+            hyname as hyname,
+            nickname as nickname,
+            phoneNum as phoneNum,
+            email as email
+        FROM
+            member
+	]]>
+    </select>
+
+    <select id="initBuyInfo" resultType="com.qst.ssm.entity.Member">
+         <![CDATA[
+        SELECT
+            id as id,
+            hyname as hyname,
+            nickname as nickname,
+            phoneNum as phoneNum,
+            email as email
+        FROM
+            member
+	]]>
+    </select>
+
+    <select id="findById" resultType="com.qst.ssm.entity.Member">
+         <![CDATA[
+        SELECT
+            id as id,
+            hyname as hyname,
+            nickname as nickname,
+            phoneNum as phoneNum,
+            email as email
+        FROM
+            member
+        where id=#{id}
+	]]>
+    </select>
+
+    <select id="findByKeyWord" resultType="com.qst.ssm.entity.Member" parameterType="string">
+         <![CDATA[
+          SELECT
+            id as id,
+            hyname as hyname,
+            nickname as nickname,
+            phoneNum as phoneNum,
+            email as email
+        FROM
+            member
+        where   hyname like concat(concat('%',#{hyname},'%')) or
+                nickname like concat(concat('%',#{nickname},'%')) or
+                phoneNum like concat(concat('%',#{phoneNum},'%')) or
+                email like concat(concat('%',#{email},'%'))
+	]]>
+    </select>
+
+    <insert id="add"  parameterType="member">
+         <![CDATA[
+            INSERT INTO member
+            ( hyname, nickname, phoneNum, email )
+            VALUES
+                ( #{hyname},#{nickname},#{phoneNum},#{email} )
+	]]>
+    </insert>
+
+    <update id="update"  parameterType="com.qst.ssm.entity.Member" >
+        <![CDATA[
+            update member
+            set hyname = #{hyname},
+                nickname = #{nickname},
+                phoneNum = #{phoneNum},
+                email = #{email}
+            WHERE id= #{id}
+        ]]>
+    </update>
+
+    <delete id="delete" parameterType="int">
+        <![CDATA[
+               delete from member
+               where id=#{id}
+        ]]>
+
+    </delete>
+
+
+
+
+
     <!--根据订单Id查询导游信息-->
     <select id="getOrdersMember" resultType="member" parameterType="int">
         <![CDATA[

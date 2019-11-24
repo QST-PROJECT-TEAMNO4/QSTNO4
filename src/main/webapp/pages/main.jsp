@@ -111,7 +111,7 @@
                 <h4 class="modal-title" id="exampleModalLabel">密码修改</h4>
             </div>
             <div class="modal-body">
-                <form name="editForm" method="post" action="${pageContext.request.contextPath}/CPassword.action">
+                <form name="editForm" method="post" action="${pageContext.request.contextPath}/customer/CPassword.action">
                     <div class="form-group">
                         <label>原密码：</label>
                         <input type='password' id="oldPassword" class="form-control" name="oldPassword" required
@@ -148,11 +148,11 @@
 
 
         <!-- Logo -->
-        <a href="all-admin-index.html" class="logo">
+        <a href="main.jsp" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>数据</b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>数据</b>后台管理</span>
+            <span class="logo-lg"><b>大表哥</b>旅游网</span>
         </a>
 
 
@@ -165,214 +165,7 @@
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有4个邮件</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                系统消息
-                                                <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
-                                            </h4>
-                                            <p>欢迎登录系统?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                团队消息
-                                                <small><i class="fa fa-clock-o"></i> 2 小时前</small>
-                                            </h4>
-                                            <p>你有新的任务了</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
-                    </li>
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有10个新消息</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
-                                            may not
-                                            fit into the page and may cause design problems
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-red"></i> 5 new members joined
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user text-red"></i> You changed your username
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
-                    <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有9个新任务</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Create a nice theme
-                                                <small class="pull-right">40%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">40% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Some task I need to do
-                                                <small class="pull-right">60%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">60% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li>
-                                        <!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Make beautiful transitions
-                                                <small class="pull-right">80%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">80% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- User Account: style can be found in dropdown.less -->
+
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../img/user1-128x128.jpg" class="user-image" alt="User Image">
@@ -396,7 +189,7 @@
                                     <button onclick="editPassword()" class="btn btn-default btn-flat">修改密码</button>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="${pageContext.request.contextPath}/CustomerLogout.action"
+                                    <a href="${pageContext.request.contextPath}/customer/CustomerLogout.action"
                                        class="btn btn-default btn-flat">注销</a>
                                 </div>
                             </li>
@@ -416,7 +209,8 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
+                         class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>用户:${CUSTOMER_SESSION.username}</p>
@@ -424,93 +218,38 @@
                 </div>
             </div>
 
+            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
+                <li id="admin-index"><a
+                        href="${pageContext.request.contextPath}/pages/welcom.jsp"><i
+                        class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-                <li id="admin-index"><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a>
-                </li>
-
-                <!-- 菜单 -->
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-folder"></i> <span>后台通用页面</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
+                <li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
+                    <span>去旅游</span> <span class="pull-right-container"> <i
+                            class="fa fa-angle-left pull-right"></i>
+				</span>
+                </a>
                     <ul class="treeview-menu">
 
-                        <li id="admin-login">
-                            <a href="all-admin-login.html">
-                                <i class="fa fa-circle-o"></i> 登录
-                            </a>
-                        </li>
+                        <li id=""><a
+                                href="${pageContext.request.contextPath}/product/findAllCus"> <i
+                                class="fa fa-circle-o"></i> 旅游商品页面
+                        </a></li>
+                    </ul></li>
+                <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
+                    <span>基础数据</span> <span class="pull-right-container"> <i
+                            class="fa fa-angle-left pull-right"></i>
+				</span>
+                </a>
+                    <ul class="treeview-menu">
 
-                        <li id="admin-register">
-                            <a href="all-admin-register.html">
-                                <i class="fa fa-circle-o"></i> 注册
-                            </a>
-                        </li>
+                        <li id="system-setting"><a
+                                href="${pageContext.request.contextPath}/pages/customer.jsp">
+                            <i class="fa fa-circle-o"></i> 个人中心
+                        </a></li>
 
-                        <li id="admin-404">
-                            <a href="all-admin-404.html">
-                                <i class="fa fa-circle-o"></i> 404页
-                            </a>
-                        </li>
-
-                        <li id="admin-500">
-                            <a href="all-admin-500.html">
-                                <i class="fa fa-circle-o"></i> 500页
-                            </a>
-                        </li>
-
-                        <li id="admin-blank">
-                            <a href="all-admin-blank.html">
-                                <i class="fa fa-circle-o"></i> 空白页
-                            </a>
-                        </li>
-
-                        <li id="admin-datalist">
-                            <a href="all-admin-datalist.html">
-                                <i class="fa fa-circle-o"></i> 数据列表页
-                            </a>
-                        </li>
-
-                        <li id="admin-dataform">
-                            <a href="all-admin-dataform.html">
-                                <i class="fa fa-circle-o"></i> 表单页
-                            </a>
-                        </li>
-
-                        <li id="admin-profile">
-                            <a href="${pageContext.request.contextPath}/index.jsp">
-                                <i class="fa fa-circle-o"></i> 个人中心
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice">
-                            <a href="all-admin-invoice.html">
-                                <i class="fa fa-circle-o"></i> 发票
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice-print">
-                            <a href="all-admin-invoice-print.html">
-                                <i class="fa fa-circle-o"></i> 发票打印
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-
-
-
-                <!-- 菜单 /-->
-
-                <li id="admin-documentation"><a href="documentation.html" target="_blank"><i class="fa fa-book"></i>
-                    <span>AdminLTE汉化文档</span></a></li>
+                    </ul></li>
 
             </ul>
         </section>
@@ -522,11 +261,247 @@
     <!-- @@master = admin-layout.html-->
     <!-- @@block = content -->
 
+
+
     <div class="content-wrapper">
 
-        <img src="img/v2.jpg" width="100%" height="100%"/>
+        <!-- 内容头部 -->
+        <section class="content-header">
+            <h1>
+                数据管理 <small>数据列表</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li class="active">数据列表</li>
+            </ol>
+        </section>
+        <!-- 内容头部 /-->
+
+        <!-- 正文区域 -->
+        <section class="content">
+
+            <!-- .box-body -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">列表</h3>
+                </div>
+
+                <div class="box-body">
+
+                    <!-- 数据表格 -->
+                    <div class="table-box">
+
+                        <!--工具栏-->
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <%--										<button type="button" class="btn btn-default" title="新建"--%>
+                                    <%--											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">--%>
+                                    <%--											<i class="fa fa-file-o"></i> 新建--%>
+                                    <%--										</button>--%>
+                                    <%--										<button type="button" class="btn btn-default" title="删除">--%>
+                                    <%--											<i class="fa fa-trash-o"></i> 删除--%>
+                                    <%--										</button>--%>
+                                    <%--										<button type="button" class="btn btn-default" title="开启">--%>
+                                    <%--											<i class="fa fa-check"></i> 开启--%>
+                                    <%--										</button>--%>
+                                    <%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
+                                    <%--											<i class="fa fa-ban"></i> 屏蔽--%>
+                                    <%--										</button>--%>
+                                    <a type="button" class="btn btn-default" title="刷新" href="${pageContext.request.contextPath}/customer/findAll?page=1&size=5 ">
+                                        <i class="fa fa-refresh"></i> 刷新
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-tools pull-right">
+                            <form action="/customer/findByKeyWord">
+                                <%--									<button type="submit" class="btn bg-maroon">搜索</button>--%>
+                                <div class="has-feedback">
+                                    <input type="text" class="form-control input-sm"
+                                           placeholder="按下回车搜索" name="Keyword" >
+                                    <span class="glyphicon glyphicon-search form-control-feedback" ></span>
+                                </div>
+                            </form>
+
+                        </div>
+                        <!--工具栏/-->
+
+                        <!--数据列表-->
+                        <table id="dataList"
+                               class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <%--										<th class="" style="padding-right: 0px;"><input--%>
+                                <%--											id="selall" type="checkbox" class="icheckbox_square-blue">--%>
+                                <%--										</th>--%>
+                                <%--										<th class="sorting_asc">ID</th>--%>
+                                <th class="sorting_desc">用户名</th>
+                                <th class="sorting_asc sorting_asc_disabled">邮箱</th>
+                                <th class="sorting_desc sorting_desc_disabled">电话号码</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <c:forEach items="${pageInfo.list}" var="customer">
+
+                                <tr>
+                                        <%--											<td><input name="ids" type="checkbox"></td>--%>
+                                        <%--											<td>${product.id }</td>--%>
+                                    <td>${customer.username }</td>
+                                    <td>${customer.email }</td>
+                                    <td>${customer.phoneNum}</td>
+
+
+
+                                    </td>
+                                    <td class="text-center">
+                                            <%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
+                                            <%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
+                                        <a type="button" class="btn bg-olive btn-xs"  href='#' onclick="resetPassword('${customer.username}',${customer.id})">重置密码</a>
+                                            <%--												<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="deleteById('${product.productName }',${product.id})">删除</a>--%>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            <script>
+                                /**
+                                 * 删除产品
+                                 * @param productId  商品ID
+                                 */
+                                function resetPassword(username,customerId) {
+                                    if(window.confirm('确定要将用户【名称为："'+username+'"】的密码重置为默认密码【123456】吗?')){
+                                        window.location.href='/customer/update?Id='+customerId;
+
+                                    }
+
+
+                                }
+
+
+
+                                /**
+                                 *
+                                 * 获取商品状态文本
+                                 * @param productStatus
+                                 */
+                                function getProductStatusText(productStatus){
+                                    var statusText;
+                                    if(0==productStatus)
+                                    {
+                                        statusText="关闭";
+                                    }else if(1==productStatus){
+                                        statusText="开启";
+                                    }else{
+                                        statusText="未知";
+                                    }
+                                    return statusText;
+                                }
+                                $(function(){
+                                    $('td[data-product-status]').each(function (i) {
+                                        var productStatus=$(this).data('product-status');
+                                        var statusText=getProductStatusText(productStatus);
+                                        $(this).text(statusText);
+                                    });
+                                });
+
+                            </script>
+                            </tbody>
+                            <!--
+                        <tfoot>
+                        <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                        </tr>
+                        </tfoot>-->
+                        </table>
+                        <!--数据列表/-->
+
+                        <!--工具栏-->
+                        <%--							<div class="pull-left">--%>
+                        <%--								<div class="form-group form-inline">--%>
+                        <%--									<div class="btn-group">--%>
+                        <%--										<button type="button" class="btn btn-default" title="新建">--%>
+                        <%--											<i class="fa fa-file-o"></i> 新建--%>
+                        <%--										</button>--%>
+                        <%--										<button type="button" class="btn btn-default" title="删除">--%>
+                        <%--											<i class="fa fa-trash-o"></i> 删除--%>
+                        <%--										</button>--%>
+                        <%--										<button type="button" class="btn btn-default" title="开启">--%>
+                        <%--											<i class="fa fa-check"></i> 开启--%>
+                        <%--										</button>--%>
+                        <%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
+                        <%--											<i class="fa fa-ban"></i> 屏蔽--%>
+                        <%--										</button>--%>
+                        <%--										<button type="button" class="btn btn-default" title="刷新">--%>
+                        <%--											<i class="fa fa-refresh"></i> 刷新--%>
+                        <%--										</button>--%>
+                        <%--									</div>--%>
+                        <%--								</div>--%>
+                        <%--							</div>--%>
+                        <%--							<div class="box-tools pull-right">--%>
+                        <%--								<div class="has-feedback">--%>
+                        <%--									<input type="text" class="form-control input-sm"--%>
+                        <%--										placeholder="搜索"> <span--%>
+                        <%--										class="glyphicon glyphicon-search form-control-feedback"></span>--%>
+                        <%--								</div>--%>
+                        <%--							</div>--%>
+                        <!--工具栏/-->
+
+                    </div>
+                    <!-- 数据表格 /-->
+
+
+                </div>
+                <!-- /.box-body -->
+
+                <!-- .box-footer-->
+                <div class="box-footer">
+                    <div class="pull-left">
+                        <div class="form-group form-inline">
+                            总共${pageInfo.pages}页，共${pageInfo.total}条数据。 每页
+                            <select class="form-control" id="pagesizeOp" onchange="changePageSize()">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select> 条
+                        </div>
+                    </div>
+
+                    <div class="box-tools pull-right">
+                        <ul class="pagination">
+                            <li><a href="${pageContext.request.contextPath}/customer/findAll?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
+                            <li><a href="${pageContext.request.contextPath}/customer/findAll?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
+
+                            <c:forEach begin="1" end="${pageInfo.pages}" var="pageNum">
+                                <li><a href="${pageContext.request.contextPath}/customer/findAll?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a></li>
+                            </c:forEach>
+
+
+                            <li><a href="${pageContext.request.contextPath}/customer/findAll?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
+                            <li><a href="${pageContext.request.contextPath}/customer/findAll?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /.box-footer-->
+
+
+
+            </div>
+
+        </section>
+        <!-- 正文区域 /-->
 
     </div>
+
     <!-- @@close -->
     <!-- 内容区域 /-->
 

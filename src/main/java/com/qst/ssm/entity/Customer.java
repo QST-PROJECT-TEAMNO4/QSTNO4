@@ -9,25 +9,24 @@ public class Customer {
     private String email; //邮箱
     private String username; //用户名
     private String password;//密码
+    private Integer sex;//性别
     private String phoneNum;//电话号码
+    private String peopleID;
 
 
    public Customer(){
 
     }
 
-
-    public Customer(Integer id, String email, String username, String password, String phoneNum) {
+    public Customer(Integer id, String email, String username, String password, Integer sex, String phoneNum, String peopleID) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.sex = sex;
         this.phoneNum = phoneNum;
+        this.peopleID = peopleID;
     }
-
-
-
-
 
     public Integer getId() {
         return id;
@@ -61,12 +60,28 @@ public class Customer {
         this.password = password;
     }
 
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
     public String getPhoneNum() {
         return phoneNum;
     }
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public String getPeopleID() {
+        return peopleID;
+    }
+
+    public void setPeopleID(String peopleID) {
+        this.peopleID = peopleID;
     }
 
     @Override
@@ -76,7 +91,9 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", sex=" + sex +
                 ", phoneNum='" + phoneNum + '\'' +
+                ", peopleID='" + peopleID + '\'' +
                 '}';
     }
 }

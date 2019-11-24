@@ -2,7 +2,11 @@ package com.qst.ssm.controller;
 
 
 import com.qst.ssm.entity.Customer;
+import com.qst.ssm.entity.Member;
+import com.qst.ssm.entity.Product;
 import com.qst.ssm.service.ICustomerService;
+import com.qst.ssm.service.IMemberService;
+import com.qst.ssm.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +22,17 @@ import java.util.List;
  *用户控制器类
  */
 @Controller
+@RequestMapping("/customer")
 public class CustomerController {
     //依赖注入
     @Autowired
     private ICustomerService customerService;
+
+    @Autowired
+    private IProductService productService;
+
+    @Autowired
+    private IMemberService memberService;
 
     @RequestMapping("/findAll")
     public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page,
@@ -70,7 +81,7 @@ public class CustomerController {
         if (customer!=null){
             //将用户对象添加到Session
             session.setAttribute("CUSTOMER_SESSION",customer);
-            System.out.println(customer);
+
             //跳转到主页面
             return "main";
 
@@ -122,6 +133,14 @@ public class CustomerController {
     }
 
 
+    @RequestMapping(value = "/main.action",method = RequestMethod.GET)
+    public String backmain(){
+        return "main";
+    }
+
+
+
+
     @RequestMapping(value = "/register.action",method = RequestMethod.POST)
     public String insertOrders(Customer customer){
         int rows=customerService.addCustomer(customer);
@@ -132,8 +151,41 @@ public class CustomerController {
         }
     }
 
+    public ModelAndView mv1 = new ModelAndView();
+
+    @RequestMapping("/initbuyInfo")
+    public ModelAndView initBuyInfo(int page,int size) {
+        List<Member> memberList = memberService.findAll(page,size);
+        mv1.addObject("memberList",memberList);
+        mv1.setViewName("buy-info");
+        return mv1;
+    }
+
+    @RequestMapping("/buyInfo")
+    public ModelAndView buyInfo(int Id) {
+        Product products = productService.findProductById(Id);
+        mv1.addObject("products",products);
+        mv1.setViewName("buy-info");
+        return mv1;
+    }
 
 
+    @RequestMapping(value="/updateCustomer.action",method = RequestMethod.POST)
+    public String updateCustomer(Customer customer, Model model, HttpSession session){
+        //通过账号和密码查询用户
+        int rows=customerService.updateCustomer(customer);
+        if (rows==1){
+            //将用户对象添加到Session
+            session.setAttribute("CUSTOMER_SESSION",customer);
 
+            System.out.println(customer);
+            System.out.println(session);
+            //跳转到主页面
+            return "customer";
+
+        }
+        model.addAttribute("msg","信息更新失败，请重试或联系管理员");
+        return "main";
+    }
 }
 

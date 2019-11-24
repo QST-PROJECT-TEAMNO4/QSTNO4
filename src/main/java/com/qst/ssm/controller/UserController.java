@@ -25,11 +25,17 @@ public class UserController {
     public String login(String username, String password, Model model, HttpSession session){
         //通过账号和密码查询用户
         User user=userService.findUser(username,password);
+
         if (user!=null){
             //将用户对象添加到Session
             session.setAttribute("USER_SESSION",user);
+            User user1=(User) session.getAttribute("USER_SESSION");
+            user1.getId();
+            System.out.println(user1.getId());
             System.out.println(user);
+            model.addAttribute("user",user1.getId());
             //跳转到主页面
+
             return "AdminMain";
 
         }

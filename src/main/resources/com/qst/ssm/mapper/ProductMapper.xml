@@ -49,6 +49,30 @@
 	]]>
     </select>
 
+    <select id="findProductByKeywordCus" resultType="com.qst.ssm.entity.Product" parameterType="string">
+         <![CDATA[
+        select id as id,
+			   productNum as productNum,
+               productName as productName,
+               cityName as cityName,
+               departureTime as departureTime,
+               productPrice as productPrice,
+               productDesc as productDesc,
+               productStatus as productStatus
+        from product
+        where   productNum like concat(concat('%',#{productNum},'%')) or
+                productName like concat(concat('%',#{productName},'%')) or
+                cityName like concat(concat('%',#{cityName},'%')) or
+                productPrice like concat(concat('%',#{productPrice},'%')) or
+                productDesc like concat(concat('%',#{productDesc},'%'))
+
+
+
+	]]>
+    </select>
+
+
+
     <insert id="add"  parameterType="product">
          <![CDATA[
         INSERT INTO product (
@@ -91,7 +115,19 @@
         ]]>
 
     </delete>
-
+    <select id="findAllCus" resultType="com.qst.ssm.entity.Product">
+    <![CDATA[
+        select id as id,
+			   productNum as productNum,
+               productName as productName,
+               cityName as cityName,
+               departureTime as departureTime,
+               productPrice as productPrice,
+               productDesc as productDesc,
+               productStatus as productStatus
+        from product
+	]]>
+    </select>
 
 
     <!--<insert id="#" parameterType="2">

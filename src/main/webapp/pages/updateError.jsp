@@ -12,10 +12,10 @@
 </head>
 <body>
 <div align="center" style="background-color: red">
-    <h2>修改密码失败，请检查原密码是否正确</h2>
+    <h2>信息更新失败，请重试或联系管理员</h2>
 </div>
 <div align="center" style="background-color: blue">
-    <p id="page_div" >将在5秒后自动跳转到首页....</p>
+    <p id="page_div" >将在5秒后自动跳转回到首页....</p>
 </div>
 
 
@@ -34,4 +34,5 @@
 </script>
 </body>
 </html>
+
 

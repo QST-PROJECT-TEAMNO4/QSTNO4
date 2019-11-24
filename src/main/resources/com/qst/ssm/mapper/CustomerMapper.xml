@@ -58,6 +58,16 @@
         ]]>
     </update>
 
+    <update id="updateInfo"  parameterType="com.qst.ssm.entity.Customer" >
+        <![CDATA[
+            update customer
+            set
+                    PASSWORD = 123456
+
+            WHERE id= #{id}
+        ]]>
+    </update>
+
     <delete id="delete" parameterType="int">
         <![CDATA[
                delete from customer
@@ -66,24 +76,34 @@
 
     </delete>
 
-
-
     <!--查询密码进行登录验证-->
     <select id="findCustomer" parameterType="String" resultType="customer">
-        select id,email,username,password,phoneNum
+        select id,email,username,password,phoneNum,sex,peopleID
         from customer
         where username=#{username}
         and password=md5(#{password})
     </select>
+
 <!--修改密码-->
     <update id="changePW" parameterType="String" >
         update customer set password=md5(#{newPassword})
         where password=md5(#{oldPassword})
     </update>
+
+    <!--完善个人信息-->
+
+    <update id="updateCustomer" parameterType="Customer">
+        update customer
+        set email=#{email},phoneNum=#{phoneNum},sex=#{sex},peopleID=#{peopleID}
+        where id=#{id}
+    </update>
+
+
+<!--注册-->
     <insert id="addCustomer" parameterType="String">
-        INSERT INTO customer ( email, username, password, phoneNum )
+        INSERT INTO customer (username, password )
 VALUES
-	(#{email},#{username},md5(#{password}),#{phoneNum})
+	(#{username},md5(#{password}))
     </insert>
 
 </mapper>
