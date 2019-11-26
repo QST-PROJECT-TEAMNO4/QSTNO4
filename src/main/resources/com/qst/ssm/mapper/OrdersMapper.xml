@@ -21,7 +21,7 @@
 	]]>
     </select>
 
-    <select id="CusQueryOrders" resultType="orders" parameterType="int">
+    <select id="CusQueryOrders" resultType="map" parameterType="int">
          <![CDATA[
         select
 	       o.id as id,

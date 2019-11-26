@@ -47,6 +47,9 @@
     <link rel="stylesheet" href="../plugins/bootstrap-slider/slider.css">
     <link rel="stylesheet" href="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 
+    <script>
+      var Id=${CUSTOMER_SESSION.username};
+    </script>
     <%--点击修改密码触发事件--%>
     <script>
         var editPassword = function () {
@@ -249,7 +252,19 @@
                             <i class="fa fa-circle-o"></i> 个人中心
                         </a></li>
 
-                    </ul></li>
+                    </ul>
+
+                    <ul class="treeview-menu">
+
+                        <li id="aaa"><a
+                                href="${pageContext.request.contextPath}/orders/CusQueryOrders?Id=${CUSTOMER_SESSION.username}">
+                            <i class="fa fa-circle-o"></i> 我的订单
+                        </a></li>
+
+                    </ul>
+
+
+                </li>
 
             </ul>
         </section>
