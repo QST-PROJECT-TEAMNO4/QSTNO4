@@ -59,4 +59,25 @@ public interface OrdersMapper {
      * @return
      */
     List<Map<String,Object>> OPFallAllLike(String Keyword);
+
+    /**
+     * 根据ID修改支付状态
+     * @param Id
+     * @return
+     */
+    int updateOrdersStatus(int Id);
+
+    /**
+     * 根据订单ID查询订单详情
+     * @param orderNum
+     * @return
+     */
+    Map<String,Object> orderInfo(String orderNum);
+
+    /**
+     * 查询该用户下的所有订单
+     * @param Id
+     * @return
+     */
+    List<Map<String,Object>> CusQueryOrders(int Id);
 }

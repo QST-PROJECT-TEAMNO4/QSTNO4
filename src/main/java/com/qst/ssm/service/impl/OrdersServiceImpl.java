@@ -41,6 +41,12 @@ public class OrdersServiceImpl implements IOrderService {
         return ordersDao.queryOrdersProduct();
     }
 
+
+    @Override
+    public int updateOrdersStatus(int Id) {
+        return ordersDao.updateOrdersStatus(Id);
+    }
+
     /**
      * 根据Id查询订单信息
      * @param Id
@@ -119,4 +125,14 @@ public class OrdersServiceImpl implements IOrderService {
     }
 
 
+    @Override
+    public Map<String, Object> orderInfo(String orderNum) {
+        return ordersDao.orderInfo(orderNum);
+    }
+
+    @Override
+    public List<Map<String,Object>> CusQueryOrders(int page,int size, int Id) {
+        PageHelper.startPage(page,size);
+        return ordersDao.CusQueryOrders(Id);
+    }
 }

@@ -273,6 +273,9 @@
                             <li>
                                 用户名: ${CUSTOMER_SESSION.username}
                             </li>
+                            <li>
+                                用户名: ${CUSTOMER_SESSION.name}
+                            </li>
 
                             <%--<li>
                                 性别:  <input id="sexRequire" type="hidden" value="${CUSTOMER_SESSION.sex}" readonly />

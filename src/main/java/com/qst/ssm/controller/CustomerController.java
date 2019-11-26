@@ -81,7 +81,9 @@ public class CustomerController {
         if (customer!=null){
             //将用户对象添加到Session
             session.setAttribute("CUSTOMER_SESSION",customer);
+            Integer id = (Integer)session.getAttribute("id");
 
+            System.out.println(id);
             //跳转到主页面
             return "main";
 
@@ -185,7 +187,23 @@ public class CustomerController {
 
         }
         model.addAttribute("msg","信息更新失败，请重试或联系管理员");
-        return "main";
+        return "updateError";
     }
+
+    @RequestMapping("/buyShow")
+    public ModelAndView buyInfo(@RequestParam(name = "page",required = true,defaultValue = "1")int page,
+                                @RequestParam(name = "size",required = true,defaultValue = "5") int size,
+                                @RequestParam(name = "Id",required = true,defaultValue = "") int Id) {
+        ModelAndView mv1 = new ModelAndView();
+        Product products = productService.findProductById(Id);
+        List<Member> memberList = memberService.findAll(page,size);
+        mv1.addObject("memberList",memberList);
+        mv1.addObject("products",products);
+        mv1.setViewName("buy-show");
+        return mv1;
+    }
+
+
+
 }
 

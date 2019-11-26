@@ -280,7 +280,7 @@
 									 */
 									function BuyById(productId) {
 										if(window.confirm('确定要购买该商品吗?')){
-											window.location.href='/customer/initbuyInfo?Id='+productId;
+											window.location.href='/customer/buyShow?Id='+productId;
 										}
 									}
 

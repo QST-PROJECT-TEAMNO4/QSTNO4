@@ -7,6 +7,7 @@ import org.apache.ibatis.type.Alias;
 public class Customer {
     private Integer id; //主键
     private String email; //邮箱
+    private  String name;
     private String username; //用户名
     private String password;//密码
     private Integer sex;//性别
@@ -18,9 +19,10 @@ public class Customer {
 
     }
 
-    public Customer(Integer id, String email, String username, String password, Integer sex, String phoneNum, String peopleID) {
+    public Customer(Integer id, String email, String name, String username, String password, Integer sex, String phoneNum, String peopleID) {
         this.id = id;
         this.email = email;
+        this.name = name;
         this.username = username;
         this.password = password;
         this.sex = sex;
@@ -42,6 +44,14 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
@@ -89,6 +99,7 @@ public class Customer {
         return "Customer{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", sex=" + sex +

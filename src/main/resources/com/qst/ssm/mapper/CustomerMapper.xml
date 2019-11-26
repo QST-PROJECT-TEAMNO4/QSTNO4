@@ -9,6 +9,7 @@
         SELECT
             id as id,
             email as email,
+            name as  nanme,
             username as username,
             PASSWORD as password,
             phoneNum as phoneNum
@@ -22,6 +23,7 @@
         SELECT
             id as id,
             email as email,
+            name as  nanme,
             username as username,
             PASSWORD as password,
             phoneNum as phoneNum
@@ -36,6 +38,7 @@
           SELECT
             id as id,
             email as email,
+            name as  nanme,
             username as username,
             PASSWORD as password,
             phoneNum as phoneNum
@@ -78,7 +81,7 @@
 
     <!--查询密码进行登录验证-->
     <select id="findCustomer" parameterType="String" resultType="customer">
-        select id,email,username,password,phoneNum,sex,peopleID
+        select id,email,username,password,phoneNum,sex,peopleID,name
         from customer
         where username=#{username}
         and password=md5(#{password})

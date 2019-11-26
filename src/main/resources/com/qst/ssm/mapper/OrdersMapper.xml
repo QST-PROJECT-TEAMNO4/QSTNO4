@@ -20,6 +20,29 @@
 	      orders
 	]]>
     </select>
+
+    <select id="CusQueryOrders" resultType="orders" parameterType="int">
+         <![CDATA[
+        select
+	       o.id as id,
+	       o.orderNum as orderNum,
+	       o.orderTime as orderTime,
+	       o.peopleCount as peopleCount,
+	       o.orderDesc as orderDesc,
+	       o.payType as payType,
+	       o.orderStatus as orderStatus,
+	       o.productId as productId,
+	       o.memberId as memberId,
+	       o.travellerId as travellerId,
+	       p.productName as productName,
+	       p.productPrice as productPrice
+        from
+	      orders as o
+	      INNER JOIN
+            product as p ON o.productId = p.id
+	      where o.travellerId = #{Id}
+	]]>
+    </select>
     <!--根据Id查询订单信息-->
     <select id="getOrders" resultType="com.qst.ssm.entity.Orders" parameterType="int">
          <![CDATA[
@@ -43,22 +66,27 @@
         <![CDATA[
         insert into orders (
 	          orderNum,
-	          peopleCount,
+	          orderTime,
 	          orderDesc,
-	          payType,
-	          orderStatus
+	          orderStatus,
+	          productId,
+	          memberId,
+	          travellerId
               )
-        value(#{orderNum},#{peopleCount},#{orderDesc},#{payType},#{orderStatus});
+        values(#{orderNum},now(),#{orderDesc},0,#{productId},#{memberId},#{travellerId});
         ]]>
     </insert>
     <!--修改订单信息-->
     <update id="updateOrders" parameterType="Orders">
+
     update orders set orderNum=#{orderNum}, peopleCount=#{peopleCount},orderDesc=#{orderDesc} where id=#{id}
     </update>
+
     <!--根据Id删除订单信息-->
     <delete id="deleteOrders" parameterType="Orders">
     delete from orders where id=#{id}
     </delete>
+
     <!--查询订单-产品信息-->
     <select id="queryOrdersProduct" resultType="map" parameterType="map">
         select
@@ -121,6 +149,59 @@
        and o.id =#{id}
 	]]>
     </select>
+
+    <!--修改支付状态信息-->
+    <update id="updateOrdersStatus" parameterType="Orders">
+
+     update orders
+     set orderStatus=1
+     where id = #{id}
+
+    </update>
+
+    <select id="orderInfo" resultType="map" parameterType="string">
+         <![CDATA[
+        SELECT
+                b.id,
+                a.productNum,
+                a.productName,
+                a.cityName,
+                a.departureTime,
+                a.productPrice,
+                a.productDesc,
+                a.productStatus,
+                b.orderNum,
+                b.orderTime,
+                b.orderDesc,
+                b.payType,
+                b.orderStatus,
+                b.productId,
+                b.memberId,
+                b.travellerId,
+                c.hyname,
+                c.nickname,
+                c.phoneNum,
+                c.email,
+                d.`name`,
+                d.email,
+                d.username,
+                d.sex,
+                d.phoneNum,
+                d.peopleID
+                FROM
+                product a,
+                orders b,
+                member c,
+                customer d
+                WHERE
+                b.travellerId = d.id
+                AND b.memberId = c.id
+                AND b.productId = a.id
+                AND b.orderNum = #{orderNum}
+	]]>
+    </select>
+
+
 
 
 

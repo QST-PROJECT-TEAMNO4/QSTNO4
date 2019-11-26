@@ -46,6 +46,23 @@ public class OrdersController {
     }
 
     /**
+     * 订单管理信息
+     * @return
+     */
+    @RequestMapping("/CusQueryOrders")
+    public ModelAndView CusQueryOrders(@RequestParam(name = "page",required = true,defaultValue = "1") int page,
+                                           @RequestParam(name = "size",required = true,defaultValue = "10") int size,
+                                       int Id) {
+        ModelAndView mv = new ModelAndView();
+        List<Map<String,Object>> cusQueryOrders=orderService.CusQueryOrders(page,size,Id);
+        PageInfo pageInfo=new PageInfo(cusQueryOrders);
+        mv.addObject("pageInfo",pageInfo);
+        mv.setViewName("cus-orders");
+        System.out.println("*************"+mv);
+        return mv;
+    }
+
+    /**
      * 根据产品名称模糊查询订单-产品信息
      * @param page
      * @param size
@@ -139,11 +156,32 @@ public class OrdersController {
     @RequestMapping("/insertOrders")
     public String insertOrders(Orders orders){
         int rows=orderService.insertOrders(orders);
+        System.out.println("**********************"+orders.getOrderNum());
         if (rows==1){
-            return "redirect:queryOrders";
+            return "redirect:orderInfo?orderNum="+orders.getOrderNum();
         }else {
             return "redirect:queryOrders";
         }
+    }
+
+    @RequestMapping("/updateOrdersStatus")
+    public String updateOrdersStatus(int Id){
+        int rows=orderService.updateOrdersStatus(Id);
+        if (rows==1){
+            return "paySuccess";
+        }else {
+            return "redirect:queryOrders";
+        }
+    }
+
+    @RequestMapping("/orderInfo")
+    public ModelAndView OPFallAllLike(String orderNum){
+        ModelAndView mv=new ModelAndView();
+        Map<String,Object> infoList=orderService.orderInfo(orderNum);
+        mv.addObject("infoList",infoList);
+        mv.setViewName("order-info");
+        System.out.println(mv);
+        return mv;
     }
 
     /**
@@ -160,5 +198,6 @@ public class OrdersController {
             return "redirect:queryOrders";
         }
     }*/
+
 
 }

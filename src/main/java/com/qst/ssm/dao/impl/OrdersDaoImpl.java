@@ -87,5 +87,19 @@ public class OrdersDaoImpl implements IOrdersDao {
         return ordersMapper.OPFallAllLike(Keyword);
     }
 
+    @Override
+    public int updateOrdersStatus(int Id) {
+        return ordersMapper.updateOrdersStatus(Id);
+    }
 
+
+    @Override
+    public Map<String, Object> orderInfo(String orderNum) {
+        return ordersMapper.orderInfo(orderNum);
+    }
+
+    @Override
+    public List<Map<String,Object>> CusQueryOrders(int Id) {
+        return ordersMapper.CusQueryOrders(Id);
+    }
 }

@@ -79,9 +79,9 @@
 		}
 	}*/
 
-		function aa(){
-			window.open("${pageContext.request.contextPath}/member/findAll");
-		}
+		<%--function aa(){--%>
+		<%--	window.open("${pageContext.request.contextPath}/member/findAll");--%>
+		<%--}--%>
 
 
 			<!-- 执行的方法 -->
@@ -101,19 +101,30 @@
 	<%--	//方法内容--%>
 	<%--		window.location.href="${pageContext.request.contextPath}/member/findAllInit";--%>
 	<%--}--%>
+window.onload=function getorderNum() {
+	var outTradeNo="";  //订单号
+	for(var i=0;i<7;i++) //6位随机数，用以加在时间戳后面。
+	{
+		outTradeNo += Math.floor(Math.random()*10);
+	}
+	outTradeNo = new Date().getTime() + outTradeNo;  //时间戳，用来生成订单号。
+	document.getElementById("orderNum").value = outTradeNo;
+}
+
+
 
 </script>
 
-<body class="hold-transition skin-blue sidebar-mini" onload="aa()">
+<body class="hold-transition skin-blue sidebar-mini" >
 
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
-		<jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="header1.jsp"></jsp:include>
 		<!-- 页面头部 /-->
 
 		<!-- 导航侧栏 -->
-		<jsp:include page="aside.jsp"></jsp:include>
+		<jsp:include page="aside1.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
@@ -136,22 +147,32 @@
 			<!-- 正文区域 -->
 			<section class="content"> <!--订单信息-->
 
+			<form action="/orders/insertOrders" method="post">
+
 			<div class="panel panel-default">
 				<div class="panel-heading">购买详情</div>
 				<div class="row data-type">
+					<div class="">
+						<input type="hidden" class="form-control" id="orderNum" name="orderNum" placeholder="订单编号"
+							   value="" readonly="readonly" >
+					</div>
 
 					<div class="col-md-2 title">商品名称</div>
 					<div class="col-md-4 data">
-						<input type="text" class="form-control" name="orderNum" placeholder="商品名称"
-							value="${productOne.productName}">
+						<input type="text" class="form-control" name="productName" placeholder="商品名称"
+							value="${products.productName}" readonly="readonly">
 					</div>
 
 
+					<div >
+						<input type="hidden" class="form-control" placeholder="产品ID" name="productId"
+							   value="${products.id}" readonly="readonly" >
+					</div>
 
 					<div class="col-md-2 title">出发城市</div>
 					<div class="col-md-4 data">
-						<input type="text" class="form-control" placeholder="出发城市"
-							value="${productOne.cityName}" readonly="readonly">
+						<input type="text" class="form-control" placeholder="出发城市" name="cityName"
+							value="${products.cityName}" readonly="readonly">
 					</div>
 
 					<div class="col-md-2 title">出发时间</div>
@@ -161,20 +182,20 @@
 								<i class="fa fa-calendar"></i>
 							</div>
 							<input type="text" class="form-control pull-right"
-								id="datepicker-a6" value="${productOne.departureTime}"
+								id="datepicker-a6" value="${products.departureTime}" name="departureTime"
 								readonly="readonly">
 						</div>
 					</div>
 					<div class="col-md-2 title">价格</div>
 					<div class="col-md-4 data">
-						<input type="text" class="form-control" placeholder="出游人数"
-							value="${productOne.productPrice}" readonly="readonly">
+						<input type="text" class="form-control" placeholder="价格"
+							value="${products.productPrice}" readonly="readonly" name="productPrice">
 					</div>
 
 					<div class="col-md-2 title rowHeight2x">其他信息</div>
 					<div class="col-md-10 data rowHeight2x">
-						<textarea class="form-control" rows="3" placeholder="其他信息">
-							${productOne.productDesc }
+						<textarea class="form-control" rows="3" placeholder="其他信息" name="orderDesc">
+							${products.productDesc }
 						</textarea>
 					</div>
 
@@ -201,16 +222,18 @@
 						<%--<c:forEach ite.ms="${ordersList}" var="orders">--%>
 
 						<tr>
-							<td><input type="text" size="10" name="lkname" value="${traveller.lkname }"
+							<td><input type="hidden" size="10" name="travellerId" value="${CUSTOMER_SESSION.id}"
+										   readonly="readonly"></td>
+							<td><input type="text" size="10" name="name" value="${CUSTOMER_SESSION.name}"
 									   readonly="readonly"></td>
-							<td><input type="text" size="10" name="sex" value="${1==traveller.sex?'男':'女' }"
+							<td><input type="text" size="10" name="sex" value="${1==CUSTOMER_SESSION.sex?'男':'女' }"
 									   readonly="readonly"></td>
 							<td><input type="text" size="20" name="phoneNum"
-									   value="${traveller.phoneNum }" readonly="readonly"></td>
+									   value="${CUSTOMER_SESSION.phoneNum }" readonly="readonly"></td>
 							<td><input type="text" size="15" name="credentialsType"
-									   value="${0==traveller.credentialsType?'身份证':1==traveller.credentialsType?'护照':'军官证'}" readonly="readonly"></td>
+									   value="身份证" readonly="readonly"></td>
 							<td><input type="text" size="28" name="credentialsNum"
-									   value="${traveller.credentialsNum }" readonly="readonly" ></td>
+									   value="${CUSTOMER_SESSION.peopleID }" readonly="readonly" ></td>
 						</tr>
 						<%--</c:forEach>--%>
 
@@ -226,16 +249,16 @@
 				<ul>
 					<li>选择导游:
 						<c:choose>
-						<c:when test="${pageInfo.list==null}">
+						<c:when test="${memberList==null}">
 						<span style="color:#FF0000">加载导游数据失败</span>
 						</c:when>
-						<c:when test="${empty pageInfo.list}">
+						<c:when test="${empty memberList}">
 						<span style="color:#FF0000">未加载到导游数据</span>
 						</c:when>
 						<c:otherwise>
-						<select name="member.id">
-							<c:forEach items="${pageInfo.list}" var="member">
-							<option value="${member.id}">${member.hyname}</option>
+						<select name="memberId">
+							<c:forEach items="${memberList}" var="member">
+							<option value="${member.id}" name="memberId">${member.hyname}</option>
 							</c:forEach>
 							<select>
 
@@ -243,7 +266,7 @@
 								</c:choose>
 					<li>
 				</ul>
-				<div class="panel-heading">导游信息</div>
+				<div class="panel-heading" >导游信息</div>
 				<div class="row data-type">
 
 					<div class="col-md-2 title">昵称</div>
@@ -278,11 +301,13 @@
 				</div>
 			</c:if> <!--费用信息/--> <!--工具栏-->
 			<div class="box-tools text-center">
+				<button type="submit" class="btn bg-default"
+				>提交订单</button>
 				<button type="button" class="btn bg-default"
 					onclick="history.back(-1);">返回</button>
 			</div>
-
-			<!--工具栏/--> </section>
+			</form>
+				<!--工具栏/--> </section>
 			<!-- 正文区域 /-->
 
 
