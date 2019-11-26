@@ -97,8 +97,14 @@
 
     <update id="updateCustomer" parameterType="Customer">
         update customer
-        set email=#{email},phoneNum=#{phoneNum},sex=#{sex},peopleID=#{peopleID}
-        where id=#{id}
+        set
+        name=#{name},
+        email=#{email},
+        phoneNum=#{phoneNum},
+        sex=#{sex},
+        peopleID=#{peopleID}
+        where username=#{username}
+        and password=md5(#{password})
     </update>
 
 

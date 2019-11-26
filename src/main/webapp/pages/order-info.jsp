@@ -195,7 +195,7 @@
 
 					<div class="col-md-2 title rowHeight2x">其他信息</div>
 					<div class="col-md-10 data rowHeight2x">
-						<textarea class="form-control" rows="3" placeholder="其他信息" name="orderDesc">
+						<textarea class="form-control" rows="3" placeholder="其他信息" name="orderDesc" readonly="readonly">
 							${infoList.productDesc }
 						</textarea>
 					</div>
@@ -224,15 +224,15 @@
 
 						<tr>
 
-							<td><input type="text" size="10" name="name" value="${infoList.name}"
+							<td><input type="text" size="10" name="name" value="${infoList.name}" style="border:none;"
 									   readonly="readonly"></td>
-							<td><input type="text" size="10" name="sex" value="${1==infoList.sex?'男':'女' }"
+							<td><input type="text" size="10" name="sex" value="${1==infoList.sex?'男':'女' }" style="border:none;"
 									   readonly="readonly"></td>
-							<td><input type="text" size="20" name="phoneNum"
+							<td><input type="text" size="20" name="phoneNum" style="border:none;"
 									   value="${infoList.phoneNum }" readonly="readonly"></td>
-							<td><input type="text" size="15" name="credentialsType"
+							<td><input type="text" size="15" name="credentialsType" style="border:none;"
 									   value="身份证" readonly="readonly"></td>
-							<td><input type="text" size="28" name="credentialsNum"
+							<td><input type="text" size="28" name="credentialsNum" style="border:none;"
 									   value="${infoList.peopleID }" readonly="readonly" ></td>
 						</tr>
 						<%--</c:forEach>--%>

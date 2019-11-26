@@ -174,6 +174,11 @@ public class OrdersController {
         }
     }
 
+    /**
+     * 生成订单所有信息
+     * @param orderNum
+     * @return
+     */
     @RequestMapping("/orderInfo")
     public ModelAndView OPFallAllLike(String orderNum){
         ModelAndView mv=new ModelAndView();
@@ -183,6 +188,23 @@ public class OrdersController {
         System.out.println(mv);
         return mv;
     }
+
+    /**
+     * 根据订单编号查询订单详情
+     * @param orderNum
+     * @return
+     */
+    @RequestMapping("/orderInfo2")
+    public ModelAndView orderInfo2(String orderNum) {
+        ModelAndView mv = new ModelAndView();
+        Map<String, Object> infoList = orderService.orderInfo(orderNum);
+        mv.addObject("infoList", infoList);
+        mv.setViewName("order-info2");
+        System.out.println(mv);
+        return mv;
+    }
+
+
 
     /**
      * 修改旅客信息

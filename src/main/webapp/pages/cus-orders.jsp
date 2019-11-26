@@ -156,16 +156,20 @@
 											<td>${orders.productName }</td>
 											<td>${orders.productPrice }</td>
 											<td>${orders.orderTime }</td>
-											<td class="text-center">${0==orders.orderStatus?'未支付':'已支付' }</td>
+<%--                                            <a href="${pageContext.request.contextPath}/orders/orderInfo?orderNum=${orders.orderNum }" >未支付</a>--%>
+
+											<td class="text-center">${0==orders.orderStatus?'<button style="background-color: red" onclick="pay()">未支付</button>':'已支付' }</td>
 											<%--<td class="text-center" data-product-status="${orders.orderStatus}">--%>
-
-
 											</td>
+											<script>
+												function pay() {
+													window.location.href="${pageContext.request.contextPath}/orders/orderInfo?orderNum=${orders.orderNum }"
+													console.info(sadsd);
+												}
+											</script>
 
 								<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/findById?Id=${orders.id}'">详情</button>
-												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/getOrders?Id=${orders.id}'">订单</button>
-												<button type="button" class="btn bg-olive btn-xs" href="#" onclick="deleteBank(${orders.id},'${orders.orderNum}')">删除</button>
+												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/orderInfo2?orderNum=${orders.orderNum}'">详情</button>
 
 											</td>
 										</tr>

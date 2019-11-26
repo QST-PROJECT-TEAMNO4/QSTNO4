@@ -141,17 +141,26 @@ public class CustomerController {
     }
 
 
-
-
+    /**
+     * 注册
+     * @param customer
+     * @return
+     */
     @RequestMapping(value = "/register.action",method = RequestMethod.POST)
     public String insertOrders(Customer customer){
         int rows=customerService.addCustomer(customer);
         if (rows==1){
-            return "redirect:CustomerLogin.action";
+            return "/successPages/registerSuccess1";
         }else {
             return "redirect:/register.action";
         }
     }
+
+
+
+
+
+
 
     public ModelAndView mv1 = new ModelAndView();
 
@@ -171,19 +180,23 @@ public class CustomerController {
         return mv1;
     }
 
-
+    /**
+     * 完善个人信息
+     * @param customer
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value="/updateCustomer.action",method = RequestMethod.POST)
     public String updateCustomer(Customer customer, Model model, HttpSession session){
         //通过账号和密码查询用户
         int rows=customerService.updateCustomer(customer);
         if (rows==1){
             //将用户对象添加到Session
-            session.setAttribute("CUSTOMER_SESSION",customer);
-
             System.out.println(customer);
             System.out.println(session);
             //跳转到主页面
-            return "customer";
+            return "registerSuccess2";
 
         }
         model.addAttribute("msg","信息更新失败，请重试或联系管理员");
