@@ -1,40 +1,40 @@
-//package com.qst.ssm.interceptor;
-//
-//import com.qst.ssm.entity.Customer;
-//import org.springframework.web.servlet.HandlerInterceptor;
-//import org.springframework.web.servlet.ModelAndView;
-//
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
-//
-//public class CustomerLoginInterceptor implements HandlerInterceptor {
-//    @Override
-//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-//            throws Exception{
-//        //获取请求的Url
-//        String url=request.getRequestURI();
-//        //Url:除了登录请求外，其他的URl都进行拦截控制
-//        if (url.contains("/CustomerLogin.action")||url.contains("/AdminLogin.action")){
-//            return true;
-//        }
-//        //获取Session
-//        HttpSession session=request.getSession();
-//        Customer customer=(Customer) session.getAttribute("CUSTOMER_SESSION");
-//
-//        //判断Session中是否有用户数据，如果有，则返回true，继续向下执行
-//        if (customer!=null){
-//            return true;
-//        }
-//        //不符合条件的给出提示信息，并转发到登录页面
-//        request.setAttribute("msg","您还没有登录，请先登录");
-//        request.getRequestDispatcher("/pages/CustomerLogin.jsp")
-//                .forward(request,response);
-//        return false;
-//    }
-//    @Override
-//    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView){}
-//    @Override
-//    public  void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,Exception ex)
-//            throws Exception{}
-//}
+package com.qst.ssm.interceptor;
+
+import com.qst.ssm.entity.Customer;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class CustomerLoginInterceptor implements HandlerInterceptor {
+    @Override
+    public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
+            throws Exception {
+        // 执行完毕，返回前拦截
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
+            throws Exception {
+        // 在处理过程中，执行拦截
+    }
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
+        // 在拦截点执行前拦截，如果返回true则不执行拦截点后的操作（拦截成功）
+        // 返回false则不执行拦截
+        HttpSession session = request.getSession();
+        //String uri = request.getRequestURI(); // 获取登录的uri，这个是不进行拦截的
+        //if(session.getAttribute("LOGIN_USER")!=null || uri.indexOf("system/login")!=-1) {// 说明登录成功 或者 执行登录功能
+        if(session.getAttribute("CUSTOMER_SESSION")!=null||session.getAttribute("USER_SESSION")!=null) {
+            // 登录成功不拦截
+            return true;
+        }else {
+            // 拦截后进入登录页面
+            response.sendRedirect(request.getContextPath()+"/pages/login.jsp");
+            return false;
+        }
+    }
+}

@@ -58,6 +58,21 @@ public class ProductController {
     }
 
     /**
+     * 根据id查询单个产品
+     * @param Id
+     * @return
+     */
+    @RequestMapping("/findByIdA" )
+    public ModelAndView findProductByIdA(int Id){
+        ModelAndView mv = new ModelAndView();
+        Product product = productService.findProductById(Id);
+        System.out.println("111111111111111111"+product);
+        mv.addObject("productOne",product);
+        mv.setViewName("product-update");
+        return mv;
+    }
+
+    /**
      * 模糊查询
      * @return
      */
@@ -67,6 +82,20 @@ public class ProductController {
         List<Product> ps =productService.findProductByKeyword(Keyword);
         mv.addObject("productList",ps);
         mv.setViewName("product-list");
+//        mv.setViewName("cus-product-list");
+
+        return mv;
+    }
+
+    /**
+     * 模糊查询
+     * @return
+     */
+    @RequestMapping("/findProductByKeywordCus")
+    public ModelAndView findProductByKeywordCus(String Keyword) {
+        ModelAndView mv = new ModelAndView();
+        List<Product> ps =productService.findProductByKeyword(Keyword);
+        mv.addObject("productList",ps);
         mv.setViewName("cus-product-list");
 
         return mv;

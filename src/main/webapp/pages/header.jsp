@@ -54,25 +54,11 @@
 		}
 	}
 </script>
+<!-- 页面头部 -->
 <header class="main-header">
-
-
-
-
-
-	<!-- Logo -->
-	<a href="all-admin-index.html" class="logo">
-		<!-- mini logo for sidebar mini 50x50 pixels -->
-		<span class="logo-mini"><b>数据</b></span>
-		<!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b>数据</b>后台管理</span>
-	</a>
-
 
 	<!-- Header Navbar: style can be found in header.less -->
 	<nav class="navbar navbar-static-top">
-
-
 		<!-- Sidebar toggle button-->
 		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
 			<span class="sr-only">Toggle navigation</span>
@@ -81,10 +67,9 @@
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
 				<!-- Messages: style can be found in dropdown.less-->
-				<li class="dropdown messages-menu">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-envelope-o"></i>
-						<span class="label label-success">4</span>
+				<li class="dropdown user user-menu">
+					<a href=/pages/main.jsp>
+						返回官网首页
 					</a>
 
 				</li>
@@ -95,7 +80,7 @@
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<img src="../img/user1-128x128.jpg" class="user-image" alt="User Image">
-						用户:${USER_SESSION.username}
+						管理员:${USER_SESSION.username}
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
@@ -103,7 +88,7 @@
 							<img src="../img/user1-128x128.jpg" class="img-circle" alt="User Image">
 
 							<p>
-								用户:${USER_SESSION.username}
+								管理员:${USER_SESSION.username}
 								<small>最后登录 11:20AM</small>
 							</p>
 
@@ -112,7 +97,7 @@
 						<!-- Menu Footer-->
 						<li class="user-footer">
 							<div class="pull-left">
-								<button onclick="editPassword()" class="btn btn-default btn-flat">修改密码</button>
+								<button href="/pages/AdminMin.jsp" class="btn btn-default btn-flat">首页</button>
 							</div>
 							<div class="pull-right">
 								<a href="${pageContext.request.contextPath}/AdminLogout.action"
@@ -126,5 +111,4 @@
 		</div>
 	</nav>
 </header>
-<!-- 页面头部 /-->
 <!-- 页面头部 /-->

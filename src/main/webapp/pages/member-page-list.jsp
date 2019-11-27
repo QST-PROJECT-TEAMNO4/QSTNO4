@@ -168,11 +168,11 @@
 				<h1>
 					数据管理 <small>数据列表</small>
 				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
+<%--				<ol class="breadcrumb">--%>
+<%--					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--					<li><a href="#">数据管理</a></li>--%>
+<%--					<li class="active">数据列表</li>--%>
+<%--				</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -231,9 +231,9 @@
 								class="table table-bordered table-striped table-hover dataTable">
 								<thead>
 									<tr>
-										<th class="" style="padding-right: 0px;"><input
-											id="selall" type="checkbox" class="icheckbox_square-blue">
-										</th>
+<%--										<th class="" style="padding-right: 0px;"><input--%>
+<%--											id="selall" type="checkbox" class="icheckbox_square-blue">--%>
+<%--										</th>--%>
 <%--										<th class="sorting_asc">ID</th>--%>
 										<th class="sorting_desc">姓名</th>
 										<th class="sorting_asc sorting_asc_disabled">昵称</th>
@@ -248,7 +248,7 @@
 									<c:forEach items="${pageInfo.list}" var="member">
 
 										<tr>
-											<td><input name="ids" type="checkbox"></td>
+<%--											<td><input name="ids" type="checkbox"></td>--%>
 											<td>${member.hyname}</td>
 											<td>${member.nickname}</td>
 											<td>${member.phoneNum}</td>

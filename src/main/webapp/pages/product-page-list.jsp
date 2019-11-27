@@ -168,11 +168,11 @@
 				<h1>
 					数据管理 <small>数据列表</small>
 				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
+<%--				<ol class="breadcrumb">--%>
+<%--					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--					<li><a href="#">数据管理</a></li>--%>
+<%--					<li class="active">数据列表</li>--%>
+<%--				</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -231,9 +231,9 @@
 								class="table table-bordered table-striped table-hover dataTable">
 								<thead>
 									<tr>
-										<th class="" style="padding-right: 0px;"><input
-											id="selall" type="checkbox" class="icheckbox_square-blue">
-										</th>
+<%--										<th class="" style="padding-right: 0px;"><input--%>
+<%--											id="selall" type="checkbox" class="icheckbox_square-blue">--%>
+<%--										</th>--%>
 <%--										<th class="sorting_asc">ID</th>--%>
 										<th class="sorting_desc">编号</th>
 										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
@@ -251,7 +251,7 @@
 									<c:forEach items="${pageInfo.list}" var="product">
 
 										<tr>
-											<td><input name="ids" type="checkbox"></td>
+<%--											<td><input name="ids" type="checkbox"></td>--%>
 <%--											<td>${product.id }</td>--%>
 											<td>${product.productNum }</td>
 											<td>${product.productName }</td>
@@ -266,7 +266,7 @@
 											<td class="text-center">
 <%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
 <%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
-												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>
+												<a type="button" class="btn bg-olive btn-xs"  href='/product/findByIdA?Id=${product.id}'>编辑</a>
 												<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="deleteById('${product.productName }',${product.id})">删除</a>
 											</td>
 										</tr>

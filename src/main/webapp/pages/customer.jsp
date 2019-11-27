@@ -256,65 +256,113 @@
             <h1>
                 数据管理 <small>数据列表</small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">数据管理</a></li>
-                <li class="active">数据列表</li>
-            </ol>
+<%--            <ol class="breadcrumb">--%>
+<%--                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--                <li><a href="#">数据管理</a></li>--%>
+<%--                <li class="active">数据列表</li>--%>
+<%--            </ol>--%>
         </section>
         <!-- 内容头部 /-->
 
         <!-- 正文区域 -->
         <section class="content">
-            <form action="/customer/updateCustomer.action?id=${CUSTOMER_SESSION.id}" method="post">
-                <div>
-                    <div>
-                        <ul>
-                            <li>
-                                用户名: ${CUSTOMER_SESSION.username}
-                            </li>
-                            <li>
-                                用户名: ${CUSTOMER_SESSION.name}
-                            </li>
 
-                            <%--<li>
-                                性别:  <input id="sexRequire" type="hidden" value="${CUSTOMER_SESSION.sex}" readonly />
-                                <div class="col-m col-m-select">
-                                    <div class="job-c-l">
-                                        <input type="text" id="sexRequireId" value="${CUSTOMER_SESSION.sex eq 1?'女':''}${CUSTOMER_SESSION.sex eq 0?'男':''}"
+            <div class="register-box-body">
+                <p class="login-box-msg">个人信息中心</p>
 
-                                               required="required" readonly /></div>
-                                    <div class="job-c-r"></div>
-                                    <div class="job-c-list">
-                                        <p idattr="sexRequire" idValue="0">男</p>
-                                        <p idattr="sexRequire" idValue="1">女</p>
-                                    </div>
-                                </div>
-
-
-                            </li>--%>
-
-                            <li>性别： ${1==CUSTOMER_SESSION.sex?'女':'男'}
-                                <label><input type="radio" name="sex" value="1">女</label>
-                                <label><input type="radio" name="sex" value="0">男</label>
-                            </li>
-
-                            <li>
-                                手机号码:<input type="tel" value="${CUSTOMER_SESSION.phoneNum}" name="phoneNum">
-                            </li>
-                            <li>
-                                邮箱: <input value="${CUSTOMER_SESSION.email}" name="email">
-                            </li>
-                            <li>
-                                身份号码:<input value="${CUSTOMER_SESSION.peopleID}" name="peopleID">
-                            </li>
-                        </ul>
+                <form action="/customer/updateCustomer2.action" method="post">
+                    <div class="form-group has-feedback">
+                        <input type="text" style="display:none;" class="form-control" placeholder="id" value="${CUSTOMER_SESSION.id}" name="id">
+                        <span class="glyphicon  form-control-feedback"></span>
                     </div>
-                    <div class="col-xs-4">
-                        <button type="submit" id="button" class="btn btn-primary btn-block btn-flat">修改</button>
+                    <div class="form-group has-feedback"  style="display:none;">
+                        <input type="text" style="display:none;" class="form-control" placeholder="密码" name="password" value="${CUSTOMER_SESSION.password}">
+                        <span class="glyphicon  form-control-feedback"></span>
                     </div>
-                </div>
-            </form>
+
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="用户名" name="username" value="${CUSTOMER_SESSION.username}">
+                        <span class="glyphicon  form-control-feedback"></span>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="真实姓名" name="name" value="${CUSTOMER_SESSION.name}" readonly="readonly">
+                        <span class="glyphicon  form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        性别 :${1==CUSTOMER_SESSION.sex?'女':'男'}
+                        <span class="glyphicon  form-control-feedback"></span>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <input type="email" class="form-control" placeholder="Email" name="email" value="${CUSTOMER_SESSION.email}">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="phone" name="phoneNum" value="${CUSTOMER_SESSION.phoneNum}">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="peopleID" name="peopleID" value="${CUSTOMER_SESSION.peopleID}" readonly>
+                        <span class="glyphicon  form-control-feedback"></span>
+                    </div>
+
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat" style="align-content: center">更新信息</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+            </div>
+
+
+
+
+
+
+
+
+<%--            <form action="/customer/updateCustomer2.action" method="post">--%>
+<%--                <div>--%>
+<%--                    <div>--%>
+<%--                        <ul>--%>
+<%--                            <li style="list-style: none;">--%>
+<%--                                <input style="display:none;" value="${CUSTOMER_SESSION.id}" name="id"/>--%>
+<%--                            </li>--%>
+<%--                            <li style="list-style: none;">--%>
+<%--                                密码: <input style="display:none;" value="${CUSTOMER_SESSION.password}" name="password"/>--%>
+<%--                            </li>--%>
+<%--                            <li style="list-style: none;">--%>
+<%--                                用户名: <input value="${CUSTOMER_SESSION.username}" name="username" />--%>
+<%--                            </li>--%>
+<%--                            <li style="list-style: none;">--%>
+<%--                                真实姓名: <input value="${CUSTOMER_SESSION.name}" name="name" readonly="readonly"/>--%>
+<%--                            </li>--%>
+
+<%--                            <li style="list-style: none;">性别： ${1==CUSTOMER_SESSION.sex?'女':'男'}--%>
+<%--                                <label><input type="radio" name="sex" value="1" >女</label>--%>
+<%--                                <label><input type="radio" name="sex" value="0">男</label>--%>
+<%--                            </li>--%>
+
+<%--                            <li style="list-style: none;">--%>
+<%--                                手机号码:<input style="border:none;" type="tel" value="${CUSTOMER_SESSION.phoneNum}" name="phoneNum">--%>
+<%--                            </li>--%>
+<%--                            <li style="list-style: none;">--%>
+<%--                                邮箱: <input style="border:none;" value="${CUSTOMER_SESSION.email}" name="email">--%>
+<%--                            </li>--%>
+<%--                            <li style="list-style: none;">--%>
+<%--                                身份号码:<input style="border:none;" value="${CUSTOMER_SESSION.peopleID}" name="peopleID">--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="col-xs-4">--%>
+<%--                        <button type="submit" id="button" class="btn btn-primary btn-block btn-flat">修改</button>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </form>--%>
 
 
         </section>
@@ -481,29 +529,6 @@
         });
     });
 
-
-    $(".job-c-list").find("p").click(function(){
-        var pObj=$(this);
-        var  id=pObj.attr("idattr");
-        if(id=="educationId"){
-            $("#educationId").val(pObj.attr("idValue"))
-        }else if(id=="industryId"){
-            $("#industryId").val(pObj.attr("idValue"))
-        }else if(id=="sexRequire"){
-
-            //设置第一个输入框的值0或者1（对应数据库存储的性别数据）
-
-            $("#￥{CUSTOMER_SESSION.sex}").val(pObj.attr("idValue"))
-        }
-        var thisText = pObj.text();
-
-        //设置第二个输入框的值男或者女（对应页面显示的性别数据）
-
-        var obj=$(this).parents(".col-m-select").find("input[type='text']");
-        obj.val(thisText);
-
-        $(box).css("z-index","");
-    });
 </script>
 </body>
 

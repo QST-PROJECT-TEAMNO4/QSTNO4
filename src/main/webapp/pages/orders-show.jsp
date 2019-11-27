@@ -85,12 +85,12 @@
 			<h1>
 				订单管理 <small>全部订单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="all-admin-index.html"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a href="all-order-manage-list.html">订单管理</a></li>
-				<li class="active">订单详情</li>
-			</ol>
+<%--			<ol class="breadcrumb">--%>
+<%--				<li><a href="all-admin-index.html"><i--%>
+<%--						class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--				<li><a href="all-order-manage-list.html">订单管理</a></li>--%>
+<%--				<li class="active">订单详情</li>--%>
+<%--			</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -136,7 +136,7 @@
 								<i class="fa fa-calendar"></i>
 							</div>
 							<input type="text" class="form-control pull-right"
-								id="datepicker-a6" value="${ordersProduct.DepartureTime}"
+								id="datepicker-a6" value="${ordersProduct.departureTime}"
 								readonly="readonly">
 						</div>
 					</div>
@@ -167,7 +167,7 @@
 							<th class="">姓名</th>
 							<th class="">性别</th>
 							<th class="">手机号码</th>
-							<th class="">证件类型</th>
+							<th class="">邮箱</th>
 							<th class="">证件号码</th>
 						</tr>
 						</thead>
@@ -176,16 +176,16 @@
 						<%--<c:forEach ite.ms="${ordersList}" var="orders">--%>
 
 						<tr>
-							<td><input type="text" size="10" name="lkname" value="${traveller.lkname }"
+							<td><input type="text" size="10" name="name" value="${customer.name }" style="border:none;"
 									   readonly="readonly"></td>
-							<td><input type="text" size="10" name="sex" value="${1==traveller.sex?'男':'女' }"
+							<td><input type="text" size="10" name="sex" value="${1==customer.sex?'男':'女' }" style="border:none;"
 									   readonly="readonly"></td>
-							<td><input type="text" size="20" name="phoneNum"
-									   value="${traveller.phoneNum }" readonly="readonly"></td>
-							<td><input type="text" size="15" name="credentialsType"
-									   value="${0==traveller.credentialsType?'身份证':1==traveller.credentialsType?'护照':'军官证'}" readonly="readonly"></td>
-							<td><input type="text" size="28" name="credentialsNum"
-									   value="${traveller.credentialsNum }" readonly="readonly" ></td>
+							<td><input type="text" size="20" name="phoneNum" style="border:none;"
+									   value="${customer.phoneNum }" readonly="readonly"></td>
+							<td><input type="text" size="20" name="email" style="border:none;"
+									   value="${customer.email }" readonly="readonly"></td>
+							<td><input type="text" size="28" name="peopleID" style="border:none;"
+									   value="${customer.peopleID }" readonly="readonly" ></td>
 						</tr>
 						<%--</c:forEach>--%>
 

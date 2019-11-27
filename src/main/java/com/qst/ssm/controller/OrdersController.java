@@ -1,12 +1,14 @@
 package com.qst.ssm.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.qst.ssm.entity.Customer;
 import com.qst.ssm.entity.Member;
 import com.qst.ssm.entity.Orders;
 import com.qst.ssm.entity.Traveller;
+import com.qst.ssm.service.ICustomerService;
 import com.qst.ssm.service.IMemberService;
 import com.qst.ssm.service.IOrderService;
-import com.qst.ssm.service.ITravellerService;
+//import com.qst.ssm.service.ITravellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +28,11 @@ public class OrdersController {
     @Autowired
     private IMemberService memberService;
 
-    @Autowired
-    private ITravellerService travellerService;
+//    @Autowired
+//    private ITravellerService travellerService;
 
+    @Autowired
+    ICustomerService customerService;
     /**
      * 订单管理信息
      * @return
@@ -105,10 +109,12 @@ public class OrdersController {
         ModelAndView mv=new ModelAndView();
         Map<String,Object> op=orderService.getOrdersProduct(Id);
         Member member=memberService.getOrdersMember(Id);
-        Traveller traveller=travellerService.getOrdersTraveller(Id);
+        Customer customer=customerService.getOrdersCustomer(Id);
+        //Traveller traveller=travellerService.getOrdersTraveller(Id);
         mv.addObject("ordersProduct",op);
         mv.addObject("member",member);
-        mv.addObject("traveller",traveller);
+        mv.addObject("customer",customer);
+        //mv.addObject;("traveller",traveller);
         mv.setViewName("orders-show");
 
         return mv;
@@ -119,13 +125,13 @@ public class OrdersController {
      * @return
      */
     @RequestMapping("/deleteOrders")
-    @ResponseBody
+//    @ResponseBody
     public String deleteOrders(int Id){
         int rows=orderService.deleteOrders(Id);
         if (rows==1){
             return "redirect:queryOrders";
         }else {
-            return "redirect:queryOrders"+rows;
+            return "redirect:queryOrders";
         }
 
     }
@@ -203,23 +209,6 @@ public class OrdersController {
         System.out.println(mv);
         return mv;
     }
-
-
-
-    /**
-     * 修改旅客信息
-     * @param traveller
-     * @return
-     */
-    /*@RequestMapping("/updateTraveller")
-    public String updateTraveller(Traveller traveller){
-        int rows=travellerService.updateTraveller(traveller);
-        if (rows==1){
-            return "redirect:queryOrders";
-        }else {
-            return "redirect:queryOrders";
-        }
-    }*/
 
 
 }

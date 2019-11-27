@@ -66,6 +66,45 @@
     <script src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
 </head>
 
+<script type="text/javascript">
+
+
+
+    <%--function aa(){--%>
+    <%--	window.open("${pageContext.request.contextPath}/member/findAll");--%>
+    <%--}--%>
+
+
+    <!-- 执行的方法 -->
+    <%--function myfun(){--%>
+    <%--	if(${pageInfo.list==null}){--%>
+    <%--		window.location.href="${pageContext.request.contextPath}/member/findAll";--%>
+    <%--	}--%>
+
+    <%--}--%>
+
+
+
+    <%--function load111() {--%>
+    <%--	window.location.href="${pageContext.request.contextPath}/member/findAllInit";--%>
+    <%--}--%>
+    <%--window.onload = function () {--%>
+    <%--	//方法内容--%>
+    <%--		window.location.href="${pageContext.request.contextPath}/member/findAllInit";--%>
+    <%--}--%>
+    // window.onload=function getorderNum() {
+    // 	var outTradeNo="";  //订单号
+    // 	for(var i=0;i<7;i++) //6位随机数，用以加在时间戳后面。
+    // 	{
+    // 		outTradeNo += Math.floor(Math.random()*10);
+    // 	}
+    // 	outTradeNo = new Date().getTime() + outTradeNo;  //时间戳，用来生成订单号。
+    // 	document.getElementById("orderNum").value = outTradeNo;
+    // }
+
+
+
+</script>
 
 <body class="hold-transition skin-blue sidebar-mini" >
 
@@ -87,12 +126,12 @@
             <h1>
                 订单详情 <small>订单详情</small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="all-admin-index.html"><i
-                        class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">订单详情</a></li>
-                <li class="active">订单详情</li>
-            </ol>
+<%--            <ol class="breadcrumb">--%>
+<%--                <li><a href="all-admin-index.html"><i--%>
+<%--                        class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--                <li><a href="all-order-manage-list.html">订单详情</a></li>--%>
+<%--                <li class="active">订单详情</li>--%>
+<%--            </ol>--%>
         </section>
         <!-- 内容头部 /-->
 
@@ -234,6 +273,8 @@
                 </div>
             </c:if> <!--费用信息/--> <!--工具栏-->
             <div class="box-tools text-center">
+<%--                <a type="button" class="btn bg-default" href="/orders/updateOrdersStatus?Id=${infoList.id}"--%>
+<%--                >确认支付</a>--%>
                 <button type="button" class="btn bg-default"
                         onclick="history.back(-1);">返回</button>
             </div>

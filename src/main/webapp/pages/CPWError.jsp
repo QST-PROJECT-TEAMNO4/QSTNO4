@@ -15,7 +15,7 @@
     <h2>修改密码失败，请检查原密码是否正确</h2>
 </div>
 <div align="center" style="background-color: blue">
-    <p id="page_div" >将在5秒后自动跳转到首页....</p>
+    <p id="page_div" >将在5秒后自动跳转到回首页....</p>
 </div>
 
 

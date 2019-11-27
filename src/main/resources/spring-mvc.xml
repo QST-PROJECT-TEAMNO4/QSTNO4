@@ -36,7 +36,7 @@
 
 
 
-<!--    &lt;!&ndash;配置拦截器&ndash;&gt;-->
+    <!--配置拦截器-->
 <!--    <mvc:interceptors>-->
 <!--        <mvc:interceptor>-->
 <!--            <mvc:mapping path="/**"/>-->
@@ -49,16 +49,17 @@
 <!--        </mvc:interceptor>-->
 <!--    </mvc:interceptors>-->
 
-<!--    <mvc:interceptors>-->
-<!--        <mvc:interceptor>-->
-<!--            <mvc:mapping path="/**"/>-->
-<!--            <mvc:mapping path="/pages/AdminMain.jsp"/>-->
-<!--            <mvc:exclude-mapping path="/AdminLogin.action"/>-->
-<!--            <mvc:exclude-mapping path="/register.action"/>-->
-<!--            <mvc:exclude-mapping path="/product/findAllCus"/>-->
-<!--            <bean class="com.qst.ssm.interceptor.CustomerLoginInterceptor"/>-->
-<!--        </mvc:interceptor>-->
-<!--    </mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/AdminLogin.action"/>
+            <mvc:exclude-mapping path="/customer/register.action"/>
+            <mvc:exclude-mapping path="/customer/CustomerLogin.action"/>
+            <mvc:exclude-mapping path="/customer/updateCustomer.action"/>
+            <mvc:exclude-mapping path="/product/findAllCus"/>
+            <bean class="com.qst.ssm.interceptor.CustomerLoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!-- 开启对SpringMVC注解的支持 -->
     <mvc:annotation-driven/>
 

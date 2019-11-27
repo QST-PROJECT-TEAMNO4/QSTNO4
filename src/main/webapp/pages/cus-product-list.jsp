@@ -167,11 +167,11 @@
 				<h1>
 					数据管理 <small>数据列表</small>
 				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
+<%--				<ol class="breadcrumb">--%>
+<%--					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--					<li><a href="#">数据管理</a></li>--%>
+<%--					<li class="active">数据列表</li>--%>
+<%--				</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -213,7 +213,7 @@
 								</div>
 							</div>
 							<div class="box-tools pull-right">
-								<form action="/product/findProductByKeyword">
+								<form action="/product/findProductByKeywordCus">
 									<%--									<button type="submit" class="btn bg-maroon">搜索</button>--%>
 									<div class="has-feedback">
 										<input type="text" class="form-control input-sm"
@@ -262,22 +262,19 @@
 
 											</td>
 											<td class="text-center">
-<%--												<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
-<%--												<button type="button" class="btn bg-olive btn-xs" value="${product.id}">详情</button>--%>
-<%--												<a type="button" class="btn bg-olive btn-xs"  href='/product/findById?Id=${product.id}'>编辑</a>--%>
-												<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="deleteById('${product.productName }',${product.id})">购买</a>
+
+												<a type="button" class="btn bg-olive btn-xs"  href='#' onclick="BuyById(${product.id})">购买</a>
 											</td>
 										</tr>
 									</c:forEach>
 								<script>
-
 									/**
 									 * 删除产品
 									 * @param productId  商品ID
 									 */
-									function deleteById(productName,productId) {
-										if(window.confirm('确定要购买该商品吗【名称为："'+productName+'"】?')){
-											window.location.href='/product/deleteById?Id='+productId;
+									function BuyById(productId) {
+										if(window.confirm('确定要购买该商品吗?')){
+											window.location.href='/customer/buyShow?Id='+productId;
 										}
 									}
 									/**

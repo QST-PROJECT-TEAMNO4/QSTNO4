@@ -60,7 +60,7 @@ public interface ICustomerService {
      * @param newPassword
      * @return
      */
-    public int changePW(String oldPassword, String newPassword);
+    public int changePW(String oldPassword, String newPassword,String username);
 
     /**
      * 注册
@@ -74,4 +74,18 @@ public interface ICustomerService {
      * @return
      */
     public int updateCustomer(Customer customer);
+
+    /**
+     * 完善用户信息
+     * @param customer
+     * @return
+     */
+    public int updateCustomer2(Customer customer);
+
+    /**
+     * 根据订单Id查询旅客信息
+     * @param
+     * @return
+     */
+    Customer getOrdersCustomer(int id);
 }

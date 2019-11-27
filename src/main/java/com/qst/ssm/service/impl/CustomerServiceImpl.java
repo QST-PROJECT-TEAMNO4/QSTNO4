@@ -52,8 +52,8 @@ public class CustomerServiceImpl implements ICustomerService {
         return customer;
     }
     @Override
-    public int changePW(String oldPassword,String newPassword){
-        return customerDao.changePW(oldPassword, newPassword);
+    public int changePW(String oldPassword,String newPassword,String username){
+        return customerDao.changePW(oldPassword, newPassword,username);
     }
 
     @Override
@@ -72,10 +72,21 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
+    public int updateCustomer2(Customer customer) {
+        return customerDao.updateCustomer2(customer);
+    }
+
+    @Override
+    public Customer getOrdersCustomer(int Id) {
+        return customerDao.getOrdersCustomer(Id);
+    }
+
+    @Override
     public int update(Customer customer) {
         return customerDao.update(customer);
 
 
     }
+
 
 }

@@ -48,8 +48,8 @@ public class CustomerDaoImpl implements ICustomerDao {
     }
 
     @Override
-    public int changePW(String oldPassword, String newPassword) {
-        return customerMapper.changePW(oldPassword,newPassword);
+    public int changePW(String oldPassword, String newPassword,String username) {
+        return customerMapper.changePW(oldPassword,newPassword,username);
     }
 
     @Override
@@ -60,6 +60,16 @@ public class CustomerDaoImpl implements ICustomerDao {
     @Override
     public int updateCustomer(Customer customer) {
         return customerMapper.updateCustomer(customer);
+    }
+
+    @Override
+    public int updateCustomer2(Customer customer) {
+        return customerMapper.updateCustomer2(customer);
+    }
+
+    @Override
+    public Customer getOrdersCustomer(int Id) {
+        return customerMapper.getOrdersCustomer(Id);
     }
 
 

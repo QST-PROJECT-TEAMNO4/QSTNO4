@@ -135,12 +135,12 @@ window.onload=function getorderNum() {
 			<h1>
 				购买信息 <small>购买信息</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="all-admin-index.html"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a href="all-order-manage-list.html">购买详情</a></li>
-				<li class="active">购买详情</li>
-			</ol>
+<%--			<ol class="breadcrumb">--%>
+<%--				<li><a href="all-admin-index.html"><i--%>
+<%--						class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--				<li><a href="all-order-manage-list.html">购买详情</a></li>--%>
+<%--				<li class="active">购买详情</li>--%>
+<%--			</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -222,18 +222,19 @@ window.onload=function getorderNum() {
 						<%--<c:forEach ite.ms="${ordersList}" var="orders">--%>
 
 						<tr>
-							<td><input type="hidden" size="10" name="travellerId" value="${CUSTOMER_SESSION.id}"
-										   readonly="readonly"></td>
-							<td><input type="text" size="10" name="name" value="${CUSTOMER_SESSION.name}"
+
+							<td><input type="text" size="10" name="name" value="${CUSTOMER_SESSION.name}" style="border:none;"
 									   readonly="readonly"></td>
-							<td><input type="text" size="10" name="sex" value="${1==CUSTOMER_SESSION.sex?'男':'女' }"
+							<td><input type="text" size="10" name="sex" value="${1==CUSTOMER_SESSION.sex?'男':'女' }" style="border:none;"
 									   readonly="readonly"></td>
-							<td><input type="text" size="20" name="phoneNum"
+							<td><input type="text" size="20" name="phoneNum" style="border:none;"
 									   value="${CUSTOMER_SESSION.phoneNum }" readonly="readonly"></td>
-							<td><input type="text" size="15" name="credentialsType"
+							<td><input type="text" size="15" name="credentialsType" style="border:none;"
 									   value="身份证" readonly="readonly"></td>
-							<td><input type="text" size="28" name="credentialsNum"
+							<td><input type="text" size="28" name="credentialsNum" style="border:none;"
 									   value="${CUSTOMER_SESSION.peopleID }" readonly="readonly" ></td>
+							<td><input type="hidden" size="10" name="travellerId" value="${CUSTOMER_SESSION.id}"
+									   readonly="readonly"></td>
 						</tr>
 						<%--</c:forEach>--%>
 
@@ -246,7 +247,7 @@ window.onload=function getorderNum() {
 
 			<!--游客信息/--> <!--联系人信息-->
 			<div class="panel panel-default">
-				<ul>
+				<ul style="list-style: none">
 					<li>选择导游:
 						<c:choose>
 						<c:when test="${memberList==null}">
@@ -266,23 +267,23 @@ window.onload=function getorderNum() {
 								</c:choose>
 					<li>
 				</ul>
-				<div class="panel-heading" >导游信息</div>
-				<div class="row data-type">
+<%--				<div class="panel-heading" >导游信息</div>--%>
+<%--				<div class="row data-type">--%>
 
-					<div class="col-md-2 title">昵称</div>
-					<div class="col-md-4 data text">${member.nickname }</div>
+<%--					<div class="col-md-2 title">昵称</div>--%>
+<%--					<div class="col-md-4 data text">${member.nickname }</div>--%>
 
-					<div class="col-md-2 title">联系人</div>
-					<div class="col-md-4 data text">${member.hyname}</div>
+<%--					<div class="col-md-2 title">联系人</div>--%>
+<%--					<div class="col-md-4 data text">${member.hyname}</div>--%>
 
-					<div class="col-md-2 title">手机号</div>
-					<div class="col-md-4 data text">${member.phoneNum}</div>
+<%--					<div class="col-md-2 title">手机号</div>--%>
+<%--					<div class="col-md-4 data text">${member.phoneNum}</div>--%>
 
-					<div class="col-md-2 title">邮箱</div>
-					<div class="col-md-4 data text">${member.email}</div>
+<%--					<div class="col-md-2 title">邮箱</div>--%>
+<%--					<div class="col-md-4 data text">${member.email}</div>--%>
 
-				</div>
-			</div>
+<%--				</div>--%>
+<%--			</div>--%>
 
 
 

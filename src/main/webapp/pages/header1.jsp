@@ -2,8 +2,6 @@
          pageEncoding="UTF-8"%>
 
 <!-- 页面头部 -->
-<!-- 页面头部 -->
-
 <header class="main-header">
 
 
@@ -25,7 +23,24 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+                    <a  style="color: blue">
+                        ${null==CUSTOMER_SESSION.id?'<button  onclick="login()">未登录</button>':'已登录' }
+                    </a>
 
+                </li>
+                <script>
+                    function login() {
+                        window.location.href="${pageContext.request.contextPath}/pages/login.jsp"
+
+                    }
+                </script>
+                <li class="dropdown user user-menu">
+                    <a href=/pages/AdminLogin.jsp>
+                        进入后台
+                    </a>
+
+                </li>
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="../img/user1-128x128.jpg" class="user-image" alt="User Image">

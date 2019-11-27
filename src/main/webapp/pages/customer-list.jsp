@@ -167,11 +167,11 @@
 				<h1>
 					数据管理 <small>数据列表</small>
 				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
+<%--				<ol class="breadcrumb">--%>
+<%--					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--					<li><a href="#">数据管理</a></li>--%>
+<%--					<li class="active">数据列表</li>--%>
+<%--				</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 

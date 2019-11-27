@@ -62,7 +62,7 @@ public interface CustomerMapper {
      * @param newPassword 新密码
      * @return
      */
-    public int changePW(@Param("oldPassword") String oldPassword, @Param("newPassword") String newPassword);
+    public int changePW(@Param("oldPassword") String oldPassword, @Param("newPassword") String newPassword,@Param("username") String username);
 
     /**
      * 注册
@@ -78,6 +78,19 @@ public interface CustomerMapper {
      */
     public int updateCustomer(Customer customer);
 
+    /**
+     * 完善用户信息
+     * @param customer
+     * @return
+     */
+    public int updateCustomer2(Customer customer);
 
+    /**
+     * 根据订单Id查询旅客信息
+     * @param Id
+     * @return
+     */
+    Customer getOrdersTraveller(int Id);
 
+    Customer getOrdersCustomer(int id);
 }

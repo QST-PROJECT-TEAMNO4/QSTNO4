@@ -55,7 +55,7 @@
         <![CDATA[
             update customer
             set
-                    PASSWORD = 123456
+                    PASSWORD = md5(123456)
 
             WHERE id= #{id}
         ]]>
@@ -65,7 +65,7 @@
         <![CDATA[
             update customer
             set
-                    PASSWORD = 123456
+                    PASSWORD =md5(123456)
 
             WHERE id= #{id}
         ]]>
@@ -90,7 +90,10 @@
 <!--修改密码-->
     <update id="changePW" parameterType="String" >
         update customer set password=md5(#{newPassword})
-        where password=md5(#{oldPassword})
+        where
+        username=#{username}
+        and
+        password=md5(#{oldPassword})
     </update>
 
     <!--完善个人信息-->
@@ -106,6 +109,15 @@
         where username=#{username}
         and password=md5(#{password})
     </update>
+    <!--修改个人信息-->
+    <update id="updateCustomer2" parameterType="Customer">
+        update customer
+        set
+        username=#{username},
+        email=#{email},
+        phoneNum=#{phoneNum}
+        where id=#{id}
+    </update>
 
 
 <!--注册-->
@@ -114,5 +126,25 @@
 VALUES
 	(#{username},md5(#{password}))
     </insert>
+
+
+    <select id="getOrdersCustomer" resultType="Customer" parameterType="int">
+        <![CDATA[
+        select
+            cj.id,
+	        name,
+	        email,
+	        username,
+	        password,
+	        sex,
+	        phoneNum,
+	        peopleID
+        from
+	        customer as cj
+	    inner join orders as o on cj.id=o.travellerId
+	    where o.id=#{id}
+
+        ]]>
+    </select>
 
 </mapper>

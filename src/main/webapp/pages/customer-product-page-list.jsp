@@ -170,11 +170,6 @@
 				<h1>
 					数据管理 <small>数据列表</small>
 				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -216,7 +211,7 @@
 								</div>
 							</div>
 							<div class="box-tools pull-right">
-								<form action="/product/findProductByKeyword">
+								<form action="/product/findProductByKeywordCus">
 <%--									<button type="submit" class="btn bg-maroon">搜索</button>--%>
 								<div class="has-feedback">
 										<input type="text" class="form-control input-sm"
@@ -370,11 +365,11 @@
 							<div class="form-group form-inline">
 								总共${pageInfo.pages}页，共${pageInfo.total}条数据。 每页
 								<select class="form-control" id="pagesizeOp" onchange="changePageSize()">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option>${pageInfo.size}</option>
 									<option>5</option>
+									<option>10</option>
+									<option>15</option>
+									<option>20</option>
 								</select> 条
 							</div>
 						</div>

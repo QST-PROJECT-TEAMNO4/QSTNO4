@@ -1,7 +1,6 @@
 package com.qst.ssm.service;
 
 import com.qst.ssm.entity.Member;
-import com.qst.ssm.entity.Traveller;
 
 
 import java.util.List;

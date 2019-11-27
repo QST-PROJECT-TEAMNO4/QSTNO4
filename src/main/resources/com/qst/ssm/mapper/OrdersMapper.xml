@@ -10,7 +10,6 @@
 	       id as id,
 	       orderNum as orderNum,
 	       orderTime as orderTime,
-	       peopleCount as peopleCount,
 	       orderDesc as orderDesc,
 	       payType as payType,
 	       orderStatus as orderStatus,
@@ -27,7 +26,6 @@
 	       o.id as id,
 	       o.orderNum as orderNum,
 	       o.orderTime as orderTime,
-	       o.peopleCount as peopleCount,
 	       o.orderDesc as orderDesc,
 	       o.payType as payType,
 	       o.orderStatus as orderStatus,
@@ -50,7 +48,6 @@
 	       id as id,
 	       orderNum as orderNum,
 	       orderTime as orderTime,
-	       peopleCount as peopleCount,
 	       orderDesc as orderDesc,
 	       payType as payType,
 	       orderStatus as orderStatus,
@@ -79,7 +76,7 @@
     <!--修改订单信息-->
     <update id="updateOrders" parameterType="Orders">
 
-    update orders set orderNum=#{orderNum}, peopleCount=#{peopleCount},orderDesc=#{orderDesc} where id=#{id}
+    update orders set orderNum=#{orderNum},orderDesc=#{orderDesc} where id=#{id}
     </update>
 
     <!--根据Id删除订单信息-->
@@ -129,7 +126,6 @@
 	       o.id,
 	       orderNum,
 	       orderTime,
-	       peopleCount,
 	       orderDesc,
 	       payType,
 	       orderStatus,
@@ -139,7 +135,7 @@
 	       productNum,
 	       productName,
 	       cityName,
-	       DepartureTime,
+	       departureTime,
          productPrice,
          productDesc,
          productStatus

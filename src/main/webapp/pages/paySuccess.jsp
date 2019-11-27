@@ -21,7 +21,7 @@
     <a href=""></a>
 </div>
 
-<input type="text" name="Id" value="${CUSTOMER_SESSION.id}" id="Id">
+<%--<input type="text" name="Id" value="${CUSTOMER_SESSION.id}" id="Id">--%>
 
 <script language="javascript">
     var num = 4; //倒计时的秒数

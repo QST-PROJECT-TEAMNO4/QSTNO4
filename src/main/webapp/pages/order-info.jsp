@@ -135,12 +135,12 @@
 			<h1>
 				订单详情 <small>订单详情</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="all-admin-index.html"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a href="all-order-manage-list.html">订单详情</a></li>
-				<li class="active">订单详情</li>
-			</ol>
+<%--			<ol class="breadcrumb">--%>
+<%--				<li><a href="all-admin-index.html"><i--%>
+<%--						class="fa fa-dashboard"></i> 首页</a></li>--%>
+<%--				<li><a href="all-order-manage-list.html">订单详情</a></li>--%>
+<%--				<li class="active">订单详情</li>--%>
+<%--			</ol>--%>
 			</section>
 			<!-- 内容头部 /-->
 

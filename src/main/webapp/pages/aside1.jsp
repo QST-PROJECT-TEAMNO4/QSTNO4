@@ -12,7 +12,7 @@
             </div>
             <div class="pull-left info">
                 <p>用户:${CUSTOMER_SESSION.username}</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                <a href="#"><i class="fa fa-circle text-success"></i>${null==CUSTOMER_SESSION.id?'未登录':'已登录' }</a>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
         <ul class="sidebar-menu">
             <li class="header">菜单</li>
             <li id="admin-index"><a
-                    href="${pageContext.request.contextPath}/pages/welcom.jsp"><i
+                    href="${pageContext.request.contextPath}/pages/main.jsp"><i
                     class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
             <li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
@@ -36,7 +36,7 @@
                     </a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-                <span>基础数据</span> <span class="pull-right-container"> <i
+                <span>我的信息</span> <span class="pull-right-container"> <i
                         class="fa fa-angle-left pull-right"></i>
 				</span>
             </a>
@@ -51,7 +51,7 @@
                 <ul class="treeview-menu">
 
                     <li id="aaa"><a
-                            href="${pageContext.request.contextPath}/orders/CusQueryOrders?Id=${CUSTOMER_SESSION.username}">
+                            href="${pageContext.request.contextPath}/orders/CusQueryOrders?Id=${CUSTOMER_SESSION.id}">
                         <i class="fa fa-circle-o"></i> 我的订单
                     </a></li>
 

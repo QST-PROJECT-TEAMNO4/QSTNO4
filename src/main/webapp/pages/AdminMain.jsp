@@ -54,112 +54,17 @@
 <%--            }--%>
 <%--        }--%>
 <%--    </script>--%>
-    <%--点击修改密码触发事件--%>
-    <script>
-        var editPassword = function () {
-            $("#password1").blur(function () {
-                var num = $("#password1").val().length;
-                if (num < 6) {
-                    $("#tip2").html("<font color=\"red\" size=\"2\">  太短了</font>");
-                } else if (num > 18) {
-                    $("#tip2").html("<font color=\"red\" size=\"2\">  太长了</font>");
-                } else {
-                    $("#tip2").html("<font color=\"green\" size=\"2\"> OK</font>");
-                }
-            });
 
-            $("#newPassword").blur(function () {
-                var tmp = $("#password1").val();
-                var num = $("#newPassword").val().length;
-                if ($("#newPassword").val() != tmp) {
-                    $("#tip3").html("<font color=\"red\" size=\"2\">  和第一次输入不同</font>");
-                } else {
-                    if (num >= 6 && num <= 18) {
-                        $("#tip3").html("<font color=\"green\" size=\"2\">  OK</font>");
-                    } else {
-                        $("#tip3").html("<font color=\"red\" size=\"2\">  太短或太长</font>");
-                    }
-                }
-            });
-
-            $("#updatePassword").modal();
-        }
-    </script>
-    <%--修改密码验证--%>
-    <script>
-        var submitPassword = function () {
-            var flag = true;
-            var old = $("#oldPassword").val();
-            var pass = $("#password1").val();
-            var pass2 = $("#newPassword").val();
-            var num1 = $("#password1").val().length;
-            var num2 = $("#newPassword").val().length;
-            if (num1 != num2 || num1 < 6 || num2 < 6 || num1 > 18 || num2 > 18 || pass != pass2) {
-                flag = false;
-            } else {
-                flag = true;
-            }
-            if (flag) {
-
-                return confirm("确认提交？")
-            }
-        }
-    </script>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini" >
 
-<div class="modal fade" id="updatePassword" tabindex="-1">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="exampleModalLabel">密码修改</h4>
-            </div>
-            <div class="modal-body">
-                <form name="editForm" method="post" action="${pageContext.request.contextPath}/ChangePassword.action">
-                    <div class="form-group">
-                        <label>原密码：</label>
-                        <input type='password' id="oldPassword" class="form-control" name="oldPassword" required
-                               placeholder="原密码">
-                        <div style="display: inline" id="tip1"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>新密码:</label>
-                        <input type='password' id="password1" name="password1" class="form-control" required
-                               placeholder="长度为: 6-18">
-                        <div style="display: inline" id="tip2"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>再次输入:</label>
-                        <input type='password' id="newPassword" name="newPassword" class="form-control" required
-                               placeholder="必须和第一次一样">
-                        <div style="display: inline" id="tip3"></div>
-                    </div>
 
-            <div class="modal-footer">
-                <button onclick="submitPassword()" class="btn btn-primary" ng-disabled="editForm.$invalid">确定</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            </div>
-            </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="wrapper">
 
     <!-- 页面头部 -->
     <header class="main-header">
-        <!-- Logo -->
-        <a href="all-admin-index.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>数据</b></span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>数据</b>后台管理</span>
-        </a>
-
 
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -171,10 +76,9 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
+                    <li class="dropdown user user-menu">
+                        <a href=/pages/main.jsp>
+                            返回官网首页
                         </a>
 
                     </li>
@@ -202,7 +106,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <button onclick="editPassword()" class="btn btn-default btn-flat">修改密码</button>
+                                    <button href="/pages/AdminMin.jsp" class="btn btn-default btn-flat">首页</button>
                                 </div>
                                 <div class="pull-right">
                                     <a href="${pageContext.request.contextPath}/AdminLogout.action"
@@ -229,21 +133,21 @@
                 </div>
                 <div class="pull-left info">
                     <p>管理员:${USER_SESSION.username}</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                    <a href="#"><i class="fa fa-circle text-success"></i></i>${null==USER_SESSION.id?'未登录':'已登录' }</a>
                 </div>
             </div>
 
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
 
-                <li id="admin-index"><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a>
+                <li id="admin-index"><a href="/pages/AdminMain.jsp"><i class="fa fa-dashboard"></i> <span>首页</span></a>
                 </li>
 
                 <!-- 菜单 -->
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-folder"></i> <span>后台通用页面</span>
+                        <i class="fa fa-folder"></i> <span>角色管理</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -264,7 +168,7 @@
 
 
                 <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-                    <span>基础数据</span> <span class="pull-right-container"> <i
+                    <span>基础数据信息管理</span> <span class="pull-right-container"> <i
                             class="fa fa-angle-left pull-right"></i>
 				</span>
                 </a>
@@ -284,9 +188,6 @@
 
                 <!-- 菜单 /-->
 
-                <li id="admin-documentation"><a href="documentation.html" target="_blank"><i class="fa fa-book"></i>
-                    <span>AdminLTE汉化文档</span></a></li>
-
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -299,7 +200,7 @@
 
     <div class="content-wrapper">
 
-        <img src="img/v2.jpg" width="100%" height="100%"/>
+        <img src="/img/v2.jpg" width="100%" height="100%"/>
 
     </div>
     <!-- @@close -->

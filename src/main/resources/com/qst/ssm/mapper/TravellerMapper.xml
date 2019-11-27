@@ -6,23 +6,20 @@
     <select id="getOrdersTraveller" resultType="com.qst.ssm.entity.Traveller" parameterType="int">
         <![CDATA[
         select
-            t.id,
-	        lkname,
+            c.id,
+	        name,
+	        email,
+	        username,
+	        password,
 	        sex,
 	        phoneNum,
-	        credentialsType,
-	        credentialsNum,
-	        travellerType
+	        peopleID
         from
-	        traveller as t
-	    inner join orders as o on t.id=o.travellerId
+	        customer as c
+	    inner join orders as o on c.id=o.travellerId
 	    where o.id=#{id}
 
         ]]>
     </select>
-    <!--修改旅客信息-->
-    <update id="updateTraveller"  parameterType="com.qst.ssm.entity.Traveller">
-    update traveller set phoneNum=#{phoneNum}, credentialsNum=#{credentialsNum} where id=#{id}
 
-</update>
 </mapper>

@@ -28,10 +28,13 @@ public class MemberController {
         List<Member> memberList =memberService.findAll(page,size);
         PageInfo pageInfo = new PageInfo(memberList);
         mv.addObject("pageInfo",pageInfo);
-        mv.setViewName("buy-show");
+        mv.setViewName("member-page-list");
         System.out.println("********************"+mv);
         return mv;
     }
+
+
+
 
 
     @RequestMapping("/findById" )
@@ -47,8 +50,7 @@ public class MemberController {
     public ModelAndView findByKeyWord(String Keyword) {
         ModelAndView mv = new ModelAndView();
         List<Member> memberList =memberService.findByKeyWord(Keyword);
-        mv.addObject("" +
-                "",memberList);
+        mv.addObject("memberList",memberList);
         mv.setViewName("member-list");
         return mv;
     }
